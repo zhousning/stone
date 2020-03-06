@@ -1,0 +1,65 @@
+%nav.col-md-2.d-none.d-md-block.sidebar.shadow
+  .sidebar-sticky.text-center
+    = link_to controls_path, :class => "navbar-brand bg-transparent shadow-none" do
+      = image_tag "logo.svg", :width => "100px"
+    #accordionExample.accordion
+      .card.border-0.rounded-0
+        #headingOne.card-header.p-0.bg-transparent
+          %h3.m-0
+            = link_to nil,  {:class => "d-flex p-3 text-decoration-none", :"aria-controls" => "collapseOne", :"aria-expanded" => "true", :"data-target" => "#collapseOne", :"data-toggle" => "collapse"} do
+              = fa_icon "area-chart", text: "管理面板", class: "mx-3"
+              
+        #collapseOne.collapse.show{"aria-labelledby" => "headingOne", "data-parent" => "#accordionExample"}
+          .card-body
+            %ul.list-group.list-group-flush
+              - if current_user.has_role?(Setting.roles.build)
+                = link_to edit_construct_profile_path(current_user.construct_profile), :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
+                  = fa_icon "area-chart", text: "基本资料", class: "mx-3"
+              - else
+                = link_to edit_general_profile_path(current_user.general_profile), :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
+                  = fa_icon "area-chart", text: "基本资料", class: "mx-3"
+      .card.border-0.rounded-0
+        #headingTwo.card-header.p-0.bg-transparent
+          %h4.m-0
+            = link_to nil,  {:class => "d-flex p-3 text-decoration-none", :"aria-controls" => "collapseTwo", :"aria-expanded" => "true", :"data-target" => "#collapseTwo", :"data-toggle" => "collapse"} do
+              = fa_icon "area-chart", text: "管理面板", class: "mx-3"
+        #collapseTwo.collapse{"aria-labelledby" => "headingTwo", "data-parent" => "#accordionExample"}
+          .card-body
+            %ul.list-group.list-group-flush
+              = link_to "#", :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
+                = fa_icon "area-chart", text: "标题样式", class: "mx-3"
+                %span.badge.badge-primary.badge-pill.pull-right
+                  14
+      .card.border-0.rounded-0
+        #headingThree.card-header.p-0.bg-transparent
+          %h4.m-0
+            = link_to nil,  {:class => "d-flex p-3 text-decoration-none", :"aria-controls" => "collapseThree", :"aria-expanded" => "true", :"data-target" => "#collapseThree", :"data-toggle" => "collapse"} do
+              = fa_icon "area-chart", text: "管理面板", class: "mx-3"
+              
+        #collapseThree.collapse{"aria-labelledby" => "headingThree", "data-parent" => "#accordionExample"}
+          .card-body
+            %ul.list-group.list-group-flush
+              = link_to templates_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
+                = fa_icon "area-chart", text: "模板管理", class: "mx-3"
+                %span.badge.badge-primary.badge-pill.pull-right
+                  14
+              = link_to articles_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
+                = fa_icon "area-chart", text: "文章管理", class: "mx-3"
+                %span.badge.badge-primary.badge-pill.pull-right
+                  14
+              = link_to roles_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
+                = fa_icon "area-chart", text: "角色管理", class: "mx-3"
+                %span.badge.badge-primary.badge-pill.pull-right
+                  14
+              = link_to notices_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
+                = fa_icon "area-chart", text: "通知公告", class: "mx-3"
+                %span.badge.badge-primary.badge-pill.pull-right
+                  14
+              = link_to statistics_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
+                = fa_icon "area-chart", text: "数据统计", class: "mx-3"
+                %span.badge.badge-primary.badge-pill.pull-right
+                  14
+              = link_to spiders_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
+                = fa_icon "area-chart", text: "爬虫", class: "mx-3"
+                %span.badge.badge-primary.badge-pill.pull-right
+                  14

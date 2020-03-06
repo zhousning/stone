@@ -1,0 +1,56 @@
+- provide(:title, t('.title'))
+
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
+      .card.shadow.rounded-0
+        .card-header.bg-info.text-white.rounded-0
+          %h5
+            = fa_icon "newspaper-o", text: t(controller_name + "." + action_name + '.title')
+            = link_to "/#{controller_name}", :class => "button button-border button-rounded button-caution pull-right  bg-white" do
+              = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
+            = link_to "#{request.url}/edit", :class => "button button-border button-rounded button-action pull-right mr-3 bg-white" do
+              = fa_icon "edit", text: Setting.systems.btn_edit, right: false 
+        .card-body
+          .container-fluid
+            .row
+              .col-md-12
+                %table.table.text-center.table-bordered
+                  %thead
+                    %tr
+                    <% @attrs.each do |attr| %>
+                      %th 
+                        = Setting.<%= @mpu %>.<%= attr %><% end %>
+                  %tbody
+                    %tr
+                    <% @attrs.each do |attr| %>
+                      %td
+                        = @<%= @mu %>.<%= attr %><% end %>
+            <% if @one_enclosure %>
+              .col-md-2
+                = image_tag @<%= @mu %>.logo_url
+            <% end %>
+            <% if @one_attachment %>
+              .col-md-2
+                - unless @<%= @mu %>.append.blank?
+                  = link_to File.basename(@<%= @mu %>.append_url), download_append_<%= @mu %>_path(@<%= @mu %>.id)
+            <% end %>
+            <% if @enclosure %>
+              - @<%= @mu %>.enclosures.each do |e|
+                .col-md-2
+                  = image_tag e.file_url(:small_width)
+            <% end %>
+            <% if @attachment %>
+              - @<%= @mu %>.attachments.each_with_index do |e, i|
+                .col-md-2
+                  = link_to File.basename(e.file_url), download_attachment_<%= @mu %>_path(@<%= @mu %>.id, :number => i, :ft => '')
+            <% end %>
+            <% @fields.each do |field, value| %>
+              - @<%= @mu %>.<%= field.pluralize %>.each do |<%= field %>|
+                <% value['attr'].each do |attr| %> 
+                .col-md-2
+                  = <%= field %>.<%= attr %>
+                <% end %>
+            <% end %>
+

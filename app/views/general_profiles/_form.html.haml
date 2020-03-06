@@ -1,0 +1,138 @@
+.container-fluid
+  = form_for @general_profile, :builder => WebsiteFormBuilder do |f|
+    - if @general_profile.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@general_profile.errors.count, "error")} prohibited this buyer from being saved:"
+        %ul
+          - @general_profile.errors.full_messages.each do |msg|
+            %li= msg
+    .form-row
+    
+      .col-6
+        .form-group.row
+          = f.label Setting.general_profiles.company, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :company, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.general_profiles.cert, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :cert, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.general_profiles.corp, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :corp, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.general_profiles.address, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :address, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.general_profiles.idcard, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :idcard, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.general_profiles.province, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :province, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.general_profiles.city, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :city, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.general_profiles.county, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :county, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.general_profiles.habitation, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :habitation, :class => "form-control"
+          
+    
+    .form-row
+      .col-6
+        .form-group.row
+          = f.label "营业执照", :class => "col-3 text-right col-form-label col-form-label"
+          .col-3
+            %label.newbtn
+              = image_tag f.cert_front, :class => "blah"
+              = f.file_field :cert_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+          .col-3
+            %label.newbtn
+              = image_tag f.cert_back, :class => "blah"
+              = f.file_field :cert_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+      .col-6
+        .form-group.row
+          = f.label "建筑业资质证书(特级证书)", :class => "col-3 text-right col-form-label col-form-label"
+          .col-3
+            %label.newbtn
+              = image_tag f.quality_front, :class => "blah"
+              = f.file_field :quality_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+          .col-3
+            %label.newbtn
+              = image_tag f.quality_back, :class => "blah"
+              = f.file_field :quality_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+    
+      .col-6
+        .form-group.row
+          = f.label "建筑业资质证书(一级证书)", :class => "col-3 text-right col-form-label col-form-label"
+          .col-3
+            %label.newbtn
+              = image_tag f.quality_one_front, :class => "blah"
+              = f.file_field :quality_one_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+          .col-3
+            %label.newbtn
+              = image_tag f.quality_one_back, :class => "blah"
+              = f.file_field :quality_one_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+      .col-6
+        .form-group.row
+          = f.label "建筑业资质证书(二级证书)", :class => "col-3 text-right col-form-label col-form-label"
+          .col-3
+            %label.newbtn
+              = image_tag f.quality_two_front, :class => "blah"
+              = f.file_field :quality_two_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+          .col-3
+            %label.newbtn
+              = image_tag f.quality_two_back, :class => "blah"
+              = f.file_field :quality_two_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+      .col-6
+        .form-group.row
+          = f.label "建筑业资质证书(三级证书)", :class => "col-3 text-right col-form-label col-form-label"
+          .col-3
+            %label.newbtn
+              = image_tag f.quality_three_front, :class => "blah"
+              = f.file_field :quality_three_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+          .col-3
+            %label.newbtn
+              = image_tag f.quality_three_back, :class => "blah"
+              = f.file_field :quality_three_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+      .col-6
+        .form-group.row
+          = f.label "安全生产许可证书(三级证书)", :class => "col-3 text-right col-form-label col-form-label"
+          .col-3
+            %label.newbtn
+              = image_tag f.safe_front, :class => "blah"
+              = f.file_field :safe_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+          .col-3
+            %label.newbtn
+              = image_tag f.safe_back, :class => "blah"
+              = f.file_field :safe_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+    .form-group.row
+      .col-3.offset-2
+        = f.submit '保存', :class => "btn btn-success"
+      .col-3.offset-1
+        = link_to '提交审核', "#", :class => "btn btn-danger"

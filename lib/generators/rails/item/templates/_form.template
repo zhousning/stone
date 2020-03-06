@@ -1,0 +1,96 @@
+.container-fluid
+  = form_for @<%= @mu %>, :builder => WebsiteFormBuilder do |f|
+    - if @<%= @mu %>.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@<%= @mu %>.errors.count, "error")} prohibited this buyer from being saved:"
+        %ul
+          - @<%= @mu %>.errors.full_messages.each do |msg|
+            %li= msg
+    .form-row
+    <% @attrs.each_with_index do |attr, index| %>
+      .col-6
+        .form-group.row
+          = f.label Setting.<%= @mpu %>.<%= attr %>, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+          <% if options[:tag][index] == 'text' %>  = f.text_field :<%= attr %>, :class => "form-control"
+          <% elsif options[:tag][index] == 'textarea' %>  = f.text_area :<%= attr %>, :class => "form-control", :rows => "20"
+          <% elsif options[:tag][index] == 'number' %>  = f.number_field :<%= attr %>, :class => "form-control"
+          <% elsif options[:tag][index] == 'date' %>  = f.date_field :<%= attr %>, :class => "form-control"
+          <% elsif options[:tag][index] == 'password' %>  = f.password_field :<%= attr %>, :class => "form-control"
+          <% elsif options[:tag][index] == 'phone' %> = f.phone_field :<%= attr %>, :class => "form-control"
+          <% elsif options[:tag][index] == 'email' %> = f.email_field :<%= attr %>, :class => "form-control"
+          <% elsif options[:tag][index] == 'radio' %>  .form-check.form-check-inline
+              = f.radio_button :<%= attr %>, Setting.systems.status_en_yes, :class => "form-check-input", :checked => "checked"
+              = f.label Setting.systems.status_yes, :class => "form-check-label"
+            .form-check.form-check-inline
+              = f.radio_button :<%= attr %>, Setting.systems.status_en_no, :class => "form-check-input"
+              = f.label Setting.systems.status_no, :class => "form-check-label"
+          <% elsif options[:tag][index] == 'check' %>  .form-check.form-check-inline
+              = f.check_box :<%= attr %>, :class => "form-check-input"
+              = f.label Setting.systems.status_yes, :class => "form-check-label"
+            .form-check.form-check-inline
+              = f.check_box :<%= attr %>, :class => "form-check-input"
+              = f.label Setting.systems.status_no, :class => "form-check-label"
+          <% elsif options[:tag][index] == 'select' %>  = f.select :<%= attr %>, options_for_<%= attr %>, {:include_blank=>false}, {:class=>"form-control"}<% end %><% end %>
+    <% if @one_enclosure %>
+    .form-row
+      .col-6
+        .form-group.row
+          = f.label "一个附图", :class => "col-3 text-right col-form-label col-form-label"
+          .col-3
+            %label.newbtn
+              = image_tag f.logo_image, :class => "blah"
+              = f.file_field :logo, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+    <% end %>
+    <% if @one_attachment %>
+    .form-row
+      .col-6
+        .form-group.row
+          = f.label "一个附件", :class => "col-3 text-right col-form-label col-form-label"
+          .col-3
+            %label.newbtn
+              %p.append-url
+                = f.append_url
+              = f.file_field :append, :class => "select-file", :onchange => "readFileName(this);"
+    <% end %>
+    <% if @enclosure %>
+    .form-row
+      .col-12
+        .form-group.row
+          = f.label "附图", :class => "col-2 text-center col-form-label col-form-label"
+          .col-10
+            .row
+              = f.fields_for :enclosures do |enclosure|
+                = render 'enclosure_fields', f: enclosure
+              .links
+                = link_to_add_association "添加文件", f, :enclosures, :class => "btn btn-success"
+    <% end %>
+    <% if @attachment %>
+    .form-row
+      .col-12
+        .form-group.row
+          = f.label "附件", :class => "col-2 text-center col-form-label col-form-label"
+          .col-10
+            .row
+              = f.fields_for :attachments do |attachment|
+                = render 'attachment_fields', f: attachment
+              .links
+                = link_to_add_association "添加文件", f, :attachments, :class => "btn btn-success"
+    <% end %>
+    <% @fields.each do |field, value| %>
+    .form-row
+      .col-12
+        .form-group.row
+          = f.label "关联对象", :class => "col-2  text-center col-form-label col-form-label"
+          .col-10
+            .row
+              = f.fields_for :<%= field.pluralize %> do |<%= field %>|
+                = render '<%= field %>_fields', f: <%= field %> 
+              .links
+                = link_to_add_association "添加", f, :<%= field.pluralize %>, :class => "btn btn-success"
+    <% end %>
+    .form-group.row
+      .col-3.offset-2
+        = f.submit '保存', :class => "btn btn-success"
+      .col-3.offset-1
+        = link_to '返回', <%= @mpu %>_path, :class => "btn btn-danger"

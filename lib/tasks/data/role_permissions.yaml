@@ -1,0 +1,32 @@
+---
+- 
+  role_name: 施工单位
+  permissions: 
+    #-
+    #  controller: Role
+    #  actions: [manage, index, show, new, create, edit, update, delete, destroy]
+    #-
+    #  controller: Template 
+    #  actions: [manage, index, show, new, create, edit, update, delete, destroy]
+- 
+  role_name: 监理单位 
+  permissions: 
+    #-
+    #  controller: Template 
+    #  actions: [manage, index, show, new, create, edit, update, delete, destroy]
+        
+- 
+  role_name: 建设单位 
+  permissions: 
+- 
+  role_name: 地勘单位 
+  permissions: 
+- 
+  role_name: 设计单位 
+  permissions: 
+- 
+  role_name: 监督单位 
+  permissions: 
+- 
+  role_name: 代建单位 
+  permissions: 

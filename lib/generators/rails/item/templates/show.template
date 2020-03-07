@@ -27,14 +27,14 @@
                     <% @attrs.each do |attr| %>
                       %td
                         = @<%= @mu %>.<%= attr %><% end %>
-            <% if @one_enclosure %>
+            <% @one_enclosure.each do |e| %>
               .col-md-2
-                = image_tag @<%= @mu %>.logo_url
+                = image_tag @<%= @mu %>.<%= e %>_url
             <% end %>
-            <% if @one_attachment %>
+            <% @one_attachment.each do |a| %>
               .col-md-2
-                - unless @<%= @mu %>.append.blank?
-                  = link_to File.basename(@<%= @mu %>.append_url), download_append_<%= @mu %>_path(@<%= @mu %>.id)
+                - unless @<%= @mu %>.<%= a %>.blank?
+                  = link_to File.basename(@<%= @mu %>.<%= a %>_url), download_append_<%= @mu %>_path(@<%= @mu %>.id)
             <% end %>
             <% if @enclosure %>
               - @<%= @mu %>.enclosures.each do |e|

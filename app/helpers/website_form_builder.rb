@@ -107,4 +107,16 @@ class WebsiteFormBuilder < ActionView::Helpers::FormBuilder
     file = objectify_options(options)[:object].file_url
     file.blank? ? '选择文件' : File.basename(file)
   end
+
+  def one_image(image)
+    url = image + "_url"
+    file = objectify_options(options)[:object].public_send(url)
+    file.blank? ? 'logo-grey.png' : file
+  end
+
+  def one_attachment(append) 
+    url = append + "_url"
+    file = objectify_options(options)[:object].public_send(url)
+    file.blank? ? '选择文件' : File.basename(file)
+  end
 end

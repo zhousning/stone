@@ -1,9 +1,10 @@
 class <%= @mc %> < ActiveRecord::Base
-<% if @one_enclosure %>
-  mount_uploader :logo, EnclosureUploader
+<% @one_enclosure.each do |e| %>
+  mount_uploader :<%= e %>, EnclosureUploader
 <% end %>
-<% if @one_attachment %>
-  mount_uploader :append, AttachmentUploader
+
+<% @one_attachment.each do |a|  %>
+  mount_uploader :<%= a %>, AttachmentUploader
 <% end %>
 <% if @enclosure %>
   has_many :enclosures, :dependent => :destroy

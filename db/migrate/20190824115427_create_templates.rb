@@ -6,8 +6,8 @@ class CreateTemplates < ActiveRecord::Migration
       t.string :nest
       t.boolean :image
       t.boolean :attachment
-      t.boolean :one_image
-      t.boolean :one_attachment
+      t.string :one_image
+      t.string :one_attachment
       t.boolean :index
       t.boolean :new
       t.boolean :edit

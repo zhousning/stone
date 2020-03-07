@@ -11,12 +11,12 @@ class Create<%= @mpc %> < ActiveRecord::Migration
       t.<%= column_arr[1] %> :<%= column_arr[0] %>
     <% end %><% end %>
 
-    <% if @one_enclosure %>
-      t.string :logo,  null: false, default: Setting.systems.default_str
+    <% @one_enclosure.each do |e| %>
+      t.string :<%= e %>,  null: false, default: Setting.systems.default_str
     <% end %>
 
-    <% if @one_attachment %>
-      t.string :append,  null: false, default: Setting.systems.default_str
+    <% @one_attachment.each do |a|  %>
+      t.string :<%= a %>,  null: false, default: Setting.systems.default_str
     <% end %>
 
     <% @relates.each do |relate| %><% relate_arr = relate.split(":") %><% if relate_arr[0] == "belongs_to" %>

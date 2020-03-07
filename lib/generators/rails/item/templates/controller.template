@@ -73,20 +73,20 @@ class <%= @mpc %>Controller < ApplicationController
     end
   <% end %>
 
-  <% if @one_attachment %>
+  <% @one_attachment.each do |att| %>
     def download_append
       @<%= @mu %> = <%= @mc %>.find(params[:id])
-      @append = @<%= @mu %>.append_url
+      @<%= att %> = @<%= @mu %>.<%= att %>_url
 
-      if @append
-        send_file File.join(Rails.root, "public", @append), :type => "application/force-download", :x_sendfile=>true
+      if @<%= att %>
+        send_file File.join(Rails.root, "public", @<%= att %>), :type => "application/force-download", :x_sendfile=>true
       end
     end
   <% end %>
 
   private
     def <%= @mu %>_params
-      params.require(:<%= @mu %>).permit(<% @attrs.each_with_index do |attr, index| %> :<%= attr %><%= index == @attrs.size-1 ? '' : ','%><% end %><% if @one_enclosure %> , :logo<% end %><% if @one_attachment %> , :append<% end %><% if @attachment %> , attachments_attributes: attachment_params<% end %><% if @enclosure %> , enclosures_attributes: enclosure_params<% end %><% @fields.each do |field, value| %>, <%= field.pluralize %>_attributes: <%= field %>_params<% end %>)
+      params.require(:<%= @mu %>).permit(<% @attrs.each_with_index do |attr, index| %> :<%= attr %><%= index == @attrs.size-1 ? '' : ','%><% end %><% @one_enclosure.each do |e| %> , :<%= e %><% end %><% @one_attachment.each do |a| %> , :<%= a %><% end %><% if @attachment %> , attachments_attributes: attachment_params<% end %><% if @enclosure %> , enclosures_attributes: enclosure_params<% end %><% @fields.each do |field, value| %>, <%= field.pluralize %>_attributes: <%= field %>_params<% end %>)
     end
   <% if @enclosure %>
     def enclosure_params

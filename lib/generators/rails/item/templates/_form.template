@@ -32,26 +32,26 @@
               = f.check_box :<%= attr %>, :class => "form-check-input"
               = f.label Setting.systems.status_no, :class => "form-check-label"
           <% elsif options[:tag][index] == 'select' %>  = f.select :<%= attr %>, options_for_<%= attr %>, {:include_blank=>false}, {:class=>"form-control"}<% end %><% end %>
-    <% if @one_enclosure %>
     .form-row
+    <% @one_enclosure.each do |e| %>
       .col-6
         .form-group.row
           = f.label "一个附图", :class => "col-3 text-right col-form-label col-form-label"
           .col-3
             %label.newbtn
-              = image_tag f.logo_image, :class => "blah"
-              = f.file_field :logo, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+              = image_tag f.one_image("<%= e %>"), :class => "blah"
+              = f.file_field :<%= e %>, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
     <% end %>
-    <% if @one_attachment %>
     .form-row
+    <% @one_attachment.each do |a| %>
       .col-6
         .form-group.row
           = f.label "一个附件", :class => "col-3 text-right col-form-label col-form-label"
           .col-3
             %label.newbtn
               %p.append-url
-                = f.append_url
-              = f.file_field :append, :class => "select-file", :onchange => "readFileName(this);"
+                = f.one_attachment("<%= a %>")
+              = f.file_field :<%= a %>, :class => "select-file", :onchange => "readFileName(this);"
     <% end %>
     <% if @enclosure %>
     .form-row

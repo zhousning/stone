@@ -148,3 +148,19 @@ right connector from last child*/
 .blah{
   height:100px;
 }
+.nestd-item {
+    position:relative;
+    padding-top:20px;
+    display:inline-block;
+}
+.nestd-notify-badge{
+    position: absolute;
+    right:10px;
+    top:10px;
+    background:red;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    color:white;
+    padding:5px 10px;
+    font-size:20px;
+}

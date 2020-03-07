@@ -75,23 +75,14 @@
           .form-group.col.row
             = f.label Setting.templates.one_image, :class => "col-sm-3 text-right"
             .col-sm-9
-              .form-check.form-check-inline
-                = f.radio_button :one_image, Setting.systems.status_en_yes, :class => "form-check-input", :checked => "checked"
-                = f.label Setting.systems.status_yes, :class => "form-check-label"
-              .form-check.form-check-inline
-                = f.radio_button :one_image, Setting.systems.status_en_no, :class => "form-check-input"
-                = f.label Setting.systems.status_no, :class => "form-check-label"
+              = f.text_field :one_image, :class => "form-control"
 
           .form-group.col.row
             = f.label Setting.templates.one_attachment, :class => "col-sm-3 text-right"
             .col-sm-9
-              .form-check.form-check-inline
-                = f.radio_button :one_attachment, Setting.systems.status_en_yes, :class => "form-check-input", :checked => "checked"
-                = f.label Setting.systems.status_yes, :class => "form-check-label"
-              .form-check.form-check-inline
-                = f.radio_button :one_attachment, Setting.systems.status_en_no, :class => "form-check-input"
-                = f.label Setting.systems.status_no, :class => "form-check-label"
+              = f.text_field :one_attachment, :class => "form-control"
 
+        .form-row
           .form-group.col.row
             = f.label Setting.templates.image, :class => "col-sm-3 text-right"
             .col-sm-9

@@ -757,9 +757,15 @@ development:
   domains:
     label: 总承包
     name: 名称
+    level_one: 壹级 
+    level_two: 贰级
+    level_three: 叁级
   majors:
     label: 专业承包
     name: 名称
+    level_one: 壹级 
+    level_two: 贰级
+    level_three: 叁级
   user_domains:
     label: 用户总包
     level: 等级

@@ -11,10 +11,10 @@ class Rails::ItemGenerator < Rails::Generators::Base
   class_option :label, :aliases => '-l', :type => :array, :default => []
   class_option :tag, :aliases => '-t', :type => :array, :default => []
 
-  class_option :image, :aliases => '-i', :type => :boolean, :default => false 
   class_option :one_image, :aliases => '-b', :type => :array, :default => []
-  class_option :attachment, :aliases => '-d', :type => :boolean, :default => false 
   class_option :one_attachment, :aliases => '-k', :type => :array, :default => [] 
+  class_option :image, :aliases => '-i', :type => :boolean, :default => false 
+  class_option :attachment, :aliases => '-d', :type => :boolean, :default => false 
 
   class_option :index, :aliases => '-x', :type => :boolean, :default => true 
   class_option :new, :aliases => '-w', :type => :boolean, :default => true 

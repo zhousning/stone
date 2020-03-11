@@ -34,7 +34,7 @@
             <% @one_attachment.each do |a| %>
               .col-md-2
                 - unless @<%= @mu %>.<%= a %>.blank?
-                  = link_to File.basename(@<%= @mu %>.<%= a %>_url), download_append_<%= @mu %>_path(@<%= @mu %>.id)
+                  = link_to URI.decode(File.basename(@<%= @mu %>.<%= a %>_url)), download_append_<%= @mu %>_path(@<%= @mu %>.id)
             <% end %>
             <% if @enclosure %>
               - @<%= @mu %>.enclosures.each do |e|

@@ -757,13 +757,13 @@ development:
   domains:
     label: 总承包
     name: 名称
-    level_one: 壹级 
+    level_one: 壹级
     level_two: 贰级
     level_three: 叁级
   majors:
     label: 专业承包
     name: 名称
-    level_one: 壹级 
+    level_one: 壹级
     level_two: 贰级
     level_three: 叁级
   user_domains:
@@ -783,6 +783,15 @@ development:
     city: 市
     county: 区
     habitation: 法定代表人身份地址
+  table_templates:
+    label: 质量规范验收表格
+    category: 分类
+    number: 编号
+    name: 名称
+    info: 说明
+  table_pages:
+    label: 表格页
+    content: 内容
 test:
   admins: *1
   users: *2

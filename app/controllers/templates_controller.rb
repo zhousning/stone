@@ -76,9 +76,7 @@ class TemplatesController < ApplicationController
 
     cond += "-n " + @template.cn_name + " " + 
            "-i " + @template.image.to_s + " " +
-           "-b " + @template.one_image.to_s + " " +
            "-d " + @template.attachment.to_s + " " +
-           "-k " + @template.one_attachment.to_s + " " +
            "-x " + @template.index.to_s + " " +
            "-w " + @template.new.to_s + " " +
            "-e " + @template.edit.to_s + " " +
@@ -88,6 +86,14 @@ class TemplatesController < ApplicationController
            "-c " + @template.scss.to_s + " " +
            "-a " + @template.admin.to_s + " "
     
+    unless @template.one_image.blank?
+      cond += "-b " + @template.one_image.to_s + " "
+    end
+    unless @template.one_attachment.blank?
+      cond += "-k " + @template.one_attachment.to_s + " "
+    end
+
+
     unless @template.nests.blank?
       cond += "-z "
       property = Hash.new 

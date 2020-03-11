@@ -30,6 +30,15 @@ Rails.application.routes.draw do
   end
   resources :construct_profiles, :only => [:edit, :update] do
   end
+  resources :table_templates do
+    get :download_append, :on => :member
+  end
+  resources :table_pages do
+    get :download_append, :on => :member
+  end
+  resources :table_pages do
+    get :download_append, :on => :member
+  end
   resources :flower
 
   resources :controls, :only => [:index]

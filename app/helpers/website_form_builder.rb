@@ -117,6 +117,6 @@ class WebsiteFormBuilder < ActionView::Helpers::FormBuilder
   def one_attachment(append) 
     url = append + "_url"
     file = objectify_options(options)[:object].public_send(url)
-    file.blank? ? '选择文件' : File.basename(file)
+    file.blank? ? '选择文件' : URI.decode(File.basename(file))
   end
 end

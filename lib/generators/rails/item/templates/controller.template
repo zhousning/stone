@@ -68,7 +68,7 @@ class <%= @mpc %>Controller < ApplicationController
       @attachment = @<%= @mu %>.attachments[@attachment_id]
 
       if @attachment
-        send_file File.join(Rails.root, "public", @attachment.file_url), :type => "application/force-download", :x_sendfile=>true
+        send_file File.join(Rails.root, "public", URI.decode(@attachment.file_url)), :type => "application/force-download", :x_sendfile=>true
       end
     end
   <% end %>
@@ -79,7 +79,7 @@ class <%= @mpc %>Controller < ApplicationController
       @<%= att %> = @<%= @mu %>.<%= att %>_url
 
       if @<%= att %>
-        send_file File.join(Rails.root, "public", @<%= att %>), :type => "application/force-download", :x_sendfile=>true
+        send_file File.join(Rails.root, "public", URI.decode(@<%= att %>)), :type => "application/force-download", :x_sendfile=>true
       end
     end
   <% end %>

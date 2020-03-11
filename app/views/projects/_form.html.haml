@@ -1,0 +1,393 @@
+.container-fluid
+  = form_for @project, :builder => WebsiteFormBuilder do |f|
+    - if @project.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@project.errors.count, "error")} prohibited this buyer from being saved:"
+        %ul
+          - @project.errors.full_messages.each do |msg|
+            %li= msg
+    .form-row
+    
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.name, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :name, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.itemname, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :itemname, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.dep_prj, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :dep_prj, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.cstr, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :cstr, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.carry, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :carry, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.survey, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :survey, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.design, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :design, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.control, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :control, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.detect, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :detect, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.monitor, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :monitor, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.domain, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :domain, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.major, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :major, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.agent, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :agent, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.plan_permit, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :plan_permit, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.carry_permit, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :carry_permit, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.monitor_permit, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :monitor_permit, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.cstr_agent, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :cstr_agent, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.receive_leader, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :receive_leader, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.receive_operator, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :receive_operator, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.general_supervisor, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :general_supervisor, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.prfs_supervisor, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :prfs_supervisor, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.supervisor, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :supervisor, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.supervising_engineer, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :supervising_engineer, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.technical_director, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :technical_director, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.project_manager, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :project_manager, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.subctr_manager, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :subctr_manager, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.cstr_foreman, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :cstr_foreman, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.constructors, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :constructors, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.quality_worker, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :quality_worker, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.inspector, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :inspector, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.test_person, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :test_person, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.detect_person, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :detect_person, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.auditor, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :auditor, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.reviewer, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :reviewer, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.tester, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :tester, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.issuer, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :issuer, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.examiner, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :examiner, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.calculator, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :calculator, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.recorder, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :recorder, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.surveyor, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :surveyor, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.filler, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :filler, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.operator, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :operator, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.equipment, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :equipment, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.address, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :address, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.structor, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :structor, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.layer_number, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :layer_number, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.prj_category, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :prj_category, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.prj_scale, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :prj_scale, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.start, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.date_field :start, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.end, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.date_field :end, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.review_unit, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :review_unit, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.review_permission, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :review_permission, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.measure_cert, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :measure_cert, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.supervision_no, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :supervision_no, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.quality_info, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :quality_info, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.regist_no, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :regist_no, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.prj_designer, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :prj_designer, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.geo_prospect, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :geo_prospect, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.prj_manager, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :prj_manager, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.projects.status, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :status, :class => "form-control"
+          
+    .form-row
+    
+    .form-row
+    
+    
+    
+    
+    .form-row
+      .col-12
+        .form-group.row
+          = f.label "关联对象", :class => "col-2  text-center col-form-label col-form-label"
+          .col-10
+            .row
+              = f.fields_for :project_tables do |project_table|
+                = render 'project_table_fields', f: project_table 
+              .links
+                = link_to_add_association "添加", f, :project_tables, :class => "btn btn-success"
+    
+    .form-group.row
+      .col-3.offset-2
+        = f.submit '保存', :class => "btn btn-success"
+      .col-3.offset-1
+        = link_to '返回', projects_path, :class => "btn btn-danger"

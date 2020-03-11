@@ -1,0 +1,286 @@
+- provide(:title, t('.title'))
+
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
+      .card.shadow.rounded-0
+        .card-header.bg-info.text-white.rounded-0
+          %h5
+            = fa_icon "newspaper-o", text: t(controller_name + "." + action_name + '.title')
+            = link_to "/#{controller_name}", :class => "button button-border button-rounded button-caution pull-right  bg-white" do
+              = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
+            = link_to "#{request.url}/edit", :class => "button button-border button-rounded button-action pull-right mr-3 bg-white" do
+              = fa_icon "edit", text: Setting.systems.btn_edit, right: false 
+        .card-body
+          .container-fluid
+            .row
+              .col-md-12
+                %table.table.text-center.table-bordered
+                  %thead
+                    %tr
+                    
+                      %th 
+                        = Setting.projects.name
+                      %th 
+                        = Setting.projects.itemname
+                      %th 
+                        = Setting.projects.dep_prj
+                      %th 
+                        = Setting.projects.cstr
+                      %th 
+                        = Setting.projects.carry
+                      %th 
+                        = Setting.projects.survey
+                      %th 
+                        = Setting.projects.design
+                      %th 
+                        = Setting.projects.control
+                      %th 
+                        = Setting.projects.detect
+                      %th 
+                        = Setting.projects.monitor
+                      %th 
+                        = Setting.projects.domain
+                      %th 
+                        = Setting.projects.major
+                      %th 
+                        = Setting.projects.agent
+                      %th 
+                        = Setting.projects.plan_permit
+                      %th 
+                        = Setting.projects.carry_permit
+                      %th 
+                        = Setting.projects.monitor_permit
+                      %th 
+                        = Setting.projects.cstr_agent
+                      %th 
+                        = Setting.projects.receive_leader
+                      %th 
+                        = Setting.projects.receive_operator
+                      %th 
+                        = Setting.projects.general_supervisor
+                      %th 
+                        = Setting.projects.prfs_supervisor
+                      %th 
+                        = Setting.projects.supervisor
+                      %th 
+                        = Setting.projects.supervising_engineer
+                      %th 
+                        = Setting.projects.technical_director
+                      %th 
+                        = Setting.projects.project_manager
+                      %th 
+                        = Setting.projects.subctr_manager
+                      %th 
+                        = Setting.projects.cstr_foreman
+                      %th 
+                        = Setting.projects.constructors
+                      %th 
+                        = Setting.projects.quality_worker
+                      %th 
+                        = Setting.projects.inspector
+                      %th 
+                        = Setting.projects.test_person
+                      %th 
+                        = Setting.projects.detect_person
+                      %th 
+                        = Setting.projects.auditor
+                      %th 
+                        = Setting.projects.reviewer
+                      %th 
+                        = Setting.projects.tester
+                      %th 
+                        = Setting.projects.issuer
+                      %th 
+                        = Setting.projects.examiner
+                      %th 
+                        = Setting.projects.calculator
+                      %th 
+                        = Setting.projects.recorder
+                      %th 
+                        = Setting.projects.surveyor
+                      %th 
+                        = Setting.projects.filler
+                      %th 
+                        = Setting.projects.operator
+                      %th 
+                        = Setting.projects.equipment
+                      %th 
+                        = Setting.projects.address
+                      %th 
+                        = Setting.projects.structor
+                      %th 
+                        = Setting.projects.layer_number
+                      %th 
+                        = Setting.projects.prj_category
+                      %th 
+                        = Setting.projects.prj_scale
+                      %th 
+                        = Setting.projects.start
+                      %th 
+                        = Setting.projects.end
+                      %th 
+                        = Setting.projects.review_unit
+                      %th 
+                        = Setting.projects.review_permission
+                      %th 
+                        = Setting.projects.measure_cert
+                      %th 
+                        = Setting.projects.supervision_no
+                      %th 
+                        = Setting.projects.quality_info
+                      %th 
+                        = Setting.projects.regist_no
+                      %th 
+                        = Setting.projects.prj_designer
+                      %th 
+                        = Setting.projects.geo_prospect
+                      %th 
+                        = Setting.projects.prj_manager
+                      %th 
+                        = Setting.projects.status
+                  %tbody
+                    %tr
+                    
+                      %td
+                        = @project.name
+                      %td
+                        = @project.itemname
+                      %td
+                        = @project.dep_prj
+                      %td
+                        = @project.cstr
+                      %td
+                        = @project.carry
+                      %td
+                        = @project.survey
+                      %td
+                        = @project.design
+                      %td
+                        = @project.control
+                      %td
+                        = @project.detect
+                      %td
+                        = @project.monitor
+                      %td
+                        = @project.domain
+                      %td
+                        = @project.major
+                      %td
+                        = @project.agent
+                      %td
+                        = @project.plan_permit
+                      %td
+                        = @project.carry_permit
+                      %td
+                        = @project.monitor_permit
+                      %td
+                        = @project.cstr_agent
+                      %td
+                        = @project.receive_leader
+                      %td
+                        = @project.receive_operator
+                      %td
+                        = @project.general_supervisor
+                      %td
+                        = @project.prfs_supervisor
+                      %td
+                        = @project.supervisor
+                      %td
+                        = @project.supervising_engineer
+                      %td
+                        = @project.technical_director
+                      %td
+                        = @project.project_manager
+                      %td
+                        = @project.subctr_manager
+                      %td
+                        = @project.cstr_foreman
+                      %td
+                        = @project.constructors
+                      %td
+                        = @project.quality_worker
+                      %td
+                        = @project.inspector
+                      %td
+                        = @project.test_person
+                      %td
+                        = @project.detect_person
+                      %td
+                        = @project.auditor
+                      %td
+                        = @project.reviewer
+                      %td
+                        = @project.tester
+                      %td
+                        = @project.issuer
+                      %td
+                        = @project.examiner
+                      %td
+                        = @project.calculator
+                      %td
+                        = @project.recorder
+                      %td
+                        = @project.surveyor
+                      %td
+                        = @project.filler
+                      %td
+                        = @project.operator
+                      %td
+                        = @project.equipment
+                      %td
+                        = @project.address
+                      %td
+                        = @project.structor
+                      %td
+                        = @project.layer_number
+                      %td
+                        = @project.prj_category
+                      %td
+                        = @project.prj_scale
+                      %td
+                        = @project.start
+                      %td
+                        = @project.end
+                      %td
+                        = @project.review_unit
+                      %td
+                        = @project.review_permission
+                      %td
+                        = @project.measure_cert
+                      %td
+                        = @project.supervision_no
+                      %td
+                        = @project.quality_info
+                      %td
+                        = @project.regist_no
+                      %td
+                        = @project.prj_designer
+                      %td
+                        = @project.geo_prospect
+                      %td
+                        = @project.prj_manager
+                      %td
+                        = @project.status
+            
+            
+            
+            
+            
+              - @project.project_tables.each do |project_table|
+                 
+                .col-md-2
+                  = project_table.category
+                 
+                .col-md-2
+                  = project_table.number
+                 
+                .col-md-2
+                  = project_table.name
+                 
+                .col-md-2
+                  = project_table.info
+                
+            
+

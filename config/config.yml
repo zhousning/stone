@@ -792,6 +792,77 @@ development:
   table_pages:
     label: 表格页
     content: 内容
+  projects:
+    label: 工程项目
+    name: 工程项目名称
+    itemname: 分项名称，分项工程名称
+    dep_prj: 单位工程名称
+    cstr: 建设单位
+    carry: 施工单位
+    survey: 勘察单位
+    design: 设计单位
+    control: 监理单位
+    detect: 检测单位
+    monitor: 监督机构
+    domain: 总包单位
+    major: 分包单位
+    agent: 委托单位
+    plan_permit: 规划许可证号
+    carry_permit: 施工许可证号
+    monitor_permit: 监督申报书号
+    cstr_agent: 建设单位现场代表
+    receive_leader: 接收单位负责人
+    receive_operator: 接收单位经办人
+    general_supervisor: 总监理工程师
+    prfs_supervisor: 专业监理工程师
+    supervisor: 监理员
+    supervising_engineer: 监督工程师
+    technical_director: 技术负责人
+    project_manager: 项目经理
+    subctr_manager: 分包单位项目经理
+    cstr_foreman: 施工工长
+    constructors: 施工员
+    quality_worker: 质量员
+    inspector: 检验人
+    test_person: 调试人员
+    detect_person: 检查人员
+    auditor: 审核人
+    reviewer: 复核人
+    tester: 实验员
+    issuer: 签发人
+    examiner: 检查人
+    calculator: 计算人
+    recorder: 记录员
+    surveyor: 测量员
+    filler: 填表人
+    operator: 操作人员
+    equipment: 主要仪器设备
+    address: 工程地点
+    structor: 结构类型
+    layer_number: 层数
+    prj_category: 工程类型
+    prj_scale: 工程规模
+    start: 开工时间
+    end: 竣工时间
+    review_unit: 审查单位
+    review_permission: 检查单位资质编号
+    measure_cert: 计量认证证书编号
+    supervision_no: 监督登记号
+    quality_info: 资质登记
+    regist_no: 注册登记号
+    prj_designer: 项目设计负责人
+    geo_prospect: 地勘单位
+    prj_manager: 项目负责人
+    status: 状态
+  project_tables:
+    label: 质量规范验收表格
+    category: 分类
+    number: 编号
+    name: 名称
+    info: 说明
+  project_pages:
+    label: 表格页
+    content: 内容
 test:
   admins: *1
   users: *2

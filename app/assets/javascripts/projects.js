@@ -1,0 +1,3 @@
+$(".projects").ready(function() {
+
+});

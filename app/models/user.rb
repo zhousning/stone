@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
 
   has_many :consumes
   has_many :orders
+  has_many :projects
 
   has_many :user_domains, :dependent => :destroy
   has_many :domains, :through => :user_domains

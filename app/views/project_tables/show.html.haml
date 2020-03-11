@@ -1,0 +1,57 @@
+- provide(:title, t('.title'))
+
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
+      .card.shadow.rounded-0
+        .card-header.bg-info.text-white.rounded-0
+          %h5
+            = fa_icon "newspaper-o", text: t(controller_name + "." + action_name + '.title')
+            = link_to "/#{controller_name}", :class => "button button-border button-rounded button-caution pull-right  bg-white" do
+              = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
+            = link_to "#{request.url}/edit", :class => "button button-border button-rounded button-action pull-right mr-3 bg-white" do
+              = fa_icon "edit", text: Setting.systems.btn_edit, right: false 
+        .card-body
+          .container-fluid
+            .row
+              .col-md-12
+                %table.table.text-center.table-bordered
+                  %thead
+                    %tr
+                    
+                      %th 
+                        = Setting.project_tables.category
+                      %th 
+                        = Setting.project_tables.number
+                      %th 
+                        = Setting.project_tables.name
+                      %th 
+                        = Setting.project_tables.info
+                  %tbody
+                    %tr
+                    
+                      %td
+                        = @project_table.category
+                      %td
+                        = @project_table.number
+                      %td
+                        = @project_table.name
+                      %td
+                        = @project_table.info
+            
+            
+              .col-md-2
+                - unless @project_table.attachment.blank?
+                  = link_to URI.decode(File.basename(@project_table.attachment_url)), download_append_project_table_path(@project_table.id)
+            
+            
+            
+            
+              - @project_table.project_pages.each do |project_page|
+                 
+                .col-md-2
+                  = project_page.content
+                
+            
+

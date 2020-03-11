@@ -1,0 +1,65 @@
+.container-fluid
+  = form_for @project_table, :builder => WebsiteFormBuilder do |f|
+    - if @project_table.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@project_table.errors.count, "error")} prohibited this buyer from being saved:"
+        %ul
+          - @project_table.errors.full_messages.each do |msg|
+            %li= msg
+    .form-row
+    
+      .col-6
+        .form-group.row
+          = f.label Setting.project_tables.category, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.select :category, options_for_category, {:include_blank=>false}, {:class=>"form-control"}
+      .col-6
+        .form-group.row
+          = f.label Setting.project_tables.number, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :number, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.project_tables.name, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :name, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.project_tables.info, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :info, :class => "form-control"
+          
+    .form-row
+    
+    .form-row
+    
+      .col-6
+        .form-group.row
+          = f.label "一个附件", :class => "col-3 text-right col-form-label col-form-label"
+          .col-3
+            %label.newbtn
+              %p.append-url
+                = f.one_attachment("attachment")
+              = f.file_field :attachment, :class => "select-file", :onchange => "readFileName(this);"
+    
+    
+    
+    
+    .form-row
+      .col-12
+        .form-group.row
+          = f.label "关联对象", :class => "col-2  text-center col-form-label col-form-label"
+          .col-10
+            .row
+              = f.fields_for :project_pages do |project_page|
+                = render 'project_page_fields', f: project_page 
+              .links
+                = link_to_add_association "添加", f, :project_pages, :class => "btn btn-success"
+    
+    .form-group.row
+      .col-3.offset-2
+        = f.submit '保存', :class => "btn btn-success"
+      .col-3.offset-1
+        = link_to '返回', project_tables_path, :class => "btn btn-danger"

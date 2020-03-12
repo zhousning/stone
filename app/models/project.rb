@@ -5,7 +5,7 @@ class Project < ActiveRecord::Base
 
 
 
-  belongs_to :user
+  belongs_to :labour
 
 
   has_many :project_tables, :dependent => :destroy

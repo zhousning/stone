@@ -1,12 +1,12 @@
-class CreateUserMajors < ActiveRecord::Migration
+class CreateLabourDomains < ActiveRecord::Migration
   def change
-    create_table :user_majors do |t|
+    create_table :labour_domains do |t|
     
       t.string :level,  null: false, default: Setting.systems.default_str
     
-      t.integer :user_id
+      t.integer :labour_id
     
-      t.integer :major_id
+      t.integer :domain_id
     
 
       t.timestamps null: false

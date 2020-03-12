@@ -1,4 +1,4 @@
-$(".general_profiles").ready(function() {
+$(".labours").ready(function() {
   $(".domain-level-select").change(function() {
     var that = $(this)
     var level = that.val();

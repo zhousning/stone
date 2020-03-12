@@ -1,4 +1,4 @@
-class ConstructProfile < ActiveRecord::Base
+class Constructor < ActiveRecord::Base
 
   mount_uploader :cert_front, EnclosureUploader
   mount_uploader :cert_back, EnclosureUploader

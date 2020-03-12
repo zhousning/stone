@@ -128,7 +128,7 @@ class CreateProjects < ActiveRecord::Migration
     
 
     
-      t.references :user
+      t.references :labour
     
 
       t.timestamps null: false

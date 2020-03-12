@@ -155,6 +155,10 @@ defaults:
     nav_item3: 中标公告
     nav_item4: 证书备案
     nav_item5: 资料系统
+    opening: 新用户
+    pending: 待审核
+    rejected: 不通过
+    passed: 通过
   trade_orders: &15
     number: 订单编号
     price: 价格
@@ -743,7 +747,7 @@ development:
   leaders:
     label: 领导
     name: 名称
-  general_profiles:
+  labours:
     label: 施工单位信息
     company: 单位全称名称
     cert: 统一社会信用代码
@@ -772,7 +776,7 @@ development:
   user_majors:
     label: 用户专业承包
     level: 等级
-  construct_profiles:
+  constructors:
     label: 建设单位信息
     company: 单位全称名称
     cert: 统一社会信用代码

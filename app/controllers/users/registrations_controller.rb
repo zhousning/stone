@@ -63,9 +63,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def after_sign_up_path_for(resource)
     if resource.has_role?(Setting.roles.build)
-      edit_construct_profile_url(resource.construct_profile)
+      edit_constructor_url(resource.constructor)
     else
-      edit_general_profile_url(resource.general_profile)
+      edit_labour_url(resource.labour)
     end
   end
 

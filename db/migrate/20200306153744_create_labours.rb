@@ -1,6 +1,6 @@
-class CreateConstructProfiles < ActiveRecord::Migration
+class CreateLabours < ActiveRecord::Migration
   def change
-    create_table :construct_profiles do |t|
+    create_table :labours do |t|
     
       t.string :company,  null: false, default: Setting.systems.default_str
     
@@ -24,7 +24,15 @@ class CreateConstructProfiles < ActiveRecord::Migration
       t.string :cert_back,  null: false, default: Setting.systems.default_str
       t.string :quality_front,  null: false, default: Setting.systems.default_str
       t.string :quality_back,  null: false, default: Setting.systems.default_str
-
+      t.string :quality_one_front,  null: false, default: Setting.systems.default_str
+      t.string :quality_one_back,  null: false, default: Setting.systems.default_str
+      t.string :quality_two_front,  null: false, default: Setting.systems.default_str
+      t.string :quality_two_back,  null: false, default: Setting.systems.default_str
+      t.string :quality_three_front,  null: false, default: Setting.systems.default_str
+      t.string :quality_three_back,  null: false, default: Setting.systems.default_str
+      t.string :safe_front,  null: false, default: Setting.systems.default_str
+      t.string :safe_back,  null: false, default: Setting.systems.default_str
+      t.string :status,  null: false, default: Setting.systems.opening
     
 
     

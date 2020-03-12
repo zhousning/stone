@@ -13,10 +13,10 @@
           .card-body
             %ul.list-group.list-group-flush
               - if current_user.has_role?(Setting.roles.build)
-                = link_to edit_construct_profile_path(current_user.construct_profile), :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
+                = link_to edit_constructor_path(current_user.constructor), :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
                   = fa_icon "area-chart", text: "基本资料", class: "mx-3"
               - else
-                = link_to edit_general_profile_path(current_user.general_profile), :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
+                = link_to edit_labour_path(current_user.labour), :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
                   = fa_icon "area-chart", text: "基本资料", class: "mx-3"
               = link_to table_templates_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
                 = fa_icon "area-chart", text: Setting.table_templates.label, class: "mx-3"

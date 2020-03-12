@@ -20,15 +20,11 @@ Rails.application.routes.draw do
   end
   resources :majors do
   end
-  resources :user_domains do
-  end
-  resources :user_majors do
-  end
   resources :domains do
   end
-  resources :general_profiles, :only => [:edit, :update] do
+  resources :labours, :only => [:edit, :update] do
   end
-  resources :construct_profiles, :only => [:edit, :update] do
+  resources :constructors, :only => [:edit, :update] do
   end
   resources :table_templates do
     get :download_append, :on => :member

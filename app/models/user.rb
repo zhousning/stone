@@ -33,18 +33,12 @@ class User < ActiveRecord::Base
   dragonfly_accessor :qr_code
 
   has_one :account
-  has_one :general_profile
-  has_one :construct_profile
+  has_one :labour
+  has_one :constructor
 
   has_many :consumes
   has_many :orders
-  has_many :projects
 
-  has_many :user_domains, :dependent => :destroy
-  has_many :domains, :through => :user_domains
-  
-  has_many :user_majors, :dependent => :destroy
-  has_many :majors, :through => :user_majors
 
   belongs_to :role
 
@@ -134,9 +128,9 @@ class User < ActiveRecord::Base
 
   def set_profile
     if self.has_role? Setting.roles.build
-      build_construct_profile
+      build_constructor
     else
-      build_general_profile
+      build_labour
     end
   end
 

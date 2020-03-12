@@ -1,64 +1,64 @@
 .container-fluid
-  = form_for @general_profile, :builder => WebsiteFormBuilder do |f|
-    - if @general_profile.errors.any?
+  = form_for @labour, :builder => WebsiteFormBuilder do |f|
+    - if @labour.errors.any?
       #error_explanation
-        %h2= "#{pluralize(@general_profile.errors.count, "error")} prohibited this buyer from being saved:"
+        %h2= "#{pluralize(@labour.errors.count, "error")} prohibited this buyer from being saved:"
         %ul
-          - @general_profile.errors.full_messages.each do |msg|
+          - @labour.errors.full_messages.each do |msg|
             %li= msg
     .form-row
     
       .col-6
         .form-group.row
-          = f.label Setting.general_profiles.company, :class => "col-3 text-right col-form-label col-form-label"
+          = f.label Setting.labours.company, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
             = f.text_field :company, :class => "form-control"
           
       .col-6
         .form-group.row
-          = f.label Setting.general_profiles.cert, :class => "col-3 text-right col-form-label col-form-label"
+          = f.label Setting.labours.cert, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
             = f.text_field :cert, :class => "form-control"
           
       .col-6
         .form-group.row
-          = f.label Setting.general_profiles.corp, :class => "col-3 text-right col-form-label col-form-label"
+          = f.label Setting.labours.corp, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
             = f.text_field :corp, :class => "form-control"
           
       .col-6
         .form-group.row
-          = f.label Setting.general_profiles.address, :class => "col-3 text-right col-form-label col-form-label"
+          = f.label Setting.labours.address, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
             = f.text_field :address, :class => "form-control"
           
       .col-6
         .form-group.row
-          = f.label Setting.general_profiles.idcard, :class => "col-3 text-right col-form-label col-form-label"
+          = f.label Setting.labours.idcard, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
             = f.text_field :idcard, :class => "form-control"
           
       .col-6
         .form-group.row
-          = f.label Setting.general_profiles.province, :class => "col-3 text-right col-form-label col-form-label"
+          = f.label Setting.labours.province, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
             = f.text_field :province, :class => "form-control"
           
       .col-6
         .form-group.row
-          = f.label Setting.general_profiles.city, :class => "col-3 text-right col-form-label col-form-label"
+          = f.label Setting.labours.city, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
             = f.text_field :city, :class => "form-control"
           
       .col-6
         .form-group.row
-          = f.label Setting.general_profiles.county, :class => "col-3 text-right col-form-label col-form-label"
+          = f.label Setting.labours.county, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
             = f.text_field :county, :class => "form-control"
           
       .col-6
         .form-group.row
-          = f.label Setting.general_profiles.habitation, :class => "col-3 text-right col-form-label col-form-label"
+          = f.label Setting.labours.habitation, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
             = f.text_field :habitation, :class => "form-control"
           

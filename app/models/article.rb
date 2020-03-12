@@ -9,3 +9,19 @@ class Article < ActiveRecord::Base
 
 
 end
+
+# == Schema Information
+#
+# Table name: articles
+#
+#  id         :integer         not null, primary key
+#  lang       :string          default(""), not null
+#  title      :string          default(""), not null
+#  vol        :string          default(""), not null
+#  desc       :string          default(""), not null
+#  category   :text            default(""), not null
+#  address    :string          default(""), not null
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+

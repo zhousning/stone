@@ -1,28 +1,3 @@
-# == Schema Information
-#
-# Table name: orders
-#
-#  id          :integer          not null, primary key
-#  number      :string
-#  category    :string           default("none"), not null
-#  money       :float
-#  coin        :float
-#  status      :integer          default(0), not null
-#  subject     :string
-#  trade_no    :string
-#  total_fee   :string
-#  buyer_email :string
-#  gmt_create  :datetime
-#  gmt_payment :datetime
-#  notify_msg  :text
-#  price       :integer
-#  quantity    :integer
-#  state       :string           default("opening"), not null
-#  user_id     :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#
-
 class Order < ActiveRecord::Base
   belongs_to :user
 
@@ -107,3 +82,29 @@ class Order < ActiveRecord::Base
   def remove_plan
   end
 end
+
+# == Schema Information
+#
+# Table name: orders
+#
+#  id          :integer         not null, primary key
+#  number      :string
+#  category    :string          default("none"), not null
+#  money       :float
+#  coin        :float
+#  status      :integer         default("0"), not null
+#  subject     :string
+#  trade_no    :string
+#  total_fee   :string
+#  buyer_email :string
+#  gmt_create  :datetime
+#  gmt_payment :datetime
+#  notify_msg  :text
+#  price       :integer
+#  quantity    :integer
+#  state       :string          default("opening"), not null
+#  user_id     :integer
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#
+

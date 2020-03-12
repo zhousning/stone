@@ -1,15 +1,3 @@
-# == Schema Information
-#
-# Table name: roles
-#
-#  id            :integer          not null, primary key
-#  name          :string           default(""), not null
-#  resource_id   :integer
-#  resource_type :string
-#  created_at    :datetime
-#  updated_at    :datetime
-#
-
 class Role < ActiveRecord::Base
   has_many :role_permissionships, :dependent => :destroy
   has_many :permissions, :through => :role_permissionships
@@ -31,3 +19,16 @@ class Role < ActiveRecord::Base
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: roles
+#
+#  id            :integer         not null, primary key
+#  name          :string          default(""), not null
+#  resource_id   :integer
+#  resource_type :string
+#  created_at    :datetime
+#  updated_at    :datetime
+#
+

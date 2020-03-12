@@ -1,19 +1,3 @@
-# == Schema Information
-#
-# Table name: accounts
-#
-#  id          :integer          not null, primary key
-#  coin        :float            default(0.0), not null
-#  freeze_coin :float            default(0.0), not null
-#  commission  :float            default(0.0), not null
-#  status      :string           default("disable"), not null
-#  password    :string           default(""), not null
-#  number      :string
-#  user_id     :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#
-
 class Account < ActiveRecord::Base
   belongs_to :user
 
@@ -67,3 +51,20 @@ class Account < ActiveRecord::Base
     update_attribute :status, Setting.accounts.disable 
   end
 end
+
+# == Schema Information
+#
+# Table name: accounts
+#
+#  id          :integer         not null, primary key
+#  coin        :float           default("0.0"), not null
+#  freeze_coin :float           default("0.0"), not null
+#  commission  :float           default("0.0"), not null
+#  status      :string          default("disable"), not null
+#  password    :string          default(""), not null
+#  number      :string
+#  user_id     :integer
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#
+

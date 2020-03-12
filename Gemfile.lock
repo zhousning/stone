@@ -60,9 +60,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     animate-rails (1.0.10)
       rails
-    annotate (3.0.2)
-      activerecord (>= 3.2, < 7.0)
-      rake (>= 10.4, < 13.0)
+    annotate (2.4.0)
     arbre (1.2.1)
       activesupport (>= 3.0.0)
     arel (6.0.4)
@@ -388,7 +386,7 @@ DEPENDENCIES
   activeadmin_blaze_theme
   alipay!
   animate-rails
-  annotate
+  annotate (= 2.4.0)
   better_errors
   binding_of_caller
   bootstrap (~> 4.3.1)

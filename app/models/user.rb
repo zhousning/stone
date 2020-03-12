@@ -1,39 +1,14 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id                     :integer          not null, primary key
-#  email                  :string           default(""), not null
-#  phone                  :string           default(""), not null
-#  name                   :string           default(""), not null
-#  identity               :string           default(""), not null
-#  alipay                 :string           default(""), not null
-#  status                 :integer          default(0), not null
-#  number                 :string           default(""), not null
-#  authc_number           :string
-#  qr_code_uid            :string
-#  inviter                :string           default(""), not null
-#  encrypted_password     :string           default(""), not null
-#  parent_id              :integer
-#  reset_password_token   :string
-#  reset_password_sent_at :datetime
-#  remember_created_at    :datetime
-#  sign_in_count          :integer          default(0), not null
-#  current_sign_in_at     :datetime
-#  last_sign_in_at        :datetime
-#  current_sign_in_ip     :string
-#  last_sign_in_ip        :string
-#  role_id                :integer
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
-#
-
 class User < ActiveRecord::Base
   rolify
   dragonfly_accessor :qr_code
 
   has_one :account
   has_one :labour
+  has_one :supervisor
+  has_one :prospector
+  has_one :designer
+  has_one :monitor_co
+  has_one :agentor_co
   has_one :constructor
 
   has_many :consumes
@@ -127,10 +102,21 @@ class User < ActiveRecord::Base
   end
 
   def set_profile
-    if self.has_role? Setting.roles.build
-      build_constructor
-    else
+    #TODO将以下资料标validate先关掉了,如果打开会无法新建
+    if self.has_role?(Setting.roles.labour)
       build_labour
+    elsif self.has_role?(Setting.roles.supervisor)
+      build_supervisor
+    elsif self.has_role?(Setting.roles.build)
+      build_constructor
+    elsif self.has_role?(Setting.roles.prospect)
+      build_prospector
+    elsif self.has_role?(Setting.roles.design)
+      build_designer
+    elsif self.has_role?(Setting.roles.monitor)
+      build_monitor_co
+    elsif self.has_role?(Setting.roles.agent)
+      build_agentor_co
     end
   end
 
@@ -143,3 +129,34 @@ class User < ActiveRecord::Base
   #  Leaf.create(:user => self)
   #end
 end
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer         not null, primary key
+#  email                  :string          default(""), not null
+#  phone                  :string          default(""), not null
+#  name                   :string          default(""), not null
+#  identity               :string          default(""), not null
+#  alipay                 :string          default(""), not null
+#  status                 :integer         default("0"), not null
+#  number                 :string          default(""), not null
+#  authc_number           :string
+#  qr_code_uid            :string
+#  inviter                :string          default(""), not null
+#  encrypted_password     :string          default(""), not null
+#  parent_id              :integer
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer         default("0"), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string
+#  last_sign_in_ip        :string
+#  role_id                :integer
+#  created_at             :datetime        not null
+#  updated_at             :datetime        not null
+#
+

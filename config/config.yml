@@ -29,13 +29,13 @@ defaults:
     name: 名称
     class_name: Role
     super_admin: 超级管理员
-    construction: 施工单位
+    labour: 施工单位
     supervisor: 监理单位
     build: 建设单位
     prospect: 地勘单位
     design: 设计单位
     monitor: 监督单位
-    agent: 代理单位
+    agent: 代建单位
   permissions: &4
     super_admin: 管理系统所有资源
   citrines: &5
@@ -748,7 +748,7 @@ development:
     label: 领导
     name: 名称
   labours:
-    label: 施工单位信息
+    label: 施工单位
     company: 单位全称名称
     cert: 统一社会信用代码
     corp: 法定代表人姓名
@@ -758,6 +758,16 @@ development:
     city: 市
     county: 县
     habitation: 法定代表人身份地址
+  supervisors:
+    label: 监理单位
+  prospectors:
+    label: 地勘单位
+  designers:
+    label: 设计单位
+  monitors:
+    label: 监督单位
+  agentors:
+    label: 代建单位
   domains:
     label: 总承包
     name: 名称

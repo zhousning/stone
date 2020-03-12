@@ -24,6 +24,16 @@ Rails.application.routes.draw do
   end
   resources :labours, :only => [:edit, :update] do
   end
+  resources :supervisors, :only => [:edit, :update] do
+  end
+  resources :prospectors, :only => [:edit, :update] do
+  end
+  resources :designers, :only => [:edit, :update] do
+  end
+  resources :agentor_cos, :only => [:edit, :update] do
+  end
+  resources :monitor_cos, :only => [:edit, :update] do
+  end
   resources :constructors, :only => [:edit, :update] do
   end
   resources :table_templates do

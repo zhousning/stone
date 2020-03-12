@@ -1,24 +1,3 @@
-# == Schema Information
-#
-# Table name: templates
-#
-#  id         :integer          not null, primary key
-#  name       :string
-#  cn_name    :string
-#  nest       :string
-#  image      :boolean
-#  index      :boolean
-#  new        :boolean
-#  edit       :boolean
-#  show       :boolean
-#  form       :boolean
-#  js         :boolean
-#  scss       :boolean
-#  admin      :boolean
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-
 class Template < ActiveRecord::Base
 
 
@@ -31,3 +10,28 @@ class Template < ActiveRecord::Base
   has_many :nests, :dependent => :destroy
   accepts_nested_attributes_for :nests, reject_if: :all_blank, allow_destroy: true
 end
+
+# == Schema Information
+#
+# Table name: templates
+#
+#  id             :integer         not null, primary key
+#  name           :string
+#  cn_name        :string
+#  nest           :string
+#  image          :boolean
+#  attachment     :boolean
+#  one_image      :string
+#  one_attachment :string
+#  index          :boolean
+#  new            :boolean
+#  edit           :boolean
+#  show           :boolean
+#  form           :boolean
+#  js             :boolean
+#  scss           :boolean
+#  admin          :boolean
+#  created_at     :datetime        not null
+#  updated_at     :datetime        not null
+#
+

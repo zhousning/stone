@@ -12,3 +12,18 @@ class TableTemplate < ActiveRecord::Base
 
 
 end
+
+# == Schema Information
+#
+# Table name: table_templates
+#
+#  id         :integer         not null, primary key
+#  category   :string          default(""), not null
+#  number     :string          default(""), not null
+#  name       :string          default(""), not null
+#  info       :text            default(""), not null
+#  attachment :string          default(""), not null
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+

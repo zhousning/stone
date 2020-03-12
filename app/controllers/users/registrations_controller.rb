@@ -62,10 +62,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #end
 
   def after_sign_up_path_for(resource)
-    if resource.has_role?(Setting.roles.build)
-      edit_constructor_url(resource.constructor)
-    else
+    if resource.has_role?(Setting.roles.labour)
       edit_labour_url(resource.labour)
+    elsif resource.has_role?(Setting.roles.supervisor)
+      edit_supervisor_url(resource.supervisor)
+    elsif resource.has_role?(Setting.roles.build)
+      edit_constructor_url(resource.constructor)
+    elsif resource.has_role?(Setting.roles.prospect)
+      edit_prospector_url(resource.prospector)
+    elsif resource.has_role?(Setting.roles.design)
+      edit_designer_url(resource.designer)
+    elsif resource.has_role?(Setting.roles.monitor)
+      puts "........32423423"
+      edit_monitor_co_url(resource.monitor_co)
+    elsif resource.has_role?(Setting.roles.agent)
+      puts "........32423423"
+      edit_agentor_co_url(resource.agentor_co)
+    else
+      puts "...90890.....32423423"
+      root_url
     end
   end
 

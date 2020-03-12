@@ -1,0 +1,24 @@
+- provide(:title, t('.title'))
+
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
+      .card.shadow.rounded-0
+        .card-header.bg-success.text-white.rounded-0
+          %h5
+            = fa_icon "wpforms", text: t(controller_name + "." + action_name + '.title')
+            = link_to "#{request.url}".sub("edit", ""), :class => "button button-border button-rounded button-caution pull-right bg-white" do
+              = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
+        .card-body
+          .container-fluid
+            = form_for @agentor_co, :builder => WebsiteFormBuilder do |f|
+              - if @agentor_co.errors.any?
+                #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+                  %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+                    %span{"aria-hidden" => "true"} x
+                  %h2= "#{pluralize(@agentor_co.errors.count, "error")} prohibited this buyer from being saved:"
+                  %ul
+                    - @agentor_co.errors.full_messages.each do |msg|
+                      %li= msg
+              = render 'layouts/profile', f: f 

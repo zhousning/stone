@@ -5,3 +5,14 @@ class Ocr < ActiveRecord::Base
 
 
 end
+
+# == Schema Information
+#
+# Table name: ocrs
+#
+#  id         :integer         not null, primary key
+#  ocr_type   :integer         default("0"), not null
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+

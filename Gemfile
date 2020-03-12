@@ -76,7 +76,8 @@ gem 'cancancan'
 
 gem 'rolify'
 
-gem 'annotate'
+gem 'annotate', '2.4.0'
+
 
 gem 'reverse_markdown'
 

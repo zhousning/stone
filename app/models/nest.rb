@@ -1,14 +1,3 @@
-# == Schema Information
-#
-# Table name: notices
-#
-#  id         :integer          not null, primary key
-#  title      :string           default(""), not null
-#  content    :text             default(""), not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-
 class Nest < ActiveRecord::Base
 
   has_many :properties, :dependent => :destroy
@@ -17,3 +6,15 @@ class Nest < ActiveRecord::Base
   belongs_to :template
 
 end
+
+# == Schema Information
+#
+# Table name: nests
+#
+#  id          :integer         not null, primary key
+#  name        :string          default(""), not null
+#  template_id :integer
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#
+

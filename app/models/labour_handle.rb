@@ -19,6 +19,7 @@ class LabourHandle < ActiveRecord::Base
 
   belongs_to :labour
 
+  belongs_to :user
 
   has_many :handle_certs, :dependent => :destroy
   accepts_nested_attributes_for :handle_certs, reject_if: :all_blank, allow_destroy: true

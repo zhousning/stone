@@ -27,6 +27,7 @@ class CreateLabourHandles < ActiveRecord::Migration
 
     
       t.references :labour
+      t.references :user
     
 
       t.timestamps null: false

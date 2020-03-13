@@ -9,6 +9,18 @@
     #  controller: Template 
     #  actions: [manage, index, show, new, create, edit, update, delete, destroy]
 - 
+  role_name: 施工单位项目经理
+  permissions: 
+- 
+  role_name: 施工单位技术负责人
+  permissions: 
+- 
+  role_name: 施工单位现场管理人员
+  permissions: 
+- 
+  role_name: 施工单位技术工人
+  permissions: 
+- 
   role_name: 监理单位 
   permissions: 
     #-

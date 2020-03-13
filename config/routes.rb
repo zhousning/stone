@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'forget', to: 'users/passwords#forget'
     patch 'update_password', to: 'users/passwords#update_password'
+    post '/login_validate', to: 'users/sessions#user_validate'
   end
 
   require 'sidekiq/web'
@@ -25,6 +26,10 @@ Rails.application.routes.draw do
   resources :labours, :only => [:edit, :update] do
     resources :labour_handles do
       get :download_append, :on => :member
+    end
+  end
+  resources :labour_handles do
+    resources :handle_certs do
     end
   end
   resources :supervisors, :only => [:edit, :update] do
@@ -55,18 +60,6 @@ Rails.application.routes.draw do
     get :download_append, :on => :member
   end
   resources :project_pages do
-    get :download_append, :on => :member
-  end
-  resources :handle_certs do
-    get :download_append, :on => :member
-  end
-  resources :handle_arcts do
-    get :download_append, :on => :member
-  end
-  resources :arct_ctgs do
-    get :download_append, :on => :member
-  end
-  resources :arct_ctgs do
     get :download_append, :on => :member
   end
   resources :flower

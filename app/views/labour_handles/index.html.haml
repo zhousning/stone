@@ -24,8 +24,6 @@
                       %th{:scope => "col"}
                         = Setting.labour_handles.phone
                       %th{:scope => "col"}
-                        = Setting.labour_handles.idno
-                      %th{:scope => "col"}
                   %tbody
                     - @labour_handles.each_with_index do |labour_handle, index|
                       %tr
@@ -37,14 +35,11 @@
                         %td
                           = labour_handle.phone
                         %td
-                          = labour_handle.idno
-                        %td
                           .container-fluid
                             .row
-                              = link_to labour_handle_path(labour_handle), :class => "text-info col" do
-                                = fa_icon "search"
+                              = link_to "证书备案", labour_handle_handle_certs_path(labour_handle), :class => "text-info col"
                               = link_to edit_labour_labour_handle_path(current_user.labour, labour_handle), :class => "text-success col" do
                                 = fa_icon "edit"
-                              = link_to labour_handle, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                              = link_to labour_labour_handle_path(current_user.labour, labour_handle), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                 = fa_icon "trash"
 

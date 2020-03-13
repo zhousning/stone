@@ -1,22 +1,16 @@
 class HandleCertsController < ApplicationController
   layout "application_control"
-  before_filter :authenticate_user!
-  load_and_authorize_resource
+  #before_filter :authenticate_user!
+  #load_and_authorize_resource
 
    
   def index
-    @handle_certs = HandleCert.all
+    @labour_handle = LabourHandle.find(params[:labour_handle_id])
+    @handle_certs = @labour_handle.handle_certs
   end
-   
-
-   
-  def show
-    @handle_cert = HandleCert.find(params[:id])
-  end
-   
-
    
   def new
+    @labour_handle = LabourHandle.find(params[:labour_handle_id])
     @handle_cert = HandleCert.new
     arct(@handle_cert)
   end
@@ -24,15 +18,16 @@ class HandleCertsController < ApplicationController
 
    
   def create
+    @labour_handle = LabourHandle.find(params[:labour_handle_id])
     @handle_cert = HandleCert.new(handle_cert_params)
-    #@handle_cert.user = current_user
-    arcts = params["arct"]
-    arct_hash = hash_arct(arcts)
-    arct_hash.each do |k, v|
-      HandleArct.create(:level => v, :handle_cert_id => @handle_cert.id, :arct_ctg_id => k)
-    end
+    @handle_cert.labour_handle = @labour_handle
     if @handle_cert.save
-      redirect_to @handle_cert
+      arcts = params["arct"]
+      arct_hash = hash_arct(arcts)
+      arct_hash.each do |k, v|
+        HandleArct.create(:level => v, :handle_cert_id => @handle_cert.id, :arct_ctg_id => k)
+      end
+      redirect_to edit_labour_handle_handle_cert_url(@labour_handle, @handle_cert)
     else
       arct(@handle_cert)
       render :new
@@ -42,14 +37,16 @@ class HandleCertsController < ApplicationController
 
    
   def edit
-    @handle_cert = HandleCert.find(params[:id])
+    @labour_handle = LabourHandle.find(params[:labour_handle_id])
+    @handle_cert = @labour_handle.handle_certs.find(params[:id])
     arct(@handle_cert)
   end
    
 
    
   def update
-    @handle_cert = HandleCert.find(params[:id])
+    @labour_handle = LabourHandle.find(params[:labour_handle_id])
+    @handle_cert = @labour_handle.handle_certs.find(params[:id])
     arcts = params["arct"]
     arct_hash = hash_arct(arcts)
     @handle_cert.arct_ctgs.delete_all
@@ -58,7 +55,7 @@ class HandleCertsController < ApplicationController
     end
 
     if @handle_cert.update(handle_cert_params)
-      redirect_to handle_cert_path(@handle_cert) 
+      redirect_to edit_labour_handle_handle_cert_path(@labour_handle, @handle_cert) 
     else
       arct(@handle_cert)
       render :edit
@@ -69,7 +66,8 @@ class HandleCertsController < ApplicationController
 
    
   def destroy
-    @handle_cert = HandleCert.find(params[:id])
+    @labour_handle = LabourHandle.find(params[:labour_handle_id])
+    @handle_cert = @labour_handle.handle_certs.find(params[:id])
     @handle_cert.destroy
     redirect_to :action => :index
   end
@@ -85,7 +83,7 @@ class HandleCertsController < ApplicationController
       handle_cert_arcts = handle_cert.handle_arcts
       @arct_hash = Hash.new
       handle_cert_arcts.each do |d|
-        @arct_hash[d.arct_id] = d.level
+        @arct_hash[d.arct_ctg_id] = d.level
       end
     end
 

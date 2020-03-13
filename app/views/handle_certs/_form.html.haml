@@ -1,5 +1,5 @@
 .container-fluid
-  = form_for @handle_cert, :builder => WebsiteFormBuilder do |f|
+  = form_for [@labour_handle, @handle_cert ], :builder => WebsiteFormBuilder do |f|
     - if @handle_cert.errors.any?
       #error_explanation.alert.alert-danger.alert-dismissible.fade.show
         %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
@@ -63,7 +63,7 @@
     .form-row
       .col-6
         .form-group.row
-          = f.label "一个附图", :class => "col-3 text-right col-form-label col-form-label"
+          = f.label "注册证书正面", :class => "col-3 text-right col-form-label col-form-label"
           .col-3
             %label.newbtn
               = image_tag f.one_image("cert_front"), :class => "blah"
@@ -71,7 +71,7 @@
     
       .col-6
         .form-group.row
-          = f.label "一个附图", :class => "col-3 text-right col-form-label col-form-label"
+          = f.label "注册证书正面", :class => "col-3 text-right col-form-label col-form-label"
           .col-3
             %label.newbtn
               = image_tag f.one_image("cert_back"), :class => "blah"
@@ -79,7 +79,7 @@
     
       .col-6
         .form-group.row
-          = f.label "一个附图", :class => "col-3 text-right col-form-label col-form-label"
+          = f.label "初始证书正面", :class => "col-3 text-right col-form-label col-form-label"
           .col-3
             %label.newbtn
               = image_tag f.one_image("start_front"), :class => "blah"
@@ -87,7 +87,7 @@
     
       .col-6
         .form-group.row
-          = f.label "一个附图", :class => "col-3 text-right col-form-label col-form-label"
+          = f.label "初始证书反面", :class => "col-3 text-right col-form-label col-form-label"
           .col-3
             %label.newbtn
               = image_tag f.one_image("start_back"), :class => "blah"
@@ -95,7 +95,7 @@
     
       .col-6
         .form-group.row
-          = f.label "一个附图", :class => "col-3 text-right col-form-label col-form-label"
+          = f.label "安全生产考核证书正面", :class => "col-3 text-right col-form-label col-form-label"
           .col-3
             %label.newbtn
               = image_tag f.one_image("safe_front"), :class => "blah"
@@ -103,19 +103,14 @@
     
       .col-6
         .form-group.row
-          = f.label "一个附图", :class => "col-3 text-right col-form-label col-form-label"
+          = f.label "安全生产考核证书反面", :class => "col-3 text-right col-form-label col-form-label"
           .col-3
             %label.newbtn
               = image_tag f.one_image("safe_back"), :class => "blah"
               = f.file_field :safe_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
     
-    .form-row
-    
-    
-    
-    
     .form-group.row
       .col-3.offset-2
         = f.submit '保存', :class => "btn btn-success"
       .col-3.offset-1
-        = link_to '返回', handle_certs_path, :class => "btn btn-danger"
+        = link_to '返回', labour_handle_handle_certs_path, :class => "btn btn-danger"

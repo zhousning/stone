@@ -8,7 +8,7 @@
         .card-header.bg-primary.text-white.rounded-0
           %h5
             = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
-            = link_to "/#{controller_name}/new", :class => "button button-border button-rounded button-primary pull-right bg-white" do
+            = link_to new_labour_handle_handle_cert_path(@labour_handle), :class => "button button-border button-rounded button-primary pull-right bg-white" do
               = fa_icon "plus", text: Setting.systems.btn_new, right: false 
         .card-body
           .container-fluid.p-0
@@ -22,15 +22,7 @@
                       %th{:scope => "col"}
                         = Setting.handle_certs.reg_no
                       %th{:scope => "col"}
-                        = Setting.handle_certs.cert_no
-                      %th{:scope => "col"}
-                        = Setting.handle_certs.start
-                      %th{:scope => "col"}
-                        = Setting.handle_certs.end
-                      %th{:scope => "col"}
                         = Setting.handle_certs.dept
-                      %th{:scope => "col"}
-                        = Setting.handle_certs.level
                       %th{:scope => "col"}
                   %tbody
                     - @handle_certs.each_with_index do |handle_cert, index|
@@ -41,22 +33,12 @@
                         %td
                           = handle_cert.reg_no
                         %td
-                          = handle_cert.cert_no
-                        %td
-                          = handle_cert.start
-                        %td
-                          = handle_cert.end
-                        %td
                           = handle_cert.dept
-                        %td
-                          = handle_cert.level
                         %td
                           .container-fluid
                             .row
-                              = link_to handle_cert_path(handle_cert), :class => "text-info col" do
-                                = fa_icon "search"
-                              = link_to edit_handle_cert_path(handle_cert), :class => "text-success col" do
+                              = link_to edit_labour_handle_handle_cert_path(@labour_handle,handle_cert), :class => "text-success col" do
                                 = fa_icon "edit"
-                              = link_to handle_cert, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                              = link_to labour_handle_handle_cert_url(@labour_handle,handle_cert), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                 = fa_icon "trash"
 

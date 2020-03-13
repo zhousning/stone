@@ -30,4 +30,20 @@ $(".labours").ready(function() {
       major.val(majorVal.val());
     }
   })
+
+  $(".arct-level-select").change(function() {
+    var that = $(this)
+    var level = that.val();
+    var arct = $(that.siblings(".hidden-arct")[0]) 
+    var arctVal = $(that.siblings(".arct-val")[0]) 
+    var arctCtn = $(that.parents(".arct-ctn")[0])
+    var arctName = $(arctCtn.find(".arct-name")[0])
+    if (level != "0") {
+      arctName.addClass("bg-success");
+      arct.val(arctVal.val() + "," + level);
+    } else {
+      arctName.removeClass("bg-success");
+      arct.val(arctVal.val());
+    }
+  })
 });

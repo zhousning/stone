@@ -3,7 +3,7 @@
     - if @<%= @mu %>.errors.any?
       #error_explanation.alert.alert-danger.alert-dismissible.fade.show
         %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
-          %span{"aria-hidden" => "true"} ×
+          %span{"aria-hidden" => "true"} x 
         %h2= "#{pluralize(@<%= @mu %>.errors.count, "error")} prohibited this buyer from being saved:"
         %ul
           - @<%= @mu %>.errors.full_messages.each do |msg|

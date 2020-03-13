@@ -8,6 +8,8 @@ class Labour < ActiveRecord::Base
   has_many :labour_majors, :dependent => :destroy
   has_many :majors, :through => :labour_majors
 
+  has_many :labour_handles
+
   belongs_to :user
 
   #validates  :company, :presence => true   

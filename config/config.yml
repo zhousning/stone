@@ -821,6 +821,9 @@ development:
     domain: 总包单位
     major: 分包单位
     agent: 委托单位
+    prospect: 地勘单位
+    price: 造价咨询
+    safe: 安全消防
     plan_permit: 规划许可证号
     carry_permit: 施工许可证号
     monitor_permit: 监督申报书号
@@ -877,6 +880,31 @@ development:
   project_pages:
     label: 表格页
     content: 内容
+  labour_handles:
+    label: 项目经理
+    name: 姓名
+    phone: 手机
+    idno: 身份证号
+  handle_certs:
+    label: 证书
+    reg_no: 注册证书编号
+    cert_no: 证书编号
+    start: 初始注册时间
+    end: 注册有效期
+    dept: 全国注册建造师
+    level: 安全生产考核证书
+    level_a: A
+    level_b: B
+    level_c: C 
+    level_none: 无
+  handle_arcts:
+    label: 项目经理注册专业关联表
+    handle_cert_id: 项目经理外键
+    arct_ctg_id: 注册建造师类别外键
+  arct_ctgs:
+    label: 全国注册建造师注册专业
+    name: 名称
+    level: 等级
 test:
   admins: *1
   users: *2

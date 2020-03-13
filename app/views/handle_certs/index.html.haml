@@ -1,0 +1,62 @@
+- provide(:title, t('.title'))
+
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
+      .card.shadow.rounded-0
+        .card-header.bg-primary.text-white.rounded-0
+          %h5
+            = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
+            = link_to "/#{controller_name}/new", :class => "button button-border button-rounded button-primary pull-right bg-white" do
+              = fa_icon "plus", text: Setting.systems.btn_new, right: false 
+        .card-body
+          .container-fluid.p-0
+            .row
+              .col-md-12
+                %table.text-center.table-bordered.table-sm{:'data-toggle' => "table", :"data-pagination"=>"true", :"data-search" => "true",:'data-advanced-search'=>"true", :'data-id-table'=>"advancedTable"}
+                  %thead.thead-light
+                    %tr
+                      %th{:scope => "col"} #
+                    
+                      %th{:scope => "col"}
+                        = Setting.handle_certs.reg_no
+                      %th{:scope => "col"}
+                        = Setting.handle_certs.cert_no
+                      %th{:scope => "col"}
+                        = Setting.handle_certs.start
+                      %th{:scope => "col"}
+                        = Setting.handle_certs.end
+                      %th{:scope => "col"}
+                        = Setting.handle_certs.dept
+                      %th{:scope => "col"}
+                        = Setting.handle_certs.level
+                      %th{:scope => "col"}
+                  %tbody
+                    - @handle_certs.each_with_index do |handle_cert, index|
+                      %tr
+                        %td{:scope => "row"}
+                          = index+1
+                      
+                        %td
+                          = handle_cert.reg_no
+                        %td
+                          = handle_cert.cert_no
+                        %td
+                          = handle_cert.start
+                        %td
+                          = handle_cert.end
+                        %td
+                          = handle_cert.dept
+                        %td
+                          = handle_cert.level
+                        %td
+                          .container-fluid
+                            .row
+                              = link_to handle_cert_path(handle_cert), :class => "text-info col" do
+                                = fa_icon "search"
+                              = link_to edit_handle_cert_path(handle_cert), :class => "text-success col" do
+                                = fa_icon "edit"
+                              = link_to handle_cert, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                = fa_icon "trash"
+

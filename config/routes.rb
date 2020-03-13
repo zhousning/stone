@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   resources :domains do
   end
   resources :labours, :only => [:edit, :update] do
+    resources :labour_handles do
+      get :download_append, :on => :member
+    end
   end
   resources :supervisors, :only => [:edit, :update] do
   end
@@ -52,6 +55,18 @@ Rails.application.routes.draw do
     get :download_append, :on => :member
   end
   resources :project_pages do
+    get :download_append, :on => :member
+  end
+  resources :handle_certs do
+    get :download_append, :on => :member
+  end
+  resources :handle_arcts do
+    get :download_append, :on => :member
+  end
+  resources :arct_ctgs do
+    get :download_append, :on => :member
+  end
+  resources :arct_ctgs do
     get :download_append, :on => :member
   end
   resources :flower

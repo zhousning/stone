@@ -46,4 +46,36 @@ $(".labours").ready(function() {
       arct.val(arctVal.val());
     }
   })
+
+  $(".arct-level-select").change(function() {
+    var that = $(this)
+    var level = that.val();
+    var arct = $(that.siblings(".hidden-arct")[0]) 
+    var arctVal = $(that.siblings(".arct-val")[0]) 
+    var arctCtn = $(that.parents(".arct-ctn")[0])
+    var arctName = $(arctCtn.find(".arct-name")[0])
+    if (level != "0") {
+      arctName.addClass("bg-success");
+      arct.val(arctVal.val() + "," + level);
+    } else {
+      arctName.removeClass("bg-success");
+      arct.val(arctVal.val());
+    }
+  })
+
+  $(".skill-level-select").change(function() {
+    var that = $(this)
+    var level = that.val();
+    var skill = $(that.siblings(".hidden-skill")[0]) 
+    var skillVal = $(that.siblings(".skill-val")[0]) 
+    var skillCtn = $(that.parents(".skill-ctn")[0])
+    var skillName = $(skillCtn.find(".skill-name")[0])
+    if (level != "0") {
+      skillName.addClass("bg-success");
+      skill.val(skillVal.val() + "," + level);
+    } else {
+      skillName.removeClass("bg-success");
+      skill.val(skillVal.val());
+    }
+  })
 });

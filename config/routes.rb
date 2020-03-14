@@ -25,11 +25,16 @@ Rails.application.routes.draw do
   end
   resources :labours, :only => [:edit, :update] do
     resources :labour_handles do
-      get :download_append, :on => :member
+    end
+    resources :labour_teches do
     end
   end
   resources :labour_handles do
     resources :handle_certs do
+    end
+  end
+  resources :labour_teches do
+    resources :tech_certs do
     end
   end
   resources :supervisors, :only => [:edit, :update] do

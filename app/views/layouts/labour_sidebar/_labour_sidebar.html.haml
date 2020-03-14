@@ -19,6 +19,6 @@
     .card-body
       %ul.list-group.list-group-flush
         = link_to "项目经理", labour_labour_handles_url(current_user.labour), :class => "list-group-item list-group-item-action border-0 text-left pl-4" 
-        = link_to "技术负责人", "#", :class => "list-group-item list-group-item-action border-0 text-left pl-4" 
+        = link_to "技术负责人", labour_labour_teches_url(current_user.labour), :class => "list-group-item list-group-item-action border-0 text-left pl-4" 
         = link_to "现场管理人员", "#", :class => "list-group-item list-group-item-action border-0 text-left pl-4" 
         = link_to "技术工人", "#", :class => "list-group-item list-group-item-action border-0 text-left pl-4" 

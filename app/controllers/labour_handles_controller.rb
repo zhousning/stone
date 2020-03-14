@@ -46,6 +46,7 @@ class LabourHandlesController < ApplicationController
     else
       @user = User.new(:phone => phone , :password => phone , :password_confirmation => phone)
       @user.roles << role
+      @user.save
       @labour_handle.user = @user
     end
     if @labour_handle.save

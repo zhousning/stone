@@ -13,6 +13,7 @@ namespace :project do
     Rake::Task["db:import_majors"].invoke
     Rake::Task["db:import_arcts"].invoke
     Rake::Task["db:import_skills"].invoke
+    Rake::Task["db:import_prfs"].invoke
     #Rake::Task["assets:precompile"].invoke
     #Rake::Task["kindeditor:assets"].invoke
   end

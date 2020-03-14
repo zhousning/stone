@@ -894,6 +894,11 @@ development:
     name: 姓名
     phone: 手机
     idno: 身份证号
+  labour_lives:
+    label: 技术负责人
+    name: 姓名
+    phone: 手机
+    idno: 身份证号
   handle_certs:
     label: 证书
     reg_no: 注册证书编号
@@ -918,6 +923,18 @@ development:
     level_b: 中级
     level_c: 高级
     level_none: 无
+  live_certs:
+    label: 证书
+    reg_no: 注册证书编号
+    cert_no: 证书编号
+    start: 发证时间
+    end: 注册有效期
+    dept: 全国注册建造师
+    level: 职称等级
+    level_a: 初级
+    level_b: 中级
+    level_c: 高级
+    level_none: 无
   handle_arcts:
     label: 项目经理注册专业关联表
     handle_cert_id: 项目经理外键
@@ -929,6 +946,7 @@ development:
     level_one: 壹级
     level_two: 贰级
     level_three: 叁级
+    level_none: 无
   skill_ctgs:
     label: 全国注册建造师注册专业
     name: 名称
@@ -937,6 +955,12 @@ development:
     level_two: 中级
     level_three: 高级
     level_none: 无
+  prf_ctgs:
+    label: 住房城乡建设领域现场专业人员 
+    name: 名称
+    level: 等级
+    level_one: 土建 
+    level_two: 设备
 test:
   admins: *1
   users: *2

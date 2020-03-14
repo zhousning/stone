@@ -23,6 +23,7 @@ class CreateLabourHandles < ActiveRecord::Migration
       t.string :stamp_back,  null: false, default: Setting.systems.default_str
     
 
+      t.string :idnumber,  null: false, default: Setting.systems.default_str
     
 
     

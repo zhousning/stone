@@ -8,8 +8,6 @@
         .card-header.bg-success.text-white.rounded-0
           %h5
             = fa_icon "wpforms", text: t(controller_name + "." + action_name + '.title')
-            = link_to "#{request.url}".sub("edit", ""), :class => "button button-border button-rounded button-caution pull-right bg-white" do
-              = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
         .card-body
           .container-fluid
             = form_for @labour, :builder => WebsiteFormBuilder do |f|

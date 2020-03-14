@@ -73,13 +73,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     elsif resource.has_role?(Setting.roles.design)
       edit_designer_url(resource.designer)
     elsif resource.has_role?(Setting.roles.monitor)
-      puts "........32423423"
       edit_monitor_co_url(resource.monitor_co)
     elsif resource.has_role?(Setting.roles.agent)
-      puts "........32423423"
       edit_agentor_co_url(resource.agentor_co)
     else
-      puts "...90890.....32423423"
       root_url
     end
   end

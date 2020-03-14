@@ -27,7 +27,31 @@ class ApplicationController < ActionController::Base
     flash[:alert] = exception.message
     redirect_to root_url
   end
+
   
+  def exist_other_company?(company, user)
+    cpt_users = find_cpt_dep_user(user)
+    exist = false
+    cpt_users.each do |c|
+      if company.id != c.cpt_id 
+        exist = true 
+        break
+      end
+    end
+    exist
+  end
+
+  def find_cpt_dep_user(user)
+    CptDepUser.where(:user_id => user.id)
+  end
+
+  def save_cpt_dep_user(cpt, dep, user)
+    CptDepUser.create(:cpt_id => cpt.idnumber, :dep_id => dep.idnumber, :user_id => user.id)
+  end
+  
+  def delete_cpt_dep_user(cpt, dep, user)
+    CptDepUser.where(:cpt_id => cpt.idnumber, :dep_id => dep.idnumber, :user_id => user.id).delete_all
+  end
   protected
 
     def self.permission

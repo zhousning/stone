@@ -14,6 +14,12 @@ class LabourHandle < ActiveRecord::Base
 
 
 
+  before_save :store_unique_number
+  def store_unique_number
+    if self.idnumber == ""
+      self.idnumber = "labour_handle+" + Time.now.to_i.to_s + "%04d" % [rand(10000)]
+    end
+  end
 
 
 

@@ -107,21 +107,24 @@ class User < ActiveRecord::Base
 
   def set_profile
     #TODO将以下资料标validate先关掉了,如果打开会无法新建
+    cpt = nil
     if self.has_role?(Setting.roles.labour)
-      build_labour
+      cpt = build_labour
     elsif self.has_role?(Setting.roles.supervisor)
-      build_supervisor
+      cpt = build_supervisor
     elsif self.has_role?(Setting.roles.build)
-      build_constructor
+      cpt = build_constructor
     elsif self.has_role?(Setting.roles.prospect)
-      build_prospector
+      cpt = build_prospector
     elsif self.has_role?(Setting.roles.design)
-      build_designer
+      cpt = build_designer
     elsif self.has_role?(Setting.roles.monitor)
-      build_monitor_co
+      cpt = build_monitor_co
     elsif self.has_role?(Setting.roles.agent)
-      build_agentor_co
+      cpt = build_agentor_co
     end
+    cpt.save!
+    CptDepUser.create!(:cpt_id => cpt.idnumber, :dep_id => cpt.idnumber, :user_id => self.id)
   end
 
   def assign_default_role

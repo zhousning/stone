@@ -899,6 +899,11 @@ development:
     name: 姓名
     phone: 手机
     idno: 身份证号
+  labour_workers:
+    label: 技术工人
+    name: 姓名
+    phone: 手机
+    idno: 身份证号
   handle_certs:
     label: 证书
     reg_no: 注册证书编号
@@ -924,6 +929,18 @@ development:
     level_c: 高级
     level_none: 无
   line_certs:
+    label: 证书
+    reg_no: 注册证书编号
+    cert_no: 证书编号
+    start: 发证时间
+    end: 注册有效期
+    dept: 发证单位 
+    level: 职称等级
+    level_a: 初级
+    level_b: 中级
+    level_c: 高级
+    level_none: 无
+  worker_certs:
     label: 证书
     reg_no: 注册证书编号
     cert_no: 证书编号
@@ -961,6 +978,14 @@ development:
     level: 等级
     level_one: 土建 
     level_two: 设备
+  hdct_ctgs:
+    label: 专业技术等级 
+    name: 名称
+    level: 等级
+    level_one: 初级
+    level_two: 中级
+    level_three: 高级
+    level_none: 无
 test:
   admins: *1
   users: *2

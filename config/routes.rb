@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     end
     resources :labour_lines do
     end
+    resources :labour_workers do
+    end
   end
   resources :labour_handles do
     resources :handle_certs do
@@ -41,6 +43,10 @@ Rails.application.routes.draw do
   end
   resources :labour_lines do
     resources :line_certs do
+    end
+  end
+  resources :labour_workers do
+    resources :worker_certs do
     end
   end
   resources :supervisors, :only => [:edit, :update] do

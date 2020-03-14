@@ -94,4 +94,20 @@ $(".labours").ready(function() {
       prf.val(prfVal.val());
     }
   })
+
+  $(".hdct-level-select").change(function() {
+    var that = $(this)
+    var level = that.val();
+    var hdct = $(that.siblings(".hidden-hdct")[0]) 
+    var hdctVal = $(that.siblings(".hdct-val")[0]) 
+    var hdctCtn = $(that.parents(".hdct-ctn")[0])
+    var hdctName = $(hdctCtn.find(".hdct-name")[0])
+    if (level != "0") {
+      hdctName.addClass("bg-success");
+      hdct.val(hdctVal.val() + "," + level);
+    } else {
+      hdctName.removeClass("bg-success");
+      hdct.val(hdctVal.val());
+    }
+  })
 });

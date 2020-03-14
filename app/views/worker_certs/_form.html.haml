@@ -1,0 +1,68 @@
+.container-fluid
+  = form_for [@labour_worker, @worker_cert ], :builder => WebsiteFormBuilder do |f|
+    - if @worker_cert.errors.any?
+      #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+        %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+          %span{"aria-hidden" => "true"} x 
+        %h2= "#{pluralize(@worker_cert.errors.count, "error")} prohibited this buyer from being saved:"
+        %ul
+          - @worker_cert.errors.full_messages.each do |msg|
+            %li= msg
+    .form-row
+    
+      .col-6
+        .form-group.row
+          = f.label Setting.worker_certs.cert_no, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :cert_no, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.worker_certs.start, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.date_field :start, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.worker_certs.dept, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :dept, :class => "form-control"
+
+    .form-row
+      .col-12
+        %h2.text-center.text-danger.bg-secondary
+          专业技术工人
+      - @hdcts.each do |hdct|
+        .col-3
+          .form-group.row.hdct-ctn
+            = f.label "", :class => "col-6 text-right col-form-label col-form-label" do
+              %span{:class => @hdct_hash[hdct.id].nil? ? "hdct-name" : "hdct-name bg-success" }
+                = hdct.name
+            .col-6
+              = select_tag "hdct_levels", options_for_hdct_level(@hdct_hash[hdct.id]), :include_blank=>false, :class=>"form-control hdct-level-select"
+              = hidden_field_tag "hdct[]", @hdct_hash[hdct.id].nil? ? hdct.id : hdct.id.to_s + "," + @hdct_hash[hdct.id], :class => "hidden-hdct"
+              = hidden_field_tag "hdct-val", hdct.id, :class => "hdct-val"
+
+    .form-row
+      .col-6
+        .form-group.row
+          = f.label "职称证书正面", :class => "col-3 text-right col-form-label col-form-label"
+          .col-3
+            %label.newbtn
+              = image_tag f.one_image("cert_front"), :class => "blah"
+              = f.file_field :cert_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+    
+      .col-6
+        .form-group.row
+          = f.label "职称证书反面", :class => "col-3 text-right col-form-label col-form-label"
+          .col-3
+            %label.newbtn
+              = image_tag f.one_image("cert_back"), :class => "blah"
+              = f.file_field :cert_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+    
+    
+    .form-group.row
+      .col-3.offset-2
+        = f.submit '保存', :class => "btn btn-success"
+      .col-3.offset-1
+        = link_to '返回', labour_worker_worker_certs_path, :class => "btn btn-danger"

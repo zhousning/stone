@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     end
     resources :labour_teches do
     end
-    resources :labour_lives do
+    resources :labour_lines do
     end
   end
   resources :labour_handles do
@@ -39,8 +39,8 @@ Rails.application.routes.draw do
     resources :tech_certs do
     end
   end
-  resources :labour_lives do
-    resources :live_certs do
+  resources :labour_lines do
+    resources :line_certs do
     end
   end
   resources :supervisors, :only => [:edit, :update] do

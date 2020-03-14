@@ -1,6 +1,6 @@
-class CreateLiveCerts < ActiveRecord::Migration
+class CreateLineCerts < ActiveRecord::Migration
   def change
-    create_table :live_certs do |t|
+    create_table :line_certs do |t|
     
       t.string :reg_no,  null: false, default: Setting.systems.default_str
     
@@ -33,7 +33,7 @@ class CreateLiveCerts < ActiveRecord::Migration
     
 
     
-      t.references :labour_live
+      t.references :labour_line
     
 
       t.timestamps null: false

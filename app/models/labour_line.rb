@@ -1,4 +1,4 @@
-class LabourLive < ActiveRecord::Base
+class LabourLine < ActiveRecord::Base
 
   mount_uploader :idcard_front, EnclosureUploader
 
@@ -17,7 +17,7 @@ class LabourLive < ActiveRecord::Base
   before_save :store_unique_number
   def store_unique_number
     if self.idnumber == ""
-      self.idnumber = "labour_live+" + Time.now.to_i.to_s + "%04d" % [rand(10000)]
+      self.idnumber = "labour_line+" + Time.now.to_i.to_s + "%04d" % [rand(10000)]
     end
   end
 
@@ -27,8 +27,8 @@ class LabourLive < ActiveRecord::Base
 
   belongs_to :user
 
-  has_many :live_certs, :dependent => :destroy
-  accepts_nested_attributes_for :live_certs, reject_if: :all_blank, allow_destroy: true
+  has_many :line_certs, :dependent => :destroy
+  accepts_nested_attributes_for :line_certs, reject_if: :all_blank, allow_destroy: true
 
 
 end

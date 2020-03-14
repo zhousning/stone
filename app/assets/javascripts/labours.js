@@ -78,4 +78,20 @@ $(".labours").ready(function() {
       skill.val(skillVal.val());
     }
   })
+
+  $(".prf-level-select").change(function() {
+    var that = $(this)
+    var level = that.val();
+    var prf = $(that.siblings(".hidden-prf")[0]) 
+    var prfVal = $(that.siblings(".prf-val")[0]) 
+    var prfCtn = $(that.parents(".prf-ctn")[0])
+    var prfName = $(prfCtn.find(".prf-name")[0])
+    if (level != "0") {
+      prfName.addClass("bg-success");
+      prf.val(prfVal.val() + "," + level);
+    } else {
+      prfName.removeClass("bg-success");
+      prf.val(prfVal.val());
+    }
+  })
 });

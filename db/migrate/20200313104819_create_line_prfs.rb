@@ -1,9 +1,9 @@
-class CreateLivePrfs < ActiveRecord::Migration
+class CreateLinePrfs < ActiveRecord::Migration
   def change
-    create_table :live_prfs do |t|
+    create_table :line_prves do |t|
       t.string :level,  null: false, default: Setting.systems.default_str
     
-      t.integer :live_cert_id
+      t.integer :line_cert_id
     
       t.integer :prf_ctg_id
     

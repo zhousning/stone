@@ -10,7 +10,7 @@ class Labour < ActiveRecord::Base
 
   has_many :labour_handles
   has_many :labour_teches
-  has_many :labour_lives
+  has_many :labour_lines
   has_many :labour_workers
 
   belongs_to :user

@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   has_one :labour_handle
   has_one :labour_tech
-  has_one :labour_live
+  has_one :labour_line
   has_one :labour_worker
 
   belongs_to :role

@@ -38,7 +38,7 @@ defaults:
     agent: 代建单位
     labour_handle: 施工单位项目经理
     labour_tech: 施工单位技术负责人
-    labour_live: 施工单位现场管理人员
+    labour_line: 施工单位现场管理人员
     labour_worker: 施工单位技术工人
   permissions: &4
     super_admin: 管理系统所有资源
@@ -894,7 +894,7 @@ development:
     name: 姓名
     phone: 手机
     idno: 身份证号
-  labour_lives:
+  labour_lines:
     label: 技术负责人
     name: 姓名
     phone: 手机
@@ -917,19 +917,19 @@ development:
     cert_no: 证书编号
     start: 发证时间
     end: 注册有效期
-    dept: 全国注册建造师
+    dept: 发证单位 
     level: 职称等级
     level_a: 初级
     level_b: 中级
     level_c: 高级
     level_none: 无
-  live_certs:
+  line_certs:
     label: 证书
     reg_no: 注册证书编号
     cert_no: 证书编号
     start: 发证时间
     end: 注册有效期
-    dept: 全国注册建造师
+    dept: 发证单位 
     level: 职称等级
     level_a: 初级
     level_b: 中级

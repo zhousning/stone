@@ -8,7 +8,7 @@
         .card-header.bg-primary.text-white.rounded-0
           %h5
             = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
-            = link_to new_labour_live_live_cert_path(@labour_live), :class => "button button-border button-rounded button-primary pull-right bg-white" do
+            = link_to new_labour_line_line_cert_path(@labour_line), :class => "button button-border button-rounded button-primary pull-right bg-white" do
               = fa_icon "plus", text: Setting.systems.btn_new, right: false 
         .card-body
           .container-fluid.p-0
@@ -20,25 +20,25 @@
                       %th{:scope => "col"} #
                     
                       %th{:scope => "col"}
-                        = Setting.live_certs.reg_no
+                        = Setting.line_certs.reg_no
                       %th{:scope => "col"}
-                        = Setting.live_certs.dept
+                        = Setting.line_certs.dept
                       %th{:scope => "col"}
                   %tbody
-                    - @live_certs.each_with_index do |live_cert, index|
+                    - @line_certs.each_with_index do |line_cert, index|
                       %tr
                         %td{:scope => "row"}
                           = index+1
                       
                         %td
-                          = live_cert.reg_no
+                          = line_cert.reg_no
                         %td
-                          = live_cert.dept
+                          = line_cert.dept
                         %td
                           .container-fluid
                             .row
-                              = link_to edit_labour_live_live_cert_path(@labour_live,live_cert), :class => "text-success col" do
+                              = link_to edit_labour_line_line_cert_path(@labour_line,line_cert), :class => "text-success col" do
                                 = fa_icon "edit"
-                              = link_to labour_live_live_cert_url(@labour_live,live_cert), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                              = link_to labour_line_line_cert_url(@labour_line,line_cert), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                 = fa_icon "trash"
 

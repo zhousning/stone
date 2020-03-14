@@ -1,32 +1,32 @@
 .container-fluid
-  = form_for @labour_live, :builder => WebsiteFormBuilder do |f|
-    - if @labour_live.errors.any?
+  = form_for @labour_line, :builder => WebsiteFormBuilder do |f|
+    - if @labour_line.errors.any?
       #error_explanation.alert.alert-danger.alert-dismissible.fade.show
         %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
           %span{"aria-hidden" => "true"} x 
         %p
           = flash[:warning]
-        %h2= "#{pluralize(@labour_live.errors.count, "error")} prohibited this buyer from being saved:"
+        %h2= "#{pluralize(@labour_line.errors.count, "error")} prohibited this buyer from being saved:"
         %ul
-          - @labour_live.errors.full_messages.each do |msg|
+          - @labour_line.errors.full_messages.each do |msg|
             %li= msg
     .form-row
     
       .col-6
         .form-group.row
-          = f.label Setting.labour_lives.name, :class => "col-3 text-right col-form-label col-form-label"
+          = f.label Setting.labour_lines.name, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
             = f.text_field :name, :class => "form-control"
           
       .col-6
         .form-group.row
-          = f.label Setting.labour_lives.phone, :class => "col-3 text-right col-form-label col-form-label"
+          = f.label Setting.labour_lines.phone, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
             = f.text_field :phone, :class => "form-control"
           
       .col-6
         .form-group.row
-          = f.label Setting.labour_lives.idno, :class => "col-3 text-right col-form-label col-form-label"
+          = f.label Setting.labour_lines.idno, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
             = f.text_field :idno, :class => "form-control"
           
@@ -89,4 +89,4 @@
       .col-3.offset-2
         = f.submit '保存', :class => "btn btn-success"
       .col-3.offset-1
-        = link_to '返回', labour_lives_path, :class => "btn btn-danger"
+        = link_to '返回', labour_lines_path, :class => "btn btn-danger"

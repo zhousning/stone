@@ -1,4 +1,4 @@
-class LiveCert < ActiveRecord::Base
+class LineCert < ActiveRecord::Base
 
   mount_uploader :cert_front, EnclosureUploader
 
@@ -17,11 +17,11 @@ class LiveCert < ActiveRecord::Base
 
 
 
-  belongs_to :labour_live
+  belongs_to :labour_line
 
 
-  has_many :live_prfs, :dependent => :destroy
-  has_many :prf_ctgs, :through => :live_prfs
+  has_many :line_prfs, :dependent => :destroy
+  has_many :prf_ctgs, :through => :line_prfs
 
 
 end

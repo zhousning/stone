@@ -20,26 +20,26 @@
                       %th{:scope => "col"} #
                     
                       %th{:scope => "col"}
-                        = Setting.labour_lives.name
+                        = Setting.labour_lines.name
                       %th{:scope => "col"}
-                        = Setting.labour_lives.phone
+                        = Setting.labour_lines.phone
                       %th{:scope => "col"}
                   %tbody
-                    - @labour_lives.each_with_index do |labour_live, index|
+                    - @labour_lines.each_with_index do |labour_line, index|
                       %tr
                         %td{:scope => "row"}
                           = index+1
                       
                         %td
-                          = labour_live.name
+                          = labour_line.name
                         %td
-                          = labour_live.phone
+                          = labour_line.phone
                         %td
                           .container-fluid
                             .row
-                              = link_to "证书备案", labour_live_live_certs_path(labour_live), :class => "text-info col"
-                              = link_to edit_labour_labour_live_path(current_user.labour, labour_live), :class => "text-success col" do
+                              = link_to "证书备案", labour_line_line_certs_path(labour_line), :class => "text-info col"
+                              = link_to edit_labour_labour_line_path(current_user.labour, labour_line), :class => "text-success col" do
                                 = fa_icon "edit"
-                              = link_to labour_labour_live_path(current_user.labour, labour_live), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                              = link_to labour_labour_line_path(current_user.labour, labour_line), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                 = fa_icon "trash"
 

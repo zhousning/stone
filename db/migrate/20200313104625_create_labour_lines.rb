@@ -1,6 +1,6 @@
-class CreateLabourLives < ActiveRecord::Migration
+class CreateLabourLines < ActiveRecord::Migration
   def change
-    create_table :labour_lives do |t|
+    create_table :labour_lines do |t|
     
       t.string :name,  null: false, default: Setting.systems.default_str
     

@@ -1,4 +1,7 @@
 $(".labours").ready(function() {
+  /*$( "#dropdown" ).select2({
+        theme: "bootstrap"
+  });*/
   $(".domain-level-select").change(function() {
     var that = $(this)
     var level = that.val();
@@ -31,35 +34,19 @@ $(".labours").ready(function() {
     }
   })
 
-  $(".arct-level-select").change(function() {
+  $(".cert-level-select").change(function() {
     var that = $(this)
     var level = that.val();
-    var arct = $(that.siblings(".hidden-arct")[0]) 
-    var arctVal = $(that.siblings(".arct-val")[0]) 
-    var arctCtn = $(that.parents(".arct-ctn")[0])
-    var arctName = $(arctCtn.find(".arct-name")[0])
+    var cert = $(that.siblings(".hidden-cert")[0]) 
+    var certVal = $(that.siblings(".cert-val")[0]) 
+    var certCtn = $(that.parents(".cert-ctn")[0])
+    var certName = $(certCtn.find(".cert-name")[0])
     if (level != "0") {
-      arctName.addClass("bg-success");
-      arct.val(arctVal.val() + "," + level);
+      certName.addClass("bg-success");
+      cert.val(certVal.val() + "," + level);
     } else {
-      arctName.removeClass("bg-success");
-      arct.val(arctVal.val());
-    }
-  })
-
-  $(".arct-level-select").change(function() {
-    var that = $(this)
-    var level = that.val();
-    var arct = $(that.siblings(".hidden-arct")[0]) 
-    var arctVal = $(that.siblings(".arct-val")[0]) 
-    var arctCtn = $(that.parents(".arct-ctn")[0])
-    var arctName = $(arctCtn.find(".arct-name")[0])
-    if (level != "0") {
-      arctName.addClass("bg-success");
-      arct.val(arctVal.val() + "," + level);
-    } else {
-      arctName.removeClass("bg-success");
-      arct.val(arctVal.val());
+      certName.removeClass("bg-success");
+      cert.val(certVal.val());
     }
   })
 

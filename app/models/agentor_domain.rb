@@ -12,15 +12,16 @@ class AgentorDomain < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: agentor_domains
 #
-#  id         :integer         not null, primary key
-#  level      :string          default(""), not null
-#  agentor_id  :integer
-#  domain_id  :integer
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
+#  id            :integer         not null, primary key
+#  level         :string          default(""), not null
+#  agentor_co_id :integer
+#  domain_id     :integer
+#  created_at    :datetime        not null
+#  updated_at    :datetime        not null
 #
 

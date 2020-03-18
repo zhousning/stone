@@ -72,6 +72,7 @@ class Labour < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: labours
@@ -98,6 +99,8 @@ end
 #  quality_three_back  :string          default(""), not null
 #  safe_front          :string          default(""), not null
 #  safe_back           :string          default(""), not null
+#  status              :string          default("新用户"), not null
+#  idnumber            :string          default(""), not null
 #  user_id             :integer
 #  created_at          :datetime        not null
 #  updated_at          :datetime        not null

@@ -52,6 +52,28 @@ class ApplicationController < ActionController::Base
   def delete_cpt_dep_user(cpt, dep, user)
     CptDepUser.where(:cpt_id => cpt.idnumber, :dep_id => dep.idnumber, :user_id => user.id).delete_all
   end
+
+  def certs(handle_cert, category)
+    @cert_ctgs = CertCtg.where(:category => category)
+    certships = handle_cert.cert_ships
+    @my_ctgs = Hash.new
+    certships.each do |d|
+      @my_ctgs[d.cert_ctg_id] = d.level
+    end
+  end
+
+  def hash_cert(certs) 
+    cert_hash = Hash.new
+    certs.each do |d|
+      next unless d =~ /,/
+      cert_level = d.split(",")
+      cert = cert_level[0]
+      level = cert_level[1]
+      cert_hash[cert] = level
+    end
+    cert_hash
+  end
+
   protected
 
     def self.permission

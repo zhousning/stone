@@ -12,16 +12,43 @@ class HandleCert < ActiveRecord::Base
 
   mount_uploader :safe_back, EnclosureUploader
 
-
-
-
-
-
   belongs_to :labour_handle
 
 
-  has_many :handle_arcts, :dependent => :destroy
-  has_many :arct_ctgs, :through => :handle_arcts
+  has_many :cert_ships, :dependent => :destroy, primary_key: "idnumber", foreign_key: "foreign_idnumber"
+  has_many :cert_ctgs, :through => :cert_ships
+
+
+  before_save :store_unique_number
+  def store_unique_number
+    if self.idnumber == ""
+      self.idnumber = Setting.flags.labour_handle + "+" + Time.now.to_i.to_s + "%04d" % [rand(10000)]
+    end
+  end
 
 
 end
+
+# == Schema Information
+#
+# Table name: handle_certs
+#
+#  id               :integer         not null
+#  reg_no           :string          default(""), not null
+#  cert_no          :string          default(""), not null
+#  start            :datetime
+#  end              :datetime
+#  dept             :string          default(""), not null
+#  level            :string          default(""), not null
+#  cert_front       :string          default(""), not null
+#  cert_back        :string          default(""), not null
+#  start_front      :string          default(""), not null
+#  start_back       :string          default(""), not null
+#  safe_front       :string          default(""), not null
+#  safe_back        :string          default(""), not null
+#  status           :string          default("新用户"), not null
+#  labour_handle_id :integer
+#  created_at       :datetime        not null
+#  updated_at       :datetime        not null
+#
+

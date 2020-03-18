@@ -58,9 +58,10 @@ class MonitorCo < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
-# Table name: monitors
+# Table name: monitor_cos
 #
 #  id                  :integer         not null, primary key
 #  company             :string          default(""), not null
@@ -84,6 +85,7 @@ end
 #  quality_three_back  :string          default(""), not null
 #  safe_front          :string          default(""), not null
 #  safe_back           :string          default(""), not null
+#  status              :string          default("新用户"), not null
 #  user_id             :integer
 #  created_at          :datetime        not null
 #  updated_at          :datetime        not null

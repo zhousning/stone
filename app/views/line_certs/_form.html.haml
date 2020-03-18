@@ -32,16 +32,17 @@
       .col-12
         %h2.text-center.text-danger.bg-secondary
           = Setting.prf_ctgs.label
-      - @prfs.each do |prf|
+      - @cert_ctgs.each do |ctg|
         .col-3
-          .form-group.row.prf-ctn
+          .form-group.row.cert-ctn
             = f.label "", :class => "col-6 text-right col-form-label col-form-label" do
-              %span{:class => @prf_hash[prf.id].nil? ? "prf-name" : "prf-name bg-success" }
-                = prf.name
+              %span{:class => @my_ctgs[ctg.id].nil? ? "cert-name" : "cert-name bg-success" }
+                = ctg.name
             .col-6
-              = select_tag "prf_levels", options_for_prf_level(@prf_hash[prf.id]), :include_blank=>false, :class=>"form-control prf-level-select"
-              = hidden_field_tag "prf[]", @prf_hash[prf.id].nil? ? prf.id : prf.id.to_s + "," + @prf_hash[prf.id], :class => "hidden-prf"
-              = hidden_field_tag "prf-val", prf.id, :class => "prf-val"
+              = select_tag "cert_levels", options_for_prf_level(@my_ctgs[ctg.id]), :include_blank=>false, :class=>"form-control cert-level-select"
+              = hidden_field_tag "cert[]", @my_ctgs[ctg.id].nil? ? ctg.id : ctg.id.to_s + "," + @my_ctgs[ctg.id], :class => "hidden-cert"
+              = hidden_field_tag "cert-val", ctg.id, :class => "cert-val"
+
 
     .form-row
       .col-6

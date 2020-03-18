@@ -914,7 +914,7 @@ development:
     level: 安全生产考核证书
     level_a: A
     level_b: B
-    level_c: C 
+    level_c: C
     level_none: 无
   tech_certs:
     label: 证书
@@ -922,7 +922,7 @@ development:
     cert_no: 证书编号
     start: 发证时间
     end: 注册有效期
-    dept: 发证单位 
+    dept: 发证单位
     level: 职称等级
     level_a: 初级
     level_b: 中级
@@ -934,7 +934,7 @@ development:
     cert_no: 证书编号
     start: 发证时间
     end: 注册有效期
-    dept: 发证单位 
+    dept: 发证单位
     level: 职称等级
     level_a: 初级
     level_b: 中级
@@ -946,7 +946,7 @@ development:
     cert_no: 证书编号
     start: 发证时间
     end: 注册有效期
-    dept: 发证单位 
+    dept: 发证单位
     level: 职称等级
     level_a: 初级
     level_b: 中级
@@ -973,19 +973,44 @@ development:
     level_three: 高级
     level_none: 无
   prf_ctgs:
-    label: 住房城乡建设领域现场专业人员 
+    label: 住房城乡建设领域现场专业人员
     name: 名称
     level: 等级
-    level_one: 土建 
+    level_one: 土建
     level_two: 设备
   hdct_ctgs:
-    label: 专业技术等级 
+    label: 专业技术等级
     name: 名称
     level: 等级
     level_one: 初级
     level_two: 中级
     level_three: 高级
     level_none: 无
+  cert_ctgs:
+    label: 证书类目
+    category: 证书类别
+    name: 分类名称
+    labour_handle: 全国注册建造师
+    labour_line: 住房城乡建设领域现场专业人员
+    labour_tech: 项目技术负责人-工程师
+    labour_worker: 专业技术工人 
+  number_levels:
+    level_one: 壹级
+    level_two: 贰级
+    level_three: 叁级
+    level_none: 无
+  desc_levels:
+    level_one: 初级
+    level_two: 中级
+    level_three: 高级
+    level_none: 无
+  flags:
+    labour_handle:  'labour_handle'
+    labour_line:    'labour_line'
+    labour_tech:    'labour_tech'  
+    labour_worker:  'labour_worker'
+
+
 test:
   admins: *1
   users: *2

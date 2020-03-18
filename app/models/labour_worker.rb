@@ -32,3 +32,25 @@ class LabourWorker < ActiveRecord::Base
 
 
 end
+
+# == Schema Information
+#
+# Table name: labour_workers
+#
+#  id           :integer         not null, primary key
+#  name         :string          default(""), not null
+#  phone        :string          default(""), not null
+#  idno         :string          default(""), not null
+#  idcard_front :string          default(""), not null
+#  idcard_back  :string          default(""), not null
+#  hr_front     :string          default(""), not null
+#  hr_back      :string          default(""), not null
+#  stamp_front  :string          default(""), not null
+#  stamp_back   :string          default(""), not null
+#  idnumber     :string          default(""), not null
+#  labour_id    :integer
+#  user_id      :integer
+#  created_at   :datetime        not null
+#  updated_at   :datetime        not null
+#
+

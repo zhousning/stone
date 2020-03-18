@@ -20,8 +20,8 @@ module HandlesHelper
     ]
   end
 
-  def options_for_arct_level(level) 
-    levels = [Setting.arct_ctgs.level_one, Setting.arct_ctgs.level_two, Setting.arct_ctgs.level_three]
+  def options_for_number_level(level) 
+    levels = [Setting.number_levels.level_one, Setting.number_levels.level_two, Setting.number_levels.level_three]
 
     str = "<option value='0'>无</option>"
     if !level.nil? && levels.include?(level) 
@@ -36,8 +36,8 @@ module HandlesHelper
     raw(str)
   end
 
-  def options_for_skill_level(level) 
-    levels = [Setting.skill_ctgs.level_one, Setting.skill_ctgs.level_two, Setting.skill_ctgs.level_three]
+  def options_for_desc_level(level) 
+    levels = [Setting.desc_levels.level_one, Setting.desc_levels.level_two, Setting.desc_levels.level_three]
 
     str = "<option value='0'>无</option>"
     if !level.nil? && levels.include?(level) 

@@ -14,14 +14,6 @@ class LabourHandle < ActiveRecord::Base
 
 
 
-  before_save :store_unique_number
-  def store_unique_number
-    if self.idnumber == ""
-      self.idnumber = "labour_handle+" + Time.now.to_i.to_s + "%04d" % [rand(10000)]
-    end
-  end
-
-
 
   belongs_to :labour
 
@@ -30,5 +22,26 @@ class LabourHandle < ActiveRecord::Base
   has_many :handle_certs, :dependent => :destroy
   accepts_nested_attributes_for :handle_certs, reject_if: :all_blank, allow_destroy: true
 
-
 end
+
+# == Schema Information
+#
+# Table name: labour_handles
+#
+#  id           :integer         not null, primary key
+#  name         :string          default(""), not null
+#  phone        :string          default(""), not null
+#  idno         :string          default(""), not null
+#  idcard_front :string          default(""), not null
+#  idcard_back  :string          default(""), not null
+#  hr_front     :string          default(""), not null
+#  hr_back      :string          default(""), not null
+#  stamp_front  :string          default(""), not null
+#  stamp_back   :string          default(""), not null
+#  idnumber     :string          default(""), not null
+#  labour_id    :integer
+#  user_id      :integer
+#  created_at   :datetime        not null
+#  updated_at   :datetime        not null
+#
+

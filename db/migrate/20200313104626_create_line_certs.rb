@@ -31,6 +31,7 @@ class CreateLineCerts < ActiveRecord::Migration
       t.string :status,  null: false, default: Setting.systems.opening
 
     
+      t.string :idnumber,  null: false, default: Setting.systems.default_str
 
     
       t.references :labour_line

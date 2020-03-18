@@ -79,6 +79,9 @@ Rails.application.routes.draw do
   resources :project_pages do
     get :download_append, :on => :member
   end
+  resources :cert_ctgs do
+    get :download_append, :on => :member
+  end
   resources :flower
 
   resources :controls, :only => [:index]

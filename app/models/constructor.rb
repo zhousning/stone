@@ -1,9 +1,13 @@
 class Constructor < ActiveRecord::Base
+  include ModelBase
+  before_save :store_unique_number
 
   mount_uploader :cert_front, EnclosureUploader
   mount_uploader :cert_back, EnclosureUploader
   mount_uploader :quality_front, EnclosureUploader
   mount_uploader :quality_back, EnclosureUploader
+
+  has_many :constructor_handles
 
   belongs_to :user
 

@@ -4,19 +4,20 @@
       = image_tag "logo.svg", :width => "100px"
     #accordionExample.accordion
       - if current_user.has_role?(Setting.roles.labour)
-        = render 'layouts/labour_sidebar/labour_sidebar'
+        = render 'layouts/labour_sidebar/_sidebar'
       - elsif current_user.has_role?(Setting.roles.supervisor)
-        = link_to '基本资料',  edit_supervisor_url(current_user.supervisor), :class => "list-group-item list-group-item-action border-0 text-left pl-4"
-      - elsif current_user.has_role?(Setting.roles.build)
-        = link_to '基本资料',  edit_constructor_url(current_user.constructor), :class => "list-group-item list-group-item-action border-0 text-left pl-4"
-      - elsif current_user.has_role?(Setting.roles.prospect)
-        = link_to '基本资料',  edit_prospector_url(current_user.prospector), :class => "list-group-item list-group-item-action border-0 text-left pl-4"
-      - elsif current_user.has_role?(Setting.roles.design)
-        = link_to '基本资料',  edit_designer_url(current_user.designer), :class => "list-group-item list-group-item-action border-0 text-left pl-4"
+        = render 'layouts/supervisor_sidebar/_sidebar'
+      - elsif current_user.has_role?(Setting.roles.constructor)
+        = render 'layouts/constructor_sidebar/_sidebar'
+      - elsif current_user.has_role?(Setting.roles.prospector)
+        = render 'layouts/prospector_sidebar/_sidebar'
+      - elsif current_user.has_role?(Setting.roles.designer)
+        = render 'layouts/designer_sidebar/_sidebar'
       - elsif current_user.has_role?(Setting.roles.monitor)
-        = link_to '基本资料',  edit_monitor_co_url(current_user.monitor_co), :class => "list-group-item list-group-item-action border-0 text-left pl-4"
-      - elsif current_user.has_role?(Setting.roles.agent)
-        = link_to '基本资料',  edit_agentor_co_url(current_user.agentor_co), :class => "list-group-item list-group-item-action border-0 text-left pl-4"
+        = render 'layouts/monitor_sidebar/_sidebar'
+      - elsif current_user.has_role?(Setting.roles.agentor)
+        = render 'layouts/agentor_sidebar/_sidebar'
+      - else
 
       = link_to table_templates_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
         = fa_icon "area-chart", text: Setting.table_templates.label, class: "mx-3"

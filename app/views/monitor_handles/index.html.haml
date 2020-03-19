@@ -1,0 +1,54 @@
+- provide(:title, t('.title'))
+
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
+      .card.shadow.rounded-0
+        .card-header.bg-primary.text-white.rounded-0
+          %h5
+            = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
+            = link_to "/#{controller_name}/new", :class => "button button-border button-rounded button-primary pull-right bg-white" do
+              = fa_icon "plus", text: Setting.systems.btn_new, right: false 
+        .card-body
+          .container-fluid.p-0
+            .row
+              .col-md-12
+                %table.text-center.table-bordered.table-sm{:'data-toggle' => "table", :"data-pagination"=>"true", :"data-search" => "true",:'data-advanced-search'=>"true", :'data-id-table'=>"advancedTable"}
+                  %thead.thead-light
+                    %tr
+                      %th{:scope => "col"} #
+                    
+                      %th{:scope => "col"}
+                        = Setting.monitor_handles.name
+                      %th{:scope => "col"}
+                        = Setting.monitor_handles.idno
+                      %th{:scope => "col"}
+                        = Setting.monitor_handles.cpt_job
+                      %th{:scope => "col"}
+                        = Setting.monitor_handles.prj_job
+                      %th{:scope => "col"}
+                  %tbody
+                    - @monitor_handles.each_with_index do |monitor_handle, index|
+                      %tr
+                        %td{:scope => "row"}
+                          = index+1
+                      
+                        %td
+                          = monitor_handle.name
+                        %td
+                          = monitor_handle.idno
+                        %td
+                          = monitor_handle.cpt_job
+                        %td
+                          = monitor_handle.prj_job
+                        %td
+                          .container-fluid
+                            .row
+                              = link_to monitor_handle_path(monitor_handle), :class => "text-info col" do
+                                = fa_icon "search"
+                              = link_to edit_monitor_handle_path(monitor_handle), :class => "text-success col" do
+                                = fa_icon "edit"
+                              = link_to monitor_handle, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                = fa_icon "trash"
+

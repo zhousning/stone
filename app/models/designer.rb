@@ -1,4 +1,6 @@
 class Designer < ActiveRecord::Base
+  include ModelBase
+  before_save :store_unique_number
 
   has_many :designer_domains, :dependent => :destroy
   has_many :domains, :through => :designer_domains
@@ -42,18 +44,6 @@ class Designer < ActiveRecord::Base
   #validates  :quality_three_back, :presence => true
   #validates  :safe_front, :presence => true
   #validates  :safe_back, :presence => true
-
-  def pend
-    update_attribute :status, Setting.systems.pending
-  end
-
-  def pass
-    update_attribute :status, Setting.systems.passed
-  end
-
-  def reject
-    update_attribute :status, Setting.systems.rejected
-  end
 
 end
 

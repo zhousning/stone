@@ -29,17 +29,30 @@ defaults:
     name: 名称
     class_name: Role
     super_admin: 超级管理员
-    labour: 施工单位
     supervisor: 监理单位
-    build: 建设单位
-    prospect: 地勘单位
-    design: 设计单位
-    monitor: 监督单位
-    agent: 代建单位
+    supervisor_state: 监理单位全国注册监理工程师
+    supervisor_major: 监理单位专业注册监理工程师
+    supervisor_worker: 监理单位从业监理人员
+    designer: 设计单位
+    designer_constructor: 设计单位注册建筑工程师
+    designer_structure: 设计单位注册结构工程师
+    designer_post: 设计单位职称工程师
+    designer_water: 设计单位注册给排水工程师
+    designer_electric: 设计单位注册电气工程师
+    designer_warm: 设计单位注册暖通工程师
+    labour: 施工单位
     labour_handle: 施工单位项目经理
     labour_tech: 施工单位技术负责人
     labour_line: 施工单位现场管理人员
     labour_worker: 施工单位技术工人
+    constructor: 建设单位
+    constructor_handle: 建设单位员工
+    agentor: 代建单位
+    agentor_handle: 代建单位员工
+    prospector: 地勘单位
+    prospector_handle: 地勘单位员工
+    monitor: 监督单位
+    monitor_handle: 监督单位员工
   permissions: &4
     super_admin: 管理系统所有资源
   citrines: &5
@@ -993,7 +1006,7 @@ development:
     labour_handle: 全国注册建造师
     labour_line: 住房城乡建设领域现场专业人员
     labour_tech: 项目技术负责人-工程师
-    labour_worker: 专业技术工人 
+    labour_worker: 专业技术工人
   number_levels:
     level_one: 壹级
     level_two: 贰级
@@ -1005,12 +1018,35 @@ development:
     level_three: 高级
     level_none: 无
   flags:
-    labour_handle:  'labour_handle'
-    labour_line:    'labour_line'
-    labour_tech:    'labour_tech'  
-    labour_worker:  'labour_worker'
-
-
+    labour_handle: labour_handle
+    labour_line: labour_line
+    labour_tech: labour_tech
+    labour_worker: labour_worker
+  constructor_handles:
+    label: 建设单位员工
+    name: 姓名
+    idno: 身份证
+    cpt_job: 单位职位
+    prj_job: 项目职务
+  prospector_handles:
+    label: 地勘单位员工
+    name: 姓名
+    idno: 身份证号
+    cpt_job: 单位职务
+    prj_job: 项目职务
+  monitor_handles:
+    label: 监督单位员工
+    name: 姓名
+    idno: 身份证号
+    cpt_job: 单位职务
+    prj_job: 项目职务
+  agentor_handles:
+    label: 代建单位员工
+    name: 姓名
+    phone: 电话
+    idno: 身份证
+    cpt_job: 单位职务
+    prj_job: 项目职务
 test:
   admins: *1
   users: *2

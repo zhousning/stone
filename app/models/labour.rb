@@ -1,4 +1,6 @@
 class Labour < ActiveRecord::Base
+  include ModelBase
+  before_save :store_unique_number
 
   has_many :projects
 
@@ -49,25 +51,6 @@ class Labour < ActiveRecord::Base
   mount_uploader :quality_three_back, EnclosureUploader
   mount_uploader :safe_front, EnclosureUploader
   mount_uploader :safe_back, EnclosureUploader
-
-  before_save :store_unique_number
-  def store_unique_number
-    if self.idnumber == ""
-      self.idnumber = "labour+" + Time.now.to_i.to_s + "%04d" % [rand(10000)]
-    end
-  end
-  
-  def pend
-    update_attribute :status, Setting.systems.pending
-  end
-
-  def pass
-    update_attribute :status, Setting.systems.passed
-  end
-
-  def reject
-    update_attribute :status, Setting.systems.rejected
-  end
 
 end
 

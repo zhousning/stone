@@ -1,6 +1,9 @@
 class Attachment < ActiveRecord::Base
   mount_uploader :file, AttachmentUploader
 
+  belongs_to :monitor_handle
+  belongs_to :monitor_handle
+  belongs_to :agentor_handle
 end
 
 # == Schema Information

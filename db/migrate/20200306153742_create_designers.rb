@@ -34,6 +34,7 @@ class CreateDesigners < ActiveRecord::Migration
       t.string :safe_back,  null: false, default: Setting.systems.default_str
       t.string :status,  null: false, default: Setting.systems.opening
     
+      t.string :idnumber,  null: false, default: Setting.systems.default_str
 
     
       t.references :user

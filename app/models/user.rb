@@ -5,11 +5,16 @@ class User < ActiveRecord::Base
   has_one :account
   has_one :labour
   has_one :supervisor
-  has_one :prospector
+  has_one :designer
   has_one :designer
   has_one :monitor_co
+  has_one :monitor_handle
   has_one :agentor_co
+  has_one :agentor_handle
   has_one :constructor
+  has_one :constructor_handle
+  has_one :prospector
+  has_one :prospector_handle
 
   has_many :consumes
   has_many :orders
@@ -112,15 +117,15 @@ class User < ActiveRecord::Base
       cpt = build_labour
     elsif self.has_role?(Setting.roles.supervisor)
       cpt = build_supervisor
-    elsif self.has_role?(Setting.roles.build)
+    elsif self.has_role?(Setting.roles.constructor)
       cpt = build_constructor
-    elsif self.has_role?(Setting.roles.prospect)
+    elsif self.has_role?(Setting.roles.prospector)
       cpt = build_prospector
-    elsif self.has_role?(Setting.roles.design)
+    elsif self.has_role?(Setting.roles.designer)
       cpt = build_designer
     elsif self.has_role?(Setting.roles.monitor)
       cpt = build_monitor_co
-    elsif self.has_role?(Setting.roles.agent)
+    elsif self.has_role?(Setting.roles.agentor)
       cpt = build_agentor_co
     end
     cpt.save!

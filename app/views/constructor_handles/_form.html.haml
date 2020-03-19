@@ -1,0 +1,11 @@
+.container-fluid
+  = form_for @constructor_handle, :builder => WebsiteFormBuilder do |f|
+    - if @constructor_handle.errors.any?
+      #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+        %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+          %span{"aria-hidden" => "true"} x 
+        %h2= "#{pluralize(@constructor_handle.errors.count, "error")} prohibited this buyer from being saved:"
+        %ul
+          - @constructor_handle.errors.full_messages.each do |msg|
+            %li= msg
+    = render 'layouts/agt_cst_mnt_prst_handle_form', f: f

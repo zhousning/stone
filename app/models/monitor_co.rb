@@ -1,4 +1,7 @@
 class MonitorCo < ActiveRecord::Base
+  include ModelBase
+  before_save :store_unique_number
+  has_many :monitor_handles
 
   has_many :monitor_domains, :dependent => :destroy
   has_many :domains, :through => :monitor_domains
@@ -42,18 +45,6 @@ class MonitorCo < ActiveRecord::Base
   #validates  :quality_three_back, :presence => true
   #validates  :safe_front, :presence => true
   #validates  :safe_back, :presence => true
-
-  def pend
-    update_attribute :status, Setting.systems.pending
-  end
-
-  def pass
-    update_attribute :status, Setting.systems.passed
-  end
-
-  def reject
-    update_attribute :status, Setting.systems.rejected
-  end
 
 end
 

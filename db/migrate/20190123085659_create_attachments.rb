@@ -7,6 +7,9 @@ class CreateAttachments < ActiveRecord::Migration
 
       t.references :product
       t.references :product
+      t.references :monitor_handle
+      t.references :monitor_handle
+      t.references :agentor_handle
     end
   end
 end

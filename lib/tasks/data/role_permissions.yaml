@@ -23,22 +23,57 @@
 - 
   role_name: 监理单位 
   permissions: 
-    #-
-    #  controller: Template 
-    #  actions: [manage, index, show, new, create, edit, update, delete, destroy]
-        
 - 
-  role_name: 建设单位 
+  role_name: 监理单位全国注册监理工程师 
   permissions: 
 - 
-  role_name: 地勘单位 
+  role_name: 监理单位专业注册监理工程师 
+  permissions: 
+- 
+  role_name: 监理单位从业监理人员 
   permissions: 
 - 
   role_name: 设计单位 
   permissions: 
 - 
-  role_name: 监督单位 
+  role_name: 设计单位注册结构工程师 
+  permissions: 
+- 
+  role_name: 设计单位注册建筑工程师 
+  permissions: 
+- 
+  role_name: 设计单位职称工程师 
+  permissions: 
+- 
+  role_name: 设计单位注册给排水工程师 
+  permissions: 
+- 
+  role_name: 设计单位注册电气工程师 
+  permissions: 
+- 
+  role_name: 设计单位注册暖通工程师 
   permissions: 
 - 
   role_name: 代建单位 
+  permissions: 
+- 
+  role_name: 代建单位员工 
+  permissions: 
+- 
+  role_name: 建设单位 
+  permissions: 
+- 
+  role_name: 建设单位员工 
+  permissions: 
+- 
+  role_name: 地勘单位 
+  permissions: 
+- 
+  role_name: 地勘单位员工 
+  permissions: 
+- 
+  role_name: 监督单位 
+  permissions: 
+- 
+  role_name: 监督单位员工 
   permissions: 

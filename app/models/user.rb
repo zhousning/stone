@@ -3,29 +3,42 @@ class User < ActiveRecord::Base
   dragonfly_accessor :qr_code
 
   has_one :account
-  has_one :labour
-  has_one :designer
-  has_one :designer
+
   has_one :monitor_co
   has_one :monitor_handle
+
   has_one :agentor_co
   has_one :agentor_handle
+
   has_one :constructor
   has_one :constructor_handle
+
   has_one :prospector
   has_one :prospector_handle
+
+  has_one :labour
+  has_one :labour_handle
+  has_one :labour_tech
+  has_one :labour_line
+  has_one :labour_worker
+
   has_one :supervisor
   has_one :supervisor_state
   has_one :supervisor_target
   has_one :supervisor_worker
 
+  has_one :designer
+  has_one :designer_constructor
+  has_one :designer_structure
+  has_one :designer_post
+  has_one :designer_water
+  has_one :designer_electric
+  has_one :designer_warm
+
+
   has_many :consumes
   has_many :orders
 
-  has_one :labour_handle
-  has_one :labour_tech
-  has_one :labour_line
-  has_one :labour_worker
 
   belongs_to :role
 

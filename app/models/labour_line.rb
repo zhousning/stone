@@ -1,4 +1,6 @@
 class LabourLine < ActiveRecord::Base
+  include ModelBase
+  before_save :store_unique_number
 
   mount_uploader :idcard_front, EnclosureUploader
 
@@ -11,17 +13,6 @@ class LabourLine < ActiveRecord::Base
   mount_uploader :stamp_front, EnclosureUploader
 
   mount_uploader :stamp_back, EnclosureUploader
-
-
-
-  before_save :store_unique_number
-  def store_unique_number
-    if self.idnumber == ""
-      self.idnumber = "labour_line+" + Time.now.to_i.to_s + "%04d" % [rand(10000)]
-    end
-  end
-
-
 
   belongs_to :labour
 

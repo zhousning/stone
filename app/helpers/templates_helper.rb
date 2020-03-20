@@ -4,7 +4,7 @@ module TemplatesHelper
   end
 
   def options_for_tag 
-    [["text", "text"], ["textarea", "textarea"], ["number", "number"], ["date", "date"], ["password", "password"], ["phone", "phone"], ["email", "email"], ["radio", "radio"], ["select","select"]]
+    [["text", "text"], ["textarea", "textarea"], ["number", "number"], ["phone", "phone"],["date", "date"], ["password", "password"], ["phone", "phone"], ["email", "email"], ["radio", "radio"], ["select","select"]]
   end                                            
 
   def options_for_type

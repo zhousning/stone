@@ -1,4 +1,6 @@
 class LabourHandle < ActiveRecord::Base
+  include ModelBase
+  before_save :store_unique_number
 
   mount_uploader :idcard_front, EnclosureUploader
 

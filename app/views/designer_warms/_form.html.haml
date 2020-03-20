@@ -1,0 +1,11 @@
+.container-fluid
+  = form_for [@designer, @designer_warm], :builder => WebsiteFormBuilder do |f|
+    - if @designer_warm.errors.any?
+      #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+        %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+          %span{"aria-hidden" => "true"} x 
+        %h2= "#{pluralize(@designer_warm.errors.count, "error")} prohibited this buyer from being saved:"
+        %ul
+          - @designer_warm.errors.full_messages.each do |msg|
+            %li= msg
+    = render 'layouts/spv_design_handle_form', f: f

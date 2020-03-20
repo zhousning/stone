@@ -8,6 +8,13 @@ class Designer < ActiveRecord::Base
   has_many :designer_majors, :dependent => :destroy
   has_many :majors, :through => :designer_majors
 
+  has_many :designer_constructors
+  has_many :designer_structures
+  has_many :designer_posts
+  has_many :designer_waters
+  has_many :designer_electrics
+  has_many :designer_warms
+
   belongs_to :user
 
   mount_uploader :cert_front, EnclosureUploader

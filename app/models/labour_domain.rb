@@ -1,9 +1,5 @@
 class LabourDomain < ActiveRecord::Base
 
-
-
-
-
   belongs_to :labour
 
 

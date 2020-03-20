@@ -1068,6 +1068,48 @@ development:
     idno: 身份证号码
     status: 状态
     idnumber: 标识符
+  designer_structures:
+    label: 注册结构工程师
+    name: 姓名
+    phone: 电话
+    idno: 身份证号码
+    status: 状态
+    idnumber: 标识符
+  designer_constructors:
+    label: 注册建筑工程师
+    name: 姓名
+    phone: 电话
+    idno: 身份证号码
+    status: 状态
+    idnumber: 标识符
+  designer_waters:
+    label: 注册给排水工程师
+    name: 姓名
+    phone: 电话
+    idno: 身份证号码
+    status: 状态
+    idnumber: 标识符
+  designer_electrics:
+    label: 注册电气工程师
+    name: 名字
+    phone: 电话
+    idno: 身份证号码
+    status: 状态
+    idnumber: 标识符
+  designer_warms:
+    label: 注册暖通工程师
+    name: 姓名
+    phone: 电话
+    idno: 身份证号码
+    status: 状态
+    idnumber: 标识符
+  designer_posts:
+    label: 职称工程师
+    name: 姓名
+    phone: 电话
+    idno: 身份证号码
+    status: 状态
+    idnumber: 标识符
 test:
   admins: *1
   users: *2

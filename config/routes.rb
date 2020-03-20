@@ -60,7 +60,17 @@ Rails.application.routes.draw do
     end
   end
   resources :designers, :only => [:edit, :update] do
-    resources :designer_handles do
+    resources :designer_structures do
+    end
+    resources :designer_constructors do
+    end
+    resources :designer_waters do
+    end
+    resources :designer_electrics do
+    end
+    resources :designer_warms do
+    end
+    resources :designer_posts do
     end
   end
 

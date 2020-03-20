@@ -19,8 +19,8 @@ class DesignerWater < ActiveRecord::Base
 
 
 
-  #has_many :designer_water_certs, :dependent => :destroy
-  #accepts_nested_attributes_for :designer_water_certs, reject_if: :all_blank, allow_destroy: true
+  has_many :designer_water_certs, :dependent => :destroy
+  accepts_nested_attributes_for :designer_water_certs, reject_if: :all_blank, allow_destroy: true
 
 
   belongs_to :user

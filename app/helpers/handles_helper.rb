@@ -20,6 +20,24 @@ module HandlesHelper
     ]
   end
 
+  def options_for_zh_level
+    [
+      [Setting.desc_levels.level_one, Setting.desc_levels.level_one],
+      [Setting.desc_levels.level_two, Setting.desc_levels.level_two],
+      [Setting.desc_levels.level_three, Setting.desc_levels.level_three],
+      [Setting.desc_levels.level_none, Setting.desc_levels.level_none]
+    ]
+  end
+
+  def options_for_digt_level
+    [
+      [Setting.number_levels.level_one, Setting.number_levels.level_one],
+      [Setting.number_levels.level_two, Setting.number_levels.level_two],
+      [Setting.number_levels.level_three, Setting.number_levels.level_three],
+      [Setting.number_levels.level_none, Setting.number_levels.level_none]
+    ]
+  end
+
   def options_for_number_level(level) 
     levels = [Setting.number_levels.level_one, Setting.number_levels.level_two, Setting.number_levels.level_three]
 

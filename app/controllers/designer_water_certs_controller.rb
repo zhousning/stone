@@ -1,29 +1,27 @@
 class DesignerWaterCertsController < ApplicationController
   layout "application_control"
   before_filter :authenticate_user!
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
-   
+
   def index
-    @designer_water_certs = DesignerWaterCert.all
+    @designer_water = DesignerWater.find(params[:designer_water_id])
+    @designer_water_certs = @designer_water.designer_water_certs
   end
    
-
-   
-
-   
   def new
+    @designer_water = DesignerWater.find(params[:designer_water_id])
     @designer_water_cert = DesignerWaterCert.new
-    
   end
    
 
    
   def create
+    @designer_water = DesignerWater.find(params[:designer_water_id])
     @designer_water_cert = DesignerWaterCert.new(designer_water_cert_params)
-    #@designer_water_cert.user = current_user
+    @designer_water_cert.designer_water = @designer_water
     if @designer_water_cert.save
-      redirect_to @designer_water_cert
+      redirect_to edit_designer_water_designer_water_cert_url(@designer_water, @designer_water_cert)
     else
       render :new
     end
@@ -32,32 +30,34 @@ class DesignerWaterCertsController < ApplicationController
 
    
   def edit
-    @designer_water_cert = DesignerWaterCert.find(params[:id])
+    @designer_water = DesignerWater.find(params[:designer_water_id])
+    @designer_water_cert = @designer_water.designer_water_certs.find(params[:id])
   end
    
 
    
   def update
-    @designer_water_cert = DesignerWaterCert.find(params[:id])
+    @designer_water = DesignerWater.find(params[:designer_water_id])
+    @designer_water_cert = @designer_water.designer_water_certs.find(params[:id])
+
     if @designer_water_cert.update(designer_water_cert_params)
-      redirect_to designer_water_cert_path(@designer_water_cert) 
+      redirect_to edit_designer_water_designer_water_cert_path(@designer_water, @designer_water_cert) 
     else
       render :edit
     end
   end
+
    
 
    
   def destroy
-    @designer_water_cert = DesignerWaterCert.find(params[:id])
+    @designer_water = DesignerWater.find(params[:designer_water_id])
+    @designer_water_cert = @designer_water.designer_water_certs.find(params[:id])
     @designer_water_cert.destroy
     redirect_to :action => :index
   end
-   
-
   
 
-  
 
   private
     def designer_water_cert_params

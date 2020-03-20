@@ -1,29 +1,27 @@
 class SupervisorStateCertsController < ApplicationController
   layout "application_control"
   before_filter :authenticate_user!
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
-   
+
   def index
-    @supervisor_state_certs = SupervisorStateCert.all
+    @supervisor_state = SupervisorState.find(params[:supervisor_state_id])
+    @supervisor_state_certs = @supervisor_state.supervisor_state_certs
   end
    
-
-   
-
-   
   def new
+    @supervisor_state = SupervisorState.find(params[:supervisor_state_id])
     @supervisor_state_cert = SupervisorStateCert.new
-    
   end
    
 
    
   def create
+    @supervisor_state = SupervisorState.find(params[:supervisor_state_id])
     @supervisor_state_cert = SupervisorStateCert.new(supervisor_state_cert_params)
-    #@supervisor_state_cert.user = current_user
+    @supervisor_state_cert.supervisor_state = @supervisor_state
     if @supervisor_state_cert.save
-      redirect_to @supervisor_state_cert
+      redirect_to edit_supervisor_state_supervisor_state_cert_url(@supervisor_state, @supervisor_state_cert)
     else
       render :new
     end
@@ -32,32 +30,25 @@ class SupervisorStateCertsController < ApplicationController
 
    
   def edit
-    @supervisor_state_cert = SupervisorStateCert.find(params[:id])
+    @supervisor_state = SupervisorState.find(params[:supervisor_state_id])
+    @supervisor_state_cert = @supervisor_state.supervisor_state_certs.find(params[:id])
   end
    
 
    
   def update
-    @supervisor_state_cert = SupervisorStateCert.find(params[:id])
+    @supervisor_state = SupervisorState.find(params[:supervisor_state_id])
+    @supervisor_state_cert = @supervisor_state.supervisor_state_certs.find(params[:id])
+
     if @supervisor_state_cert.update(supervisor_state_cert_params)
-      redirect_to supervisor_state_cert_path(@supervisor_state_cert) 
+      redirect_to edit_supervisor_state_supervisor_state_cert_path(@supervisor_state, @supervisor_state_cert) 
     else
       render :edit
     end
   end
-   
 
    
-  def destroy
-    @supervisor_state_cert = SupervisorStateCert.find(params[:id])
-    @supervisor_state_cert.destroy
-    redirect_to :action => :index
-  end
-   
 
-  
-
-  
 
   private
     def supervisor_state_cert_params

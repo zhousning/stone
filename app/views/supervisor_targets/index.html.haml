@@ -47,6 +47,8 @@
                             .row
                               = link_to edit_supervisor_supervisor_target_path(@supervisor, supervisor_target), :class => "text-success col" do
                                 = fa_icon "edit"
+                              = link_to supervisor_target_supervisor_target_certs_url(supervisor_target), :class => "text-success col" do
+                                = "证书备案"
                               = link_to supervisor_supervisor_target_path(@supervisor, supervisor_target), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                 = fa_icon "trash"
 

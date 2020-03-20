@@ -8,7 +8,7 @@
         .card-header.bg-primary.text-white.rounded-0
           %h5
             = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
-            = link_to "/#{controller_name}/new", :class => "button button-border button-rounded button-primary pull-right bg-white" do
+            = link_to new_designer_structure_designer_structure_cert_path(@designer_structure), :class => "button button-border button-rounded button-primary pull-right bg-white" do
               = fa_icon "plus", text: Setting.systems.btn_new, right: false 
         .card-body
           .container-fluid.p-0
@@ -22,17 +22,7 @@
                       %th{:scope => "col"}
                         = Setting.designer_structure_certs.reg_no
                       %th{:scope => "col"}
-                        = Setting.designer_structure_certs.start
-                      %th{:scope => "col"}
-                        = Setting.designer_structure_certs.cert_no
-                      %th{:scope => "col"}
-                        = Setting.designer_structure_certs.end
-                      %th{:scope => "col"}
                         = Setting.designer_structure_certs.level
-                      %th{:scope => "col"}
-                        = Setting.designer_structure_certs.status
-                      %th{:scope => "col"}
-                        = Setting.designer_structure_certs.idnumber
                       %th{:scope => "col"}
                   %tbody
                     - @designer_structure_certs.each_with_index do |designer_structure_cert, index|
@@ -43,24 +33,12 @@
                         %td
                           = designer_structure_cert.reg_no
                         %td
-                          = designer_structure_cert.start
-                        %td
-                          = designer_structure_cert.cert_no
-                        %td
-                          = designer_structure_cert.end
-                        %td
                           = designer_structure_cert.level
-                        %td
-                          = designer_structure_cert.status
-                        %td
-                          = designer_structure_cert.idnumber
                         %td
                           .container-fluid
                             .row
-                              = link_to designer_structure_cert_path(designer_structure_cert), :class => "text-info col" do
-                                = fa_icon "search"
-                              = link_to edit_designer_structure_cert_path(designer_structure_cert), :class => "text-success col" do
+                              = link_to edit_designer_structure_designer_structure_cert_path(@designer_structure, designer_structure_cert), :class => "text-success col" do
                                 = fa_icon "edit"
-                              = link_to designer_structure_cert, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                              = link_to designer_structure_designer_structure_cert_path(@designer_structure, designer_structure_cert), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                 = fa_icon "trash"
 

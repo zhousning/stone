@@ -8,7 +8,7 @@
         .card-header.bg-primary.text-white.rounded-0
           %h5
             = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
-            = link_to "/#{controller_name}/new", :class => "button button-border button-rounded button-primary pull-right bg-white" do
+            = link_to new_supervisor_target_supervisor_target_cert_path(@supervisor_target), :class => "button button-border button-rounded button-primary pull-right bg-white" do
               = fa_icon "plus", text: Setting.systems.btn_new, right: false 
         .card-body
           .container-fluid.p-0
@@ -22,17 +22,7 @@
                       %th{:scope => "col"}
                         = Setting.supervisor_target_certs.reg_no
                       %th{:scope => "col"}
-                        = Setting.supervisor_target_certs.start
-                      %th{:scope => "col"}
-                        = Setting.supervisor_target_certs.cert_no
-                      %th{:scope => "col"}
-                        = Setting.supervisor_target_certs.end
-                      %th{:scope => "col"}
                         = Setting.supervisor_target_certs.level
-                      %th{:scope => "col"}
-                        = Setting.supervisor_target_certs.status
-                      %th{:scope => "col"}
-                        = Setting.supervisor_target_certs.idnumber
                       %th{:scope => "col"}
                   %tbody
                     - @supervisor_target_certs.each_with_index do |supervisor_target_cert, index|
@@ -43,24 +33,11 @@
                         %td
                           = supervisor_target_cert.reg_no
                         %td
-                          = supervisor_target_cert.start
-                        %td
-                          = supervisor_target_cert.cert_no
-                        %td
-                          = supervisor_target_cert.end
-                        %td
                           = supervisor_target_cert.level
-                        %td
-                          = supervisor_target_cert.status
-                        %td
-                          = supervisor_target_cert.idnumber
                         %td
                           .container-fluid
                             .row
-                              = link_to supervisor_target_cert_path(supervisor_target_cert), :class => "text-info col" do
-                                = fa_icon "search"
-                              = link_to edit_supervisor_target_cert_path(supervisor_target_cert), :class => "text-success col" do
+                              = link_to edit_supervisor_target_supervisor_target_cert_path(@supervisor_target, supervisor_target_cert), :class => "text-success col" do
                                 = fa_icon "edit"
-                              = link_to supervisor_target_cert, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                              = link_to supervisor_target_supervisor_target_cert_path(@supervisor_target, supervisor_target_cert), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                 = fa_icon "trash"
-

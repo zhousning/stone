@@ -8,7 +8,7 @@
         .card-header.bg-primary.text-white.rounded-0
           %h5
             = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
-            = link_to new_designer_constructor_designer_constructor_cert_path(@designer_constructor), :class => "button button-border button-rounded button-primary pull-right bg-white" do
+            = link_to new_designer_post_designer_post_cert_path(@designer_post), :class => "button button-border button-rounded button-primary pull-right bg-white" do
               = fa_icon "plus", text: Setting.systems.btn_new, right: false 
         .card-body
           .container-fluid.p-0
@@ -20,25 +20,25 @@
                       %th{:scope => "col"} #
                     
                       %th{:scope => "col"}
-                        = Setting.designer_constructor_certs.reg_no
+                        = Setting.designer_post_certs.reg_no
                       %th{:scope => "col"}
-                        = Setting.designer_constructor_certs.level
+                        = Setting.designer_post_certs.level
                       %th{:scope => "col"}
                   %tbody
-                    - @designer_constructor_certs.each_with_index do |designer_constructor_cert, index|
+                    - @designer_post_certs.each_with_index do |designer_post_cert, index|
                       %tr
                         %td{:scope => "row"}
                           = index+1
                       
                         %td
-                          = designer_constructor_cert.reg_no
+                          = designer_post_cert.reg_no
                         %td
-                          = designer_constructor_cert.level
+                          = designer_post_cert.level
                         %td
                           .container-fluid
                             .row
-                              = link_to edit_designer_constructor_designer_constructor_cert_path(@designer_constructor, designer_constructor_cert), :class => "text-success col" do
+                              = link_to edit_designer_post_designer_post_cert_path(@designer_post, designer_post_cert), :class => "text-success col" do
                                 = fa_icon "edit"
-                              = link_to designer_constructor_designer_constructor_cert_path(@designer_constructor, designer_constructor_cert), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                              = link_to designer_post_designer_post_cert_path(@designer_post, designer_post_cert), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                 = fa_icon "trash"
 

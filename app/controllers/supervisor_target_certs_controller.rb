@@ -1,29 +1,27 @@
 class SupervisorTargetCertsController < ApplicationController
   layout "application_control"
   before_filter :authenticate_user!
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
-   
+
   def index
-    @supervisor_target_certs = SupervisorTargetCert.all
+    @supervisor_target = SupervisorTarget.find(params[:supervisor_target_id])
+    @supervisor_target_certs = @supervisor_target.supervisor_target_certs
   end
    
-
-   
-
-   
   def new
+    @supervisor_target = SupervisorTarget.find(params[:supervisor_target_id])
     @supervisor_target_cert = SupervisorTargetCert.new
-    
   end
    
 
    
   def create
+    @supervisor_target = SupervisorTarget.find(params[:supervisor_target_id])
     @supervisor_target_cert = SupervisorTargetCert.new(supervisor_target_cert_params)
-    #@supervisor_target_cert.user = current_user
+    @supervisor_target_cert.supervisor_target = @supervisor_target
     if @supervisor_target_cert.save
-      redirect_to @supervisor_target_cert
+      redirect_to edit_supervisor_target_supervisor_target_cert_url(@supervisor_target, @supervisor_target_cert)
     else
       render :new
     end
@@ -32,32 +30,24 @@ class SupervisorTargetCertsController < ApplicationController
 
    
   def edit
-    @supervisor_target_cert = SupervisorTargetCert.find(params[:id])
+    @supervisor_target = SupervisorTarget.find(params[:supervisor_target_id])
+    @supervisor_target_cert = @supervisor_target.supervisor_target_certs.find(params[:id])
   end
    
 
    
   def update
-    @supervisor_target_cert = SupervisorTargetCert.find(params[:id])
+    @supervisor_target = SupervisorTarget.find(params[:supervisor_target_id])
+    @supervisor_target_cert = @supervisor_target.supervisor_target_certs.find(params[:id])
+
     if @supervisor_target_cert.update(supervisor_target_cert_params)
-      redirect_to supervisor_target_cert_path(@supervisor_target_cert) 
+      redirect_to edit_supervisor_target_supervisor_target_cert_path(@supervisor_target, @supervisor_target_cert) 
     else
       render :edit
     end
   end
-   
 
    
-  def destroy
-    @supervisor_target_cert = SupervisorTargetCert.find(params[:id])
-    @supervisor_target_cert.destroy
-    redirect_to :action => :index
-  end
-   
-
-  
-
-  
 
   private
     def supervisor_target_cert_params

@@ -1,29 +1,27 @@
 class DesignerWarmCertsController < ApplicationController
   layout "application_control"
   before_filter :authenticate_user!
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
-   
+
   def index
-    @designer_warm_certs = DesignerWarmCert.all
+    @designer_warm = DesignerWarm.find(params[:designer_warm_id])
+    @designer_warm_certs = @designer_warm.designer_warm_certs
   end
    
-
-   
-
-   
   def new
+    @designer_warm = DesignerWarm.find(params[:designer_warm_id])
     @designer_warm_cert = DesignerWarmCert.new
-    
   end
    
 
    
   def create
+    @designer_warm = DesignerWarm.find(params[:designer_warm_id])
     @designer_warm_cert = DesignerWarmCert.new(designer_warm_cert_params)
-    #@designer_warm_cert.user = current_user
+    @designer_warm_cert.designer_warm = @designer_warm
     if @designer_warm_cert.save
-      redirect_to @designer_warm_cert
+      redirect_to edit_designer_warm_designer_warm_cert_url(@designer_warm, @designer_warm_cert)
     else
       render :new
     end
@@ -32,31 +30,32 @@ class DesignerWarmCertsController < ApplicationController
 
    
   def edit
-    @designer_warm_cert = DesignerWarmCert.find(params[:id])
+    @designer_warm = DesignerWarm.find(params[:designer_warm_id])
+    @designer_warm_cert = @designer_warm.designer_warm_certs.find(params[:id])
   end
    
 
    
   def update
-    @designer_warm_cert = DesignerWarmCert.find(params[:id])
+    @designer_warm = DesignerWarm.find(params[:designer_warm_id])
+    @designer_warm_cert = @designer_warm.designer_warm_certs.find(params[:id])
+
     if @designer_warm_cert.update(designer_warm_cert_params)
-      redirect_to designer_warm_cert_path(@designer_warm_cert) 
+      redirect_to edit_designer_warm_designer_warm_cert_path(@designer_warm, @designer_warm_cert) 
     else
       render :edit
     end
   end
+
    
 
    
   def destroy
-    @designer_warm_cert = DesignerWarmCert.find(params[:id])
+    @designer_warm = DesignerWarm.find(params[:designer_warm_id])
+    @designer_warm_cert = @designer_warm.designer_warm_certs.find(params[:id])
     @designer_warm_cert.destroy
     redirect_to :action => :index
   end
-   
-
-  
-
   
 
   private

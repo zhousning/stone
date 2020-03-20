@@ -1,0 +1,11 @@
+.container-fluid
+  = form_for [@designer_post, @designer_post_cert], :builder => WebsiteFormBuilder do |f|
+    - if @designer_post_cert.errors.any?
+      #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+        %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+          %span{"aria-hidden" => "true"} x 
+        %h2= "#{pluralize(@designer_post_cert.errors.count, "error")} prohibited this buyer from being saved:"
+        %ul
+          - @designer_post_cert.errors.full_messages.each do |msg|
+            %li= msg
+    = render 'layouts/sup_desg_two_form', f: f

@@ -1,7 +1,7 @@
 class HandleCertsController < ApplicationController
   layout "application_control"
   #能看到这些的只有法人账户 role=施工单位
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
   #load_and_authorize_resource
 
 

@@ -1182,6 +1182,15 @@ development:
     level: 等级
     status: 状态
     idnumber: 标识符
+  designer_post_certs:
+    label: 职称工程师
+    reg_no: 注册证书编号
+    start: 初始注册时间
+    cert_no: 证书编号
+    end: 注册有效期
+    level: 等级
+    status: 状态
+    idnumber: 标识符
 test:
   admins: *1
   users: *2

@@ -111,28 +111,46 @@ Rails.application.routes.draw do
   end
   resources :cert_ctgs do
   end
-  resources :designer_constructor_certs do
-    get :download_append, :on => :member
+
+  resources :designer_constructor, :only => [] do
+    resources :designer_constructor_certs do
+    end
   end
-  resources :designer_structure_certs do
-    get :download_append, :on => :member
+  resources :designer_structure, :only => [] do
+    resources :designer_structure_certs do
+    end
   end
-  resources :designer_water_certs do
-    get :download_append, :on => :member
+  resources :designer_post, :only => [] do
+    resources :designer_post_certs do
+    end
   end
-  resources :designer_electric_certs do
-    get :download_append, :on => :member
+  resources :designer_water, :only => [] do
+    resources :designer_water_certs do
+    end
   end
-  resources :designer_warm_certs do
-    get :download_append, :on => :member
+  resources :designer_electric, :only => [] do
+    resources :designer_electric_certs do
+    end
   end
-  resources :supervisor_state_certs do
-    get :download_append, :on => :member
+  resources :designer_warm, :only => [] do
+    resources :designer_warm_certs do
+    end
   end
-  resources :supervisor_target_certs do
-    get :download_append, :on => :member
+
+  resources :supervisor_state_certs, :only => [] do
+    resources :supervisor_state_certs do
+    end
   end
-  resources :supervisor_worker_certs do
+  resources :supervisor_target_certs, :only => [] do
+    resources :supervisor_target_certs do
+    end
+  end
+  resources :supervisor_worker_certs, :only => [] do
+    resources :supervisor_worker_certs do
+    end
+  end
+
+  resources :designer_post_certs do
     get :download_append, :on => :member
   end
   resources :flower

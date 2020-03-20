@@ -39,6 +39,8 @@
                             .row
                               = link_to edit_designer_designer_post_url(@designer, designer_post), :class => "text-success col" do
                                 = fa_icon "edit"
+                              = link_to designer_post_designer_post_certs_url(designer_post), :class => "text-success col" do
+                                = "证书备案"
                               = link_to designer_designer_post_url(@designer, designer_post), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                 = fa_icon "trash"
 

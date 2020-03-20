@@ -1110,6 +1110,78 @@ development:
     idno: 身份证号码
     status: 状态
     idnumber: 标识符
+  designer_constructor_certs:
+    label: 注册建筑工程师
+    reg_no: 注册证书编号
+    start: 初始注册时间
+    cert_no: 证书编号
+    end: 注册有效期
+    level: 等级
+    status: 状态
+    idnumber: 标识符
+  designer_structure_certs:
+    label: 注册结构工程师
+    reg_no: 注册证书编号
+    start: 初始注册时间
+    cert_no: 证书编号
+    end: 注册有效期
+    level: 等级
+    status: 状态
+    idnumber: 标识符
+  designer_water_certs:
+    label: 注册给排水工程师
+    reg_no: 注册证书编号
+    start: 初始注册时间
+    cert_no: 证书编号
+    end: 注册有效期
+    level: 等级
+    status: 状态
+    idnumber: 标识符
+  designer_electric_certs:
+    label: 注册电气工程师
+    reg_no: 注册证书编号
+    start: 初始注册时间
+    cert_no: 证书编号
+    end: 注册有效期
+    level: 等级
+    status: 状态
+    idnumber: 标识符
+  designer_warm_certs:
+    label: 注册暖通工程师
+    reg_no: 注册证书编号
+    start: 初始注册时间
+    cert_no: 证书编号
+    end: 注册有效期
+    level: 等级
+    status: 状态
+    idnumber: 标识符
+  supervisor_state_certs:
+    label: 全国注册监理工程师
+    reg_no: 注册证书编号
+    start: 初始注册时间
+    cert_no: 证书编号
+    end: 注册有效期
+    level: 等级
+    status: 状态
+    idnumber: 标识符
+  supervisor_target_certs:
+    label: 专业注册监理工程师
+    reg_no: 注册证书编号
+    start: 初始注册时间
+    cert_no: 证书编号
+    end: 注册有效期
+    level: 等级
+    status: 状态
+    idnumber: 标识符
+  supervisor_worker_certs:
+    label: 从业监理人员
+    reg_no: 注册证书编号
+    start: 初始注册时间
+    cert_no: 证书编号
+    end: 注册有效期
+    level: 等级
+    status: 状态
+    idnumber: 标识符
 test:
   admins: *1
   users: *2

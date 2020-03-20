@@ -1,0 +1,66 @@
+- provide(:title, t('.title'))
+
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
+      .card.shadow.rounded-0
+        .card-header.bg-primary.text-white.rounded-0
+          %h5
+            = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
+            = link_to "/#{controller_name}/new", :class => "button button-border button-rounded button-primary pull-right bg-white" do
+              = fa_icon "plus", text: Setting.systems.btn_new, right: false 
+        .card-body
+          .container-fluid.p-0
+            .row
+              .col-md-12
+                %table.text-center.table-bordered.table-sm{:'data-toggle' => "table", :"data-pagination"=>"true", :"data-search" => "true",:'data-advanced-search'=>"true", :'data-id-table'=>"advancedTable"}
+                  %thead.thead-light
+                    %tr
+                      %th{:scope => "col"} #
+                    
+                      %th{:scope => "col"}
+                        = Setting.designer_warm_certs.reg_no
+                      %th{:scope => "col"}
+                        = Setting.designer_warm_certs.start
+                      %th{:scope => "col"}
+                        = Setting.designer_warm_certs.cert_no
+                      %th{:scope => "col"}
+                        = Setting.designer_warm_certs.end
+                      %th{:scope => "col"}
+                        = Setting.designer_warm_certs.level
+                      %th{:scope => "col"}
+                        = Setting.designer_warm_certs.status
+                      %th{:scope => "col"}
+                        = Setting.designer_warm_certs.idnumber
+                      %th{:scope => "col"}
+                  %tbody
+                    - @designer_warm_certs.each_with_index do |designer_warm_cert, index|
+                      %tr
+                        %td{:scope => "row"}
+                          = index+1
+                      
+                        %td
+                          = designer_warm_cert.reg_no
+                        %td
+                          = designer_warm_cert.start
+                        %td
+                          = designer_warm_cert.cert_no
+                        %td
+                          = designer_warm_cert.end
+                        %td
+                          = designer_warm_cert.level
+                        %td
+                          = designer_warm_cert.status
+                        %td
+                          = designer_warm_cert.idnumber
+                        %td
+                          .container-fluid
+                            .row
+                              = link_to designer_warm_cert_path(designer_warm_cert), :class => "text-info col" do
+                                = fa_icon "search"
+                              = link_to edit_designer_warm_cert_path(designer_warm_cert), :class => "text-success col" do
+                                = fa_icon "edit"
+                              = link_to designer_warm_cert, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                = fa_icon "trash"
+

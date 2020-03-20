@@ -111,6 +111,30 @@ Rails.application.routes.draw do
   end
   resources :cert_ctgs do
   end
+  resources :designer_constructor_certs do
+    get :download_append, :on => :member
+  end
+  resources :designer_structure_certs do
+    get :download_append, :on => :member
+  end
+  resources :designer_water_certs do
+    get :download_append, :on => :member
+  end
+  resources :designer_electric_certs do
+    get :download_append, :on => :member
+  end
+  resources :designer_warm_certs do
+    get :download_append, :on => :member
+  end
+  resources :supervisor_state_certs do
+    get :download_append, :on => :member
+  end
+  resources :supervisor_target_certs do
+    get :download_append, :on => :member
+  end
+  resources :supervisor_worker_certs do
+    get :download_append, :on => :member
+  end
   resources :flower
 
   resources :controls, :only => [:index]

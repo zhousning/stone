@@ -8,7 +8,7 @@
         .card-header.bg-primary.text-white.rounded-0
           %h5
             = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
-            = link_to "/#{controller_name}/new", :class => "button button-border button-rounded button-primary pull-right bg-white" do
+            = link_to new_prospector_prospector_handle_url(@prospector), :class => "button button-border button-rounded button-primary pull-right bg-white" do
               = fa_icon "plus", text: Setting.systems.btn_new, right: false 
         .card-body
           .container-fluid.p-0
@@ -45,10 +45,8 @@
                         %td
                           .container-fluid
                             .row
-                              = link_to prospector_handle_path(prospector_handle), :class => "text-info col" do
-                                = fa_icon "search"
-                              = link_to edit_prospector_handle_path(prospector_handle), :class => "text-success col" do
+                              = link_to edit_prospector_prospector_handle_path(@prospector, prospector_handle), :class => "text-success col" do
                                 = fa_icon "edit"
-                              = link_to prospector_handle, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                              = link_to prospector_prospector_handle_path(@prospector, prospector_handle), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                 = fa_icon "trash"
 

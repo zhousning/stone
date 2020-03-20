@@ -49,7 +49,7 @@ class LabourHandlesController < ApplicationController
       @user.save
       @labour_handle.user = @user
     end
-    if @labour_handle.save
+    if @user.persisted? &&  @labour_handle.save
       save_cpt_dep_user(@labour, @labour_handle, @user)
       redirect_to edit_labour_labour_handle_path(@labour, @labour_handle) 
     else
@@ -97,10 +97,6 @@ class LabourHandlesController < ApplicationController
     redirect_to :action => :index
   end
    
-
-  
-
-  
 
   private
     def labour_handle_params

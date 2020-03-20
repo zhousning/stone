@@ -11,6 +11,7 @@ class ConstructorHandlesController < ApplicationController
    
    
   def new
+    @constructor = current_user.constructor
     @constructor_handle = ConstructorHandle.new
   end
    
@@ -48,7 +49,7 @@ class ConstructorHandlesController < ApplicationController
       @user.save
       @constructor_handle.user = @user
     end
-    if @constructor_handle.save
+    if @user.persisted? &&  @constructor_handle.save
       @constructor_handle.to_s
       save_cpt_dep_user(@constructor, @constructor_handle, @user)
       redirect_to edit_constructor_constructor_handle_path(@constructor, @constructor_handle) 

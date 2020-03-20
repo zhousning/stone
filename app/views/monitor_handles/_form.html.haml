@@ -1,5 +1,5 @@
 .container-fluid
-  = form_for @monitor_handle, :builder => WebsiteFormBuilder do |f|
+  = form_for [@monitor, @monitor_handle], :builder => WebsiteFormBuilder do |f|
     - if @monitor_handle.errors.any?
       #error_explanation.alert.alert-danger.alert-dismissible.fade.show
         %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}

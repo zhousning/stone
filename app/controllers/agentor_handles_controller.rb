@@ -11,6 +11,7 @@ class AgentorHandlesController < ApplicationController
    
    
   def new
+    @agentor = current_user.agentor_co
     @agentor_handle = AgentorHandle.new
   end
    
@@ -48,7 +49,7 @@ class AgentorHandlesController < ApplicationController
       @user.save
       @agentor_handle.user = @user
     end
-    if @agentor_handle.save
+    if @user.persisted? &&  @agentor_handle.save
       save_cpt_dep_user(@agentor, @agentor_handle, @user)
       redirect_to edit_agentor_co_agentor_handle_path(@agentor, @agentor_handle) 
     else

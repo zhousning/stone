@@ -8,7 +8,7 @@
         .card-header.bg-primary.text-white.rounded-0
           %h5
             = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
-            = link_to "/#{controller_name}/new", :class => "button button-border button-rounded button-primary pull-right bg-white" do
+            = link_to new_agentor_co_agentor_handle_url(@agentor), :class => "button button-border button-rounded button-caution pull-right bg-white" do
               = fa_icon "plus", text: Setting.systems.btn_new, right: false 
         .card-body
           .container-fluid.p-0
@@ -45,10 +45,8 @@
                         %td
                           .container-fluid
                             .row
-                              = link_to agentor_handle_path(agentor_handle), :class => "text-info col" do
-                                = fa_icon "search"
-                              = link_to edit_agentor_handle_path(agentor_handle), :class => "text-success col" do
+                              = link_to edit_agentor_co_agentor_handle_url(@agentor, agentor_handle), :class => "text-success col" do
                                 = fa_icon "edit"
-                              = link_to agentor_handle, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                              = link_to agentor_co_agentor_handle_url(@agentor, agentor_handle), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                 = fa_icon "trash"
 

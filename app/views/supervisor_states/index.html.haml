@@ -8,7 +8,7 @@
         .card-header.bg-primary.text-white.rounded-0
           %h5
             = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
-            = link_to new_monitor_co_monitor_handle_path(@monitor), :class => "button button-border button-rounded button-primary pull-right bg-white" do
+            = link_to new_supervisor_supervisor_state_url(@supervisor), :class => "button button-border button-rounded button-caution pull-right bg-white" do
               = fa_icon "plus", text: Setting.systems.btn_new, right: false 
         .card-body
           .container-fluid.p-0
@@ -20,33 +20,33 @@
                       %th{:scope => "col"} #
                     
                       %th{:scope => "col"}
-                        = Setting.monitor_handles.name
+                        = Setting.supervisor_states.name
                       %th{:scope => "col"}
-                        = Setting.monitor_handles.idno
+                        = Setting.supervisor_states.phone
                       %th{:scope => "col"}
-                        = Setting.monitor_handles.cpt_job
+                        = Setting.supervisor_states.idno
                       %th{:scope => "col"}
-                        = Setting.monitor_handles.prj_job
+                        = Setting.supervisor_states.status
                       %th{:scope => "col"}
                   %tbody
-                    - @monitor_handles.each_with_index do |monitor_handle, index|
+                    - @supervisor_states.each_with_index do |supervisor_state, index|
                       %tr
                         %td{:scope => "row"}
                           = index+1
                       
                         %td
-                          = monitor_handle.name
+                          = supervisor_state.name
                         %td
-                          = monitor_handle.idno
+                          = supervisor_state.phone
                         %td
-                          = monitor_handle.cpt_job
+                          = supervisor_state.idno
                         %td
-                          = monitor_handle.prj_job
+                          = supervisor_state.status
                         %td
                           .container-fluid
                             .row
-                              = link_to edit_monitor_co_monitor_handle_path(@monitor, monitor_handle), :class => "text-success col" do
+                              = link_to edit_supervisor_supervisor_state_path(@supervisor, supervisor_state), :class => "text-success col" do
                                 = fa_icon "edit"
-                              = link_to monitor_co_monitor_handle_url(@monitor, monitor_handle), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                              = link_to supervisor_supervisor_state_path(@supervisor, supervisor_state), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                 = fa_icon "trash"
 

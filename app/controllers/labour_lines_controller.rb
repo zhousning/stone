@@ -49,7 +49,7 @@ class LabourLinesController < ApplicationController
       @user.save
       @labour_line.user = @user
     end
-    if @labour_line.save
+    if @user.persisted? &&  @labour_line.save
       save_cpt_dep_user(@labour, @labour_line, @user)
       redirect_to edit_labour_labour_line_path(@labour, @labour_line) 
     else

@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
 
   has_one :account
   has_one :labour
-  has_one :supervisor
   has_one :designer
   has_one :designer
   has_one :monitor_co
@@ -15,6 +14,10 @@ class User < ActiveRecord::Base
   has_one :constructor_handle
   has_one :prospector
   has_one :prospector_handle
+  has_one :supervisor
+  has_one :supervisor_state
+  has_one :supervisor_target
+  has_one :supervisor_worker
 
   has_many :consumes
   has_many :orders

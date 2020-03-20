@@ -8,6 +8,10 @@ class Supervisor < ActiveRecord::Base
   has_many :supervisor_majors, :dependent => :destroy
   has_many :majors, :through => :supervisor_majors
 
+  has_many :supervisor_states
+  has_many :supervisor_targets 
+  has_many :supervisor_workers
+
   belongs_to :user
 
   mount_uploader :cert_front, EnclosureUploader

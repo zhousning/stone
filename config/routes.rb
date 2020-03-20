@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   end
   resources :domains do
   end
+
   resources :labours, :only => [:edit, :update] do
     resources :labour_handles do
     end
@@ -49,14 +50,20 @@ Rails.application.routes.draw do
     resources :worker_certs do
     end
   end
+
   resources :supervisors, :only => [:edit, :update] do
-    resources :supervisor_handles do
+    resources :supervisor_states do
+    end
+    resources :supervisor_targets do
+    end
+    resources :supervisor_workers do
     end
   end
   resources :designers, :only => [:edit, :update] do
     resources :designer_handles do
     end
   end
+
   resources :agentor_cos, :only => [:edit, :update] do
     resources :agentor_handles do
     end
@@ -72,23 +79,6 @@ Rails.application.routes.draw do
   resources :prospectors, :only => [:edit, :update] do
     resources :prospector_handles do
     end
-  end
-
-  resources :supervisor_handles do
-  end
-  resources :agentor_handles do
-  end
-  resources :designer_handles do
-  end
-  resources :monitor_handles do
-  end
-  resources :constructor_handles do
-  end
-  resources :designer_handles do
-  end
-  resources :constructor_handles do
-  end
-  resources :prospector_handles do
   end
 
   resources :table_templates do
@@ -110,10 +100,6 @@ Rails.application.routes.draw do
     get :download_append, :on => :member
   end
   resources :cert_ctgs do
-    get :download_append, :on => :member
-  end
-  resources :constructor_handles do
-    get :download_append, :on => :member
   end
   resources :flower
 

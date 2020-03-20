@@ -31,7 +31,7 @@ defaults:
     super_admin: 超级管理员
     supervisor: 监理单位
     supervisor_state: 监理单位全国注册监理工程师
-    supervisor_major: 监理单位专业注册监理工程师
+    supervisor_target: 监理单位专业注册监理工程师
     supervisor_worker: 监理单位从业监理人员
     designer: 设计单位
     designer_constructor: 设计单位注册建筑工程师
@@ -1047,6 +1047,27 @@ development:
     idno: 身份证
     cpt_job: 单位职务
     prj_job: 项目职务
+  supervisor_states:
+    label: 全国注册监理工程师
+    name: 姓名
+    phone: 电话
+    idno: 身份证号码
+    status: 状态
+    idnumber: 识别号
+  supervisor_targets:
+    label: 专业注册监理工程师
+    name: 姓名
+    phone: 电话
+    idno: 身份证号码
+    status: 状态
+    idnumber: 标识符
+  supervisor_workers:
+    label: 从业监理人员
+    name: 姓名
+    phone: 电话
+    idno: 身份证号码
+    status: 状态
+    idnumber: 标识符
 test:
   admins: *1
   users: *2

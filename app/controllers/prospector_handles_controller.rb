@@ -11,6 +11,7 @@ class ProspectorHandlesController < ApplicationController
    
    
   def new
+    @prospector = current_user.prospector
     @prospector_handle = ProspectorHandle.new
   end
    
@@ -48,7 +49,7 @@ class ProspectorHandlesController < ApplicationController
       @user.save
       @prospector_handle.user = @user
     end
-    if @prospector_handle.save
+    if @user.persisted? &&  @prospector_handle.save
       save_cpt_dep_user(@prospector, @prospector_handle, @user)
       redirect_to edit_prospector_prospector_handle_path(@prospector, @prospector_handle) 
     else

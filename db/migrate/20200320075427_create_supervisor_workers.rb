@@ -1,6 +1,6 @@
-class CreateLabourTeches < ActiveRecord::Migration
+class CreateSupervisorWorkers < ActiveRecord::Migration
   def change
-    create_table :labour_teches do |t|
+    create_table :supervisor_workers do |t|
     
       t.string :name,  null: false, default: Setting.systems.default_str
     
@@ -8,32 +8,30 @@ class CreateLabourTeches < ActiveRecord::Migration
     
       t.string :idno,  null: false, default: Setting.systems.default_str
     
-
+      t.string :status,  null: false, default: Setting.systems.opening
     
+      t.string :idnumber,  null: false, default: Setting.systems.default_str
+    
+
       t.string :idcard_front,  null: false, default: Setting.systems.default_str
     
       t.string :idcard_back,  null: false, default: Setting.systems.default_str
     
-      t.string :hr_front,  null: false, default: Setting.systems.default_str
-    
-      t.string :hr_back,  null: false, default: Setting.systems.default_str
-        
-      t.string :task_front,  null: false, default: Setting.systems.default_str
-    
-      t.string :task_back,  null: false, default: Setting.systems.default_str
-
       t.string :stamp_front,  null: false, default: Setting.systems.default_str
     
       t.string :stamp_back,  null: false, default: Setting.systems.default_str
     
-
-      t.string :status,  null: false, default: Setting.systems.opening
-      t.string :idnumber,  null: false, default: Setting.systems.default_str
+      t.string :hr_front,  null: false, default: Setting.systems.default_str
+    
+      t.string :hr_back,  null: false, default: Setting.systems.default_str
     
 
     
-      t.references :labour
+
+    
       t.references :user
+    
+      t.references :supervisor
     
 
       t.timestamps null: false

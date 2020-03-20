@@ -8,7 +8,7 @@
         .card-header.bg-danger.text-white.rounded-0
           %h5
             = fa_icon "plus-square-o", text: t(controller_name + "." + action_name + '.title')
-            = link_to "/#{controller_name}", :class => "button button-border button-rounded button-caution pull-right  bg-white" do
+            = link_to agentor_co_agentor_handles_url(@agentor), :class => "button button-border button-rounded button-caution pull-right bg-white" do
               = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
         .card-body
           = render 'form'

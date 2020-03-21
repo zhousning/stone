@@ -4,6 +4,11 @@ class CertCtg < ActiveRecord::Base
   has_many :labour_lines, :through => :cert_ships
   has_many :labour_teches, :through => :cert_ships
   has_many :labour_workers, :through => :cert_ships
+
+  has_many :designer_post_cert,     :through => :cert_ships 
+  has_many :supervisor_state_cert,  :through => :cert_ships
+  has_many :supervisor_target_cert, :through => :cert_ships
+  has_many :supervisor_worker_cert, :through => :cert_ships
 end
 
 # == Schema Information

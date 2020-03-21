@@ -1,50 +1,41 @@
 class SupervisorTargetCertsController < ApplicationController
+  include CtrlCtgCert
   layout "application_control"
   before_filter :authenticate_user!
   #load_and_authorize_resource
 
 
   def index
-    @supervisor_target = SupervisorTarget.find(params[:supervisor_target_id])
-    @supervisor_target_certs = @supervisor_target.supervisor_target_certs
+    index_base("SupervisorTarget")
   end
    
   def new
-    @supervisor_target = SupervisorTarget.find(params[:supervisor_target_id])
-    @supervisor_target_cert = SupervisorTargetCert.new
+    new_base("SupervisorTarget")
   end
    
 
    
   def create
-    @supervisor_target = SupervisorTarget.find(params[:supervisor_target_id])
-    @supervisor_target_cert = SupervisorTargetCert.new(supervisor_target_cert_params)
-    @supervisor_target_cert.supervisor_target = @supervisor_target
-    if @supervisor_target_cert.save
-      redirect_to edit_supervisor_target_supervisor_target_cert_url(@supervisor_target, @supervisor_target_cert)
-    else
-      render :new
-    end
+    create_base("SupervisorTarget")
   end
    
 
    
   def edit
-    @supervisor_target = SupervisorTarget.find(params[:supervisor_target_id])
-    @supervisor_target_cert = @supervisor_target.supervisor_target_certs.find(params[:id])
+    edit_base("SupervisorTarget")
   end
    
 
    
   def update
-    @supervisor_target = SupervisorTarget.find(params[:supervisor_target_id])
-    @supervisor_target_cert = @supervisor_target.supervisor_target_certs.find(params[:id])
+    update_base("SupervisorTarget")
+  end
 
-    if @supervisor_target_cert.update(supervisor_target_cert_params)
-      redirect_to edit_supervisor_target_supervisor_target_cert_path(@supervisor_target, @supervisor_target_cert) 
-    else
-      render :edit
-    end
+   
+
+   
+  def destroy
+    destroy_base("SupervisorTarget")
   end
 
    

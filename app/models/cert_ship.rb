@@ -4,6 +4,10 @@ class CertShip < ActiveRecord::Base
   belongs_to :line_cert, :primary_key => "foreign_idnumber", :foreign_key => "idnumber"
   belongs_to :line_tech, :primary_key => "foreign_idnumber", :foreign_key => "idnumber"
   belongs_to :line_worker, :primary_key => "foreign_idnumber", :foreign_key => "idnumber"
+  belongs_to :designer_post_cert, :primary_key => "foreign_idnumber", :foreign_key => "idnumber"
+  belongs_to :supervisor_state_cert, :primary_key => "foreign_idnumber", :foreign_key => "idnumber"
+  belongs_to :supervisor_target_cert, :primary_key => "foreign_idnumber", :foreign_key => "idnumber"
+  belongs_to :supervisor_worker_cert, :primary_key => "foreign_idnumber", :foreign_key => "idnumber"
 end
 
 # == Schema Information

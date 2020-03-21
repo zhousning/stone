@@ -1,62 +1,41 @@
 class DesignerWaterCertsController < ApplicationController
+  include CtrlCert
   layout "application_control"
   before_filter :authenticate_user!
   #load_and_authorize_resource
 
-
   def index
-    @designer_water = DesignerWater.find(params[:designer_water_id])
-    @designer_water_certs = @designer_water.designer_water_certs
+    index_base("DesignerWater")
   end
    
   def new
-    @designer_water = DesignerWater.find(params[:designer_water_id])
-    @designer_water_cert = DesignerWaterCert.new
+    new_base("DesignerWater")
   end
    
 
    
   def create
-    @designer_water = DesignerWater.find(params[:designer_water_id])
-    @designer_water_cert = DesignerWaterCert.new(designer_water_cert_params)
-    @designer_water_cert.designer_water = @designer_water
-    if @designer_water_cert.save
-      redirect_to edit_designer_water_designer_water_cert_url(@designer_water, @designer_water_cert)
-    else
-      render :new
-    end
+    create_base("DesignerWater")
   end
    
 
    
   def edit
-    @designer_water = DesignerWater.find(params[:designer_water_id])
-    @designer_water_cert = @designer_water.designer_water_certs.find(params[:id])
+    edit_base("DesignerWater")
   end
    
 
    
   def update
-    @designer_water = DesignerWater.find(params[:designer_water_id])
-    @designer_water_cert = @designer_water.designer_water_certs.find(params[:id])
-
-    if @designer_water_cert.update(designer_water_cert_params)
-      redirect_to edit_designer_water_designer_water_cert_path(@designer_water, @designer_water_cert) 
-    else
-      render :edit
-    end
+    update_base("DesignerWater")
   end
 
    
 
    
   def destroy
-    @designer_water = DesignerWater.find(params[:designer_water_id])
-    @designer_water_cert = @designer_water.designer_water_certs.find(params[:id])
-    @designer_water_cert.destroy
-    redirect_to :action => :index
+    destroy_base("DesignerWater")
   end
-  
 
 
   private

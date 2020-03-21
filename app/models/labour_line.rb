@@ -24,6 +24,7 @@ class LabourLine < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: labour_lines
@@ -38,6 +39,7 @@ end
 #  hr_back      :string          default(""), not null
 #  stamp_front  :string          default(""), not null
 #  stamp_back   :string          default(""), not null
+#  status       :string          default("新用户"), not null
 #  idnumber     :string          default(""), not null
 #  labour_id    :integer
 #  user_id      :integer

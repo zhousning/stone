@@ -23,6 +23,7 @@ class TechCert < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: tech_certs
@@ -35,6 +36,7 @@ end
 #  cert_front     :string          default(""), not null
 #  cert_back      :string          default(""), not null
 #  status         :string          default("新用户"), not null
+#  idnumber       :string          default(""), not null
 #  labour_tech_id :integer
 #  created_at     :datetime        not null
 #  updated_at     :datetime        not null

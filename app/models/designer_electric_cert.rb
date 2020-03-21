@@ -17,3 +17,25 @@ class DesignerElectricCert < ActiveRecord::Base
 
 
 end
+
+# == Schema Information
+#
+# Table name: designer_electric_certs
+#
+#  id                   :integer         not null, primary key
+#  reg_no               :string          default(""), not null
+#  start                :datetime
+#  cert_no              :string          default(""), not null
+#  end                  :datetime
+#  level                :string          default(""), not null
+#  status               :string          default(""), not null
+#  idnumber             :string          default(""), not null
+#  cert_front           :string          default(""), not null
+#  cert_back            :string          default(""), not null
+#  start_front          :string          default(""), not null
+#  start_back           :string          default(""), not null
+#  designer_electric_id :integer
+#  created_at           :datetime        not null
+#  updated_at           :datetime        not null
+#
+

@@ -1,60 +1,41 @@
 class DesignerConstructorCertsController < ApplicationController
+  include CtrlCert
   layout "application_control"
   before_filter :authenticate_user!
   #load_and_authorize_resource
 
 
   def index
-    @designer_constructor = DesignerConstructor.find(params[:designer_constructor_id])
-    @designer_constructor_certs = @designer_constructor.designer_constructor_certs
+    index_base("DesignerConstructor")
   end
    
   def new
-    @designer_constructor = DesignerConstructor.find(params[:designer_constructor_id])
-    @designer_constructor_cert = DesignerConstructorCert.new
+    new_base("DesignerConstructor")
   end
    
 
    
   def create
-    @designer_constructor = DesignerConstructor.find(params[:designer_constructor_id])
-    @designer_constructor_cert = DesignerConstructorCert.new(designer_constructor_cert_params)
-    @designer_constructor_cert.designer_constructor = @designer_constructor
-    if @designer_constructor_cert.save
-      redirect_to edit_designer_constructor_designer_constructor_cert_url(@designer_constructor, @designer_constructor_cert)
-    else
-      render :new
-    end
+    create_base("DesignerConstructor")
   end
    
 
    
   def edit
-    @designer_constructor = DesignerConstructor.find(params[:designer_constructor_id])
-    @designer_constructor_cert = @designer_constructor.designer_constructor_certs.find(params[:id])
+    edit_base("DesignerConstructor")
   end
    
 
    
   def update
-    @designer_constructor = DesignerConstructor.find(params[:designer_constructor_id])
-    @designer_constructor_cert = @designer_constructor.designer_constructor_certs.find(params[:id])
-
-    if @designer_constructor_cert.update(designer_constructor_cert_params)
-      redirect_to edit_designer_constructor_designer_constructor_cert_path(@designer_constructor, @designer_constructor_cert) 
-    else
-      render :edit
-    end
+    update_base("DesignerConstructor")
   end
 
    
 
    
   def destroy
-    @designer_constructor = DesignerConstructor.find(params[:designer_constructor_id])
-    @designer_constructor_cert = @designer_constructor.designer_constructor_certs.find(params[:id])
-    @designer_constructor_cert.destroy
-    redirect_to :action => :index
+    destroy_base("DesignerConstructor")
   end
 
   private

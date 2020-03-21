@@ -137,21 +137,17 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :supervisor_state_certs, :only => [] do
+  resources :supervisor_state, :only => [] do
     resources :supervisor_state_certs do
     end
   end
-  resources :supervisor_target_certs, :only => [] do
+  resources :supervisor_target, :only => [] do
     resources :supervisor_target_certs do
     end
   end
-  resources :supervisor_worker_certs, :only => [] do
+  resources :supervisor_worker, :only => [] do
     resources :supervisor_worker_certs do
     end
-  end
-
-  resources :designer_post_certs do
-    get :download_append, :on => :member
   end
   resources :flower
 

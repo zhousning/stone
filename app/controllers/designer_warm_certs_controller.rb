@@ -1,62 +1,44 @@
 class DesignerWarmCertsController < ApplicationController
+  include CtrlCert
   layout "application_control"
   before_filter :authenticate_user!
   #load_and_authorize_resource
 
 
+
   def index
-    @designer_warm = DesignerWarm.find(params[:designer_warm_id])
-    @designer_warm_certs = @designer_warm.designer_warm_certs
+    index_base("DesignerWarm")
   end
    
   def new
-    @designer_warm = DesignerWarm.find(params[:designer_warm_id])
-    @designer_warm_cert = DesignerWarmCert.new
+    new_base("DesignerWarm")
   end
    
 
    
   def create
-    @designer_warm = DesignerWarm.find(params[:designer_warm_id])
-    @designer_warm_cert = DesignerWarmCert.new(designer_warm_cert_params)
-    @designer_warm_cert.designer_warm = @designer_warm
-    if @designer_warm_cert.save
-      redirect_to edit_designer_warm_designer_warm_cert_url(@designer_warm, @designer_warm_cert)
-    else
-      render :new
-    end
+    create_base("DesignerWarm")
   end
    
 
    
   def edit
-    @designer_warm = DesignerWarm.find(params[:designer_warm_id])
-    @designer_warm_cert = @designer_warm.designer_warm_certs.find(params[:id])
+    edit_base("DesignerWarm")
   end
    
 
    
   def update
-    @designer_warm = DesignerWarm.find(params[:designer_warm_id])
-    @designer_warm_cert = @designer_warm.designer_warm_certs.find(params[:id])
-
-    if @designer_warm_cert.update(designer_warm_cert_params)
-      redirect_to edit_designer_warm_designer_warm_cert_path(@designer_warm, @designer_warm_cert) 
-    else
-      render :edit
-    end
+    update_base("DesignerWarm")
   end
 
    
 
    
   def destroy
-    @designer_warm = DesignerWarm.find(params[:designer_warm_id])
-    @designer_warm_cert = @designer_warm.designer_warm_certs.find(params[:id])
-    @designer_warm_cert.destroy
-    redirect_to :action => :index
+    destroy_base("DesignerWarm")
   end
-  
+
 
   private
     def designer_warm_cert_params

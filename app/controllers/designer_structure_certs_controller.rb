@@ -1,61 +1,43 @@
 class DesignerStructureCertsController < ApplicationController
+  include CtrlCert
   layout "application_control"
   before_filter :authenticate_user!
   #load_and_authorize_resource
-  
+
+
   def index
-    @designer_structure = DesignerStructure.find(params[:designer_structure_id])
-    @designer_structure_certs = @designer_structure.designer_structure_certs
+    index_base("DesignerStructure")
   end
    
   def new
-    @designer_structure = DesignerStructure.find(params[:designer_structure_id])
-    @designer_structure_cert = DesignerStructureCert.new
+    new_base("DesignerStructure")
   end
    
 
    
   def create
-    @designer_structure = DesignerStructure.find(params[:designer_structure_id])
-    @designer_structure_cert = DesignerStructureCert.new(designer_structure_cert_params)
-    @designer_structure_cert.designer_structure = @designer_structure
-    if @designer_structure_cert.save
-      redirect_to edit_designer_structure_designer_structure_cert_url(@designer_structure, @designer_structure_cert)
-    else
-      render :new
-    end
+    create_base("DesignerStructure")
   end
    
 
    
   def edit
-    @designer_structure = DesignerStructure.find(params[:designer_structure_id])
-    @designer_structure_cert = @designer_structure.designer_structure_certs.find(params[:id])
+    edit_base("DesignerStructure")
   end
    
 
    
   def update
-    @designer_structure = DesignerStructure.find(params[:designer_structure_id])
-    @designer_structure_cert = @designer_structure.designer_structure_certs.find(params[:id])
-
-    if @designer_structure_cert.update(designer_structure_cert_params)
-      redirect_to edit_designer_structure_designer_structure_cert_path(@designer_structure, @designer_structure_cert) 
-    else
-      render :edit
-    end
+    update_base("DesignerStructure")
   end
 
    
 
    
   def destroy
-    @designer_structure = DesignerStructure.find(params[:designer_structure_id])
-    @designer_structure_cert = @designer_structure.designer_structure_certs.find(params[:id])
-    @designer_structure_cert.destroy
-    redirect_to :action => :index
+    destroy_base("DesignerStructure")
   end
-  
+
 
   private
     def designer_structure_cert_params

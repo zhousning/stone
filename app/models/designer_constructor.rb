@@ -28,5 +28,30 @@ class DesignerConstructor < ActiveRecord::Base
 
   belongs_to :designer
 
+  #validates  :phone, :presence => true, :uniqueness => { :case_sensitive => true }
+
 
 end
+
+# == Schema Information
+#
+# Table name: designer_constructors
+#
+#  id           :integer         not null, primary key
+#  name         :string          default(""), not null
+#  phone        :string          default(""), not null
+#  idno         :string          default(""), not null
+#  status       :string          default(""), not null
+#  idnumber     :string          default(""), not null
+#  idcard_front :string          default(""), not null
+#  idcard_back  :string          default(""), not null
+#  stamp_front  :string          default(""), not null
+#  stamp_back   :string          default(""), not null
+#  hr_front     :string          default(""), not null
+#  hr_back      :string          default(""), not null
+#  user_id      :integer
+#  designer_id  :integer
+#  created_at   :datetime        not null
+#  updated_at   :datetime        not null
+#
+

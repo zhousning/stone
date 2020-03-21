@@ -1007,6 +1007,9 @@ development:
     labour_line: 住房城乡建设领域现场专业人员
     labour_tech: 项目技术负责人-工程师
     labour_worker: 专业技术工人
+    supervisor_state: 全国注册监理工程师
+    supervisor_target: 专业注册监理工程师
+    designer_post: 设计单位工程师
   number_levels:
     level_one: 壹级
     level_two: 贰级
@@ -1116,9 +1119,10 @@ development:
     start: 初始注册时间
     cert_no: 证书编号
     end: 注册有效期
-    level: 等级
+    level: 职称等级
     status: 状态
     idnumber: 标识符
+    dep: 发证单位
   designer_structure_certs:
     label: 注册结构工程师
     reg_no: 注册证书编号
@@ -1187,8 +1191,9 @@ development:
     reg_no: 注册证书编号
     start: 初始注册时间
     cert_no: 证书编号
+    dep: 发证单位
     end: 注册有效期
-    level: 等级
+    level: 职称等级
     status: 状态
     idnumber: 标识符
 test:

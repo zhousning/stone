@@ -29,11 +29,12 @@ class HandleCert < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: handle_certs
 #
-#  id               :integer         not null
+#  id               :integer         not null, primary key
 #  reg_no           :string          default(""), not null
 #  cert_no          :string          default(""), not null
 #  start            :datetime
@@ -47,6 +48,7 @@ end
 #  safe_front       :string          default(""), not null
 #  safe_back        :string          default(""), not null
 #  status           :string          default("新用户"), not null
+#  idnumber         :string          default(""), not null
 #  labour_handle_id :integer
 #  created_at       :datetime        not null
 #  updated_at       :datetime        not null

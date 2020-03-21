@@ -23,3 +23,28 @@ class ConstructorHandle < ActiveRecord::Base
 
 
 end
+
+# == Schema Information
+#
+# Table name: constructor_handles
+#
+#  id             :integer         not null, primary key
+#  name           :string          default(""), not null
+#  phone          :string          default(""), not null
+#  idno           :string          default(""), not null
+#  cpt_job        :string          default(""), not null
+#  prj_job        :string          default(""), not null
+#  idcard_front   :string          default(""), not null
+#  idcard_back    :string          default(""), not null
+#  stamp_front    :string          default(""), not null
+#  stamp_back     :string          default(""), not null
+#  hr_front       :string          default(""), not null
+#  hr_back        :string          default(""), not null
+#  status         :string          default("新用户"), not null
+#  idnumber       :string          default(""), not null
+#  user_id        :integer
+#  constructor_id :integer
+#  created_at     :datetime        not null
+#  updated_at     :datetime        not null
+#
+

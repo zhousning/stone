@@ -29,9 +29,7 @@ module UsersHelper
 
    def options_for_role(*role)
      str = ""
-     roles = Role.all.reject do |r|
-       r.name == Setting.roles.super_admin
-     end
+     roles = Role.where(:level => "1")
      roles.each do |item|
        if !role.blank? && item.id == role.first.id    
          str += "<option selected='selected' value='" + item.id.to_s + "'>" + item.name + "</option>"

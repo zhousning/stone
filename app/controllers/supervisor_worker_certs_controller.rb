@@ -1,52 +1,43 @@
 class SupervisorWorkerCertsController < ApplicationController
+  include CtrlCert
   layout "application_control"
   before_filter :authenticate_user!
   #load_and_authorize_resource
 
-
   def index
-    @supervisor_worker = SupervisorWorker.find(params[:supervisor_worker_id])
-    @supervisor_worker_certs = @supervisor_worker.supervisor_worker_certs
+    index_base("SupervisorWorker")
   end
    
   def new
-    @supervisor_worker = SupervisorWorker.find(params[:supervisor_worker_id])
-    @supervisor_worker_cert = SupervisorWorkerCert.new
+    new_base("SupervisorWorker")
   end
    
 
    
   def create
-    @supervisor_worker = SupervisorWorker.find(params[:supervisor_worker_id])
-    @supervisor_worker_cert = SupervisorWorkerCert.new(supervisor_worker_cert_params)
-    @supervisor_worker_cert.supervisor_worker = @supervisor_worker
-    if @supervisor_worker_cert.save
-      redirect_to edit_supervisor_worker_supervisor_worker_cert_url(@supervisor_worker, @supervisor_worker_cert)
-    else
-      render :new
-    end
+    create_base("SupervisorWorker")
   end
    
 
    
   def edit
-    @supervisor_worker = SupervisorWorker.find(params[:supervisor_worker_id])
-    @supervisor_worker_cert = @supervisor_worker.supervisor_worker_certs.find(params[:id])
+    edit_base("SupervisorWorker")
   end
    
 
    
   def update
-    @supervisor_worker = SupervisorWorker.find(params[:supervisor_worker_id])
-    @supervisor_worker_cert = @supervisor_worker.supervisor_worker_certs.find(params[:id])
-
-    if @supervisor_worker_cert.update(supervisor_worker_cert_params)
-      redirect_to edit_supervisor_worker_supervisor_worker_cert_path(@supervisor_worker, @supervisor_worker_cert) 
-    else
-      render :edit
-    end
+    update_base("SupervisorWorker")
   end
 
+   
+
+   
+  def destroy
+    destroy_base("SupervisorWorker")
+  end
+
+   
 
   private
     def supervisor_worker_cert_params

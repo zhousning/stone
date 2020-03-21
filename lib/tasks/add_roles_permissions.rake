@@ -16,7 +16,8 @@ namespace 'db' do
       end
 
       role_name = r['role_name']
-      Role.create(:name => role_name, :permissions => permission_arr)
+      level = r['level']
+      Role.create(:name => role_name, :level => level, :permissions => permission_arr)
     end
   end
 end

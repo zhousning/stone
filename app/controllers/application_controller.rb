@@ -60,6 +60,12 @@ class ApplicationController < ActionController::Base
     certships.each do |d|
       @my_ctgs[d.cert_ctg_id] = d.level
     end
+    puts ",,,,,,,,,,,,"
+    puts handle_cert
+    puts certships
+    puts "8888888888888"
+    puts @my_ctgs
+    puts ",,,,,,,,,,,,"
   end
 
   def hash_cert(certs) 

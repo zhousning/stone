@@ -12,22 +12,6 @@
               %th{:scope => "col"}
                 = Setting.spiders.link
               %th{:scope => "col"}
-                = Setting.spiders.cookie
-              %th{:scope => "col"}
-                = Setting.spiders.agent
-              %th{:scope => "col"}
-                = Setting.spiders.content_type
-              %th{:scope => "col"}
-                = Setting.spiders.page
-              %th{:scope => "col"}
-                = Setting.spiders.file
-              %th{:scope => "col"}
-                = Setting.spiders.referer
-              %th{:scope => "col"}
-                = Setting.spiders.host
-              %th{:scope => "col"}
-                = Setting.spiders.redirection
-              %th{:scope => "col"}
           %tbody
             - @spiders.each_with_index do |spider, index|
               %tr
@@ -36,22 +20,6 @@
               
                 %td
                   = spider.link
-                %td
-                  = spider.cookie
-                %td
-                  = spider.agent
-                %td
-                  = spider.content_type
-                %td
-                  = spider.page
-                %td
-                  = spider.file
-                %td
-                  = spider.referer
-                %td
-                  = spider.host
-                %td
-                  = spider.redirection
                 %td
                   .container-fluid
                     .row

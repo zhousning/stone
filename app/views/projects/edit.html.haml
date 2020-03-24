@@ -8,7 +8,9 @@
         .card-header.bg-success.text-white.rounded-0
           %h5
             = fa_icon "wpforms", text: t(controller_name + "." + action_name + '.title')
-            = link_to "#{request.url}".sub("edit", ""), :class => "button button-border button-rounded button-caution pull-right bg-white" do
+            = link_to project_table_labour_project_path(@labour, @project), :class => "button button-border button-rounded button-caution pull-right bg-white" do
+              = fa_icon " chevron-right", text: Setting.systems.btn_next, right: false 
+            = link_to labour_projects_path(@project), :class => "button button-border button-rounded button-caution pull-right bg-white" do
               = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
         .card-body
           = render 'form'

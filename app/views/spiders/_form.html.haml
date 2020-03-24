@@ -16,13 +16,27 @@
         .form-group.row
           = f.label Setting.spiders.page, :class => "col-sm-3 text-right"
           .col-sm-9
-            = f.text_field :page, :class => "form-control"
+            = f.text_field :page, :class => "form-control", :placeholder => "1-5"
+
+        .form-group.row
+          = f.label "是否要将请求的网页保存起来", :class => "col-sm-4 text-right"
+          .col-sm-8
+            .form-check.form-check-inline
+              = f.radio_button :doc_save, Setting.systems.status_en_yes, :class => "form-check-input", :checked => "checked"
+              = f.label Setting.systems.status_yes, :class => "form-check-label"
+            .form-check.form-check-inline
+              = f.radio_button :doc_save, Setting.systems.status_en_no, :class => "form-check-input"
+              = f.label Setting.systems.status_no, :class => "form-check-label"
           
         .form-group.row
-          = f.label Setting.spiders.file, :class => "col-sm-3 text-right"
-          .col-sm-9
-            = f.text_field :file, :class => "form-control"
-          
+          = f.label "是否解析网页", :class => "col-sm-4 text-right"
+          .col-sm-8
+            .form-check.form-check-inline
+              = f.radio_button :doc_parse, Setting.systems.status_en_yes, :class => "form-check-input", :checked => "checked"
+              = f.label Setting.systems.status_yes, :class => "form-check-label"
+            .form-check.form-check-inline
+              = f.radio_button :doc_parse, Setting.systems.status_en_no, :class => "form-check-input"
+              = f.label Setting.systems.status_no, :class => "form-check-label"
           
         .form-group.row
           = f.label Setting.spiders.cookie, :class => "col-sm-3 text-right"
@@ -52,6 +66,16 @@
           .col-sm-9
             = f.text_field :redirection, :class => "form-control"
           
+        .form-group.row
+          = f.label "请求头", :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.text_area :header, :class => "form-control", :rows => "5"
+          
+        -#
+          .form-group.row
+            = f.label "文件", :class => "col-sm-3 text-right"
+            .col-sm-9
+              = f.text_area :file, :class => "form-control", :rows => "5"
       
       
         .form-group.row

@@ -161,6 +161,7 @@ defaults:
     delete: delete
     edit: edit
     btn_back: 返回
+    btn_next: 下一步 
     btn_edit: 编辑
     btn_new: 添加
     btn_show: 详情
@@ -342,8 +343,8 @@ development:
       attr:
         info: 属性
         value: '1'
-      file:
-        info: 文件
+      img:
+        info: 图片 
         value: '2'
   websites:
     label: 网站

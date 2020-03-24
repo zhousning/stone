@@ -1,5 +1,5 @@
 .container-fluid
-  = form_for @project, :builder => WebsiteFormBuilder do |f|
+  = form_for [@labour, @project], :builder => WebsiteFormBuilder do |f|
     - if @project.errors.any?
       #error_explanation
         %h2= "#{pluralize(@project.errors.count, "error")} prohibited this buyer from being saved:"
@@ -362,23 +362,11 @@
           .col-9
             = f.text_field :prj_manager, :class => "form-control"
           
-      .col-6
-        .form-group.row
-          = f.label Setting.projects.status, :class => "col-3 text-right col-form-label col-form-label"
-          .col-9
-            = f.text_field :status, :class => "form-control"
-          
-    .form-row
-    
-    .form-row
-    
-    
-    
     
     .form-row
       .col-12
         .form-group.row
-          = f.label "关联对象", :class => "col-2  text-center col-form-label col-form-label"
+          = f.label "工程用表", :class => "col-2  text-center col-form-label col-form-label"
           .col-10
             .row
               = f.fields_for :project_tables do |project_table|
@@ -389,5 +377,3 @@
     .form-group.row
       .col-3.offset-2
         = f.submit '保存', :class => "btn btn-success"
-      .col-3.offset-1
-        = link_to '返回', projects_path, :class => "btn btn-danger"

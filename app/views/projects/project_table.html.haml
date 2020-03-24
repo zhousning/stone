@@ -1,0 +1,43 @@
+- provide(:title, t('.title'))
+
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
+      .card.shadow.rounded-0
+        .card-header.bg-success.text-white.rounded-0
+          %h5
+            = fa_icon "wpforms", text: t(controller_name + "." + action_name + '.title')
+            %button{:class => "button button-border button-rounded button-caution pull-right bg-white save-my-table"}
+              = fa_icon " chevron-right", text: Setting.systems.btn_next, right: false 
+            = link_to edit_labour_project_path(@labour, @project), :class => "button button-border button-rounded button-caution pull-right bg-white" do
+              = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
+        .card-body
+          = form_for [@labour, @project], :url => { :controller => 'projects', :action => 'create_table'}, :builder => WebsiteFormBuilder do |f|
+            - if @project.errors.any?
+              #error_explanation
+                %h2= "#{pluralize(@project.errors.count, "error")} prohibited this buyer from being saved:"
+                %ul
+                  - @project.errors.full_messages.each do |msg|
+                    %li= msg
+            #transfer3.transfer-demo
+            -#
+              .form-group.row
+                = f.label Setting.project_tables.category, :class => "col-sm-3 text-right"
+                .col-sm-9
+                  = f.text_field :category, :class => "form-control"
+                
+              .form-group.row
+                = f.label Setting.project_tables.number, :class => "col-sm-3 text-right"
+                .col-sm-9
+                  = f.text_field :number, :class => "form-control"
+                
+              .form-group.row
+                = f.label Setting.project_tables.name, :class => "col-sm-3 text-right"
+                .col-sm-9
+                  = f.text_field :name, :class => "form-control"
+                
+              .form-group.row
+                = f.label Setting.project_tables.info, :class => "col-sm-3 text-right"
+                .col-sm-9
+                  = f.text_field :info, :class => "form-control"

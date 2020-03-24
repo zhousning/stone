@@ -33,6 +33,11 @@ Rails.application.routes.draw do
     end
     resources :labour_workers do
     end
+    resources :projects do
+      get :download_append, :on => :member
+      get :project_table, :on => :member
+      put :create_table, :on => :member
+    end
   end
   resources :labour_handles do
     resources :handle_certs do
@@ -100,8 +105,11 @@ Rails.application.routes.draw do
   resources :table_pages do
     get :download_append, :on => :member
   end
-  resources :projects do
-    get :download_append, :on => :member
+  resources :projects, :only => [] do
+    get :create_my_table, :on => :member
+    resources :project_tables do
+      get :download_append, :on => :member
+    end
   end
   resources :project_tables do
     get :download_append, :on => :member

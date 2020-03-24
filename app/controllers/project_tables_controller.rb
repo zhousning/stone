@@ -1,11 +1,13 @@
 class ProjectTablesController < ApplicationController
   layout "application_control"
   before_filter :authenticate_user!
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
    
   def index
-    @project_tables = ProjectTable.all
+    @labour = current_user.labour
+    @project = @labour.projects.find(params[:project_id])
+    @project_tables = @project.project_tables
   end
    
 
@@ -72,7 +74,7 @@ class ProjectTablesController < ApplicationController
         send_file File.join(Rails.root, "public", URI.decode(@attachment)), :type => "application/force-download", :x_sendfile=>true
       end
     end
-  
+
 
   private
     def project_table_params

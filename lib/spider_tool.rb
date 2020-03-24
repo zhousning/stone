@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'restclient'
 require 'open-uri'
 require 'open_uri_redirections'
@@ -22,7 +24,8 @@ class SpiderTool
 
   def process(spider)
     @spider = spider
-    @cookie = @spider.cookie
+    @doc_save = @spider.doc_save
+    @doc_parse = @spider.doc_parse
     @result = []
     @file_result = []
     spider_link = @spider.link
@@ -34,29 +37,33 @@ class SpiderTool
       pages = Array(page_arr[0]..page_arr[1])
       pages.each_with_index do |i, index|
         link = spider_link + i.to_s
+        puts link
 
-        doc = get_doc(link)
+        doc = get_doc(@spider, link)
         if doc.nil?
           @no_doc.error link
           next
         end
   
-        parse(doc)
+        save_doc(link, doc, i) if @doc_save
 
-        sleep rand(4..10) 
+        parse(@spider, doc) if @doc_parse
+
+        sleep rand(10..20) 
       end
     else
-      doc = get_doc(spider_link)
+      doc = get_doc(@spider, spider_link)
       if doc.nil?
         @no_doc.error spider_link
       else
-        parse(doc)
+        save_doc(spider_link, doc) if @doc_save
+        parse(@spider, doc) if @doc_parse
       end
     end
   end
 
-  def parse(doc)
-    @selectors = @spider.selectors
+  def parse(spider, doc)
+    @selectors = spider.selectors
     @selectors.each do |s|
       nodes = doc.css(s.name)
       puts nodes[0]
@@ -88,18 +95,34 @@ class SpiderTool
     end
   end
   
-  def get_doc(search_link)
+  def get_doc(spider, search_link)
     retry_times = 0
     doc = nil
+
+    @header = spider.header
+    @agent = spider.agent
+    @cookie = spider.cookie
   
     begin
-      doc = Nokogiri::HTML(open(search_link))
+      #doc = Nokogiri::HTML(open(search_link))
       #todo solve follow_redirect can not in rails 
       #RestClient.get(search_link) do |response|
       #  #doc = Nokogiri::HTML(response.follow_redirection) 
       #  puts doc
       #end
+      #doc = Nokogiri::HTML
       
+      #doc = open(search_link, { 
+      doc = RestClient.get(search_link, { 
+          "User-Agent" => @agent,
+          "authority" => "g.tianehui.cn",
+          "accept" => "application/json, text/plain, */*",
+          "content-type" => "application/json",
+          "ticket" => "9887bbd5-be40-46f8-9705-aa65afe6bc08"
+          #"accept-encoding" =>  "gzip, deflate, br",
+          #"accept-language" => "en-US,en;q=0.9"
+        }
+      )
     rescue Exception => e
       puts "get doc error " + e.message
       retry_times += 1
@@ -128,6 +151,16 @@ class SpiderTool
   def img_base64(image_src)
     file = open(image_src).read
     image = Base64.encode64(file)
+  end
+
+  def save_doc(link, doc, i)
+    puts doc
+    #name = Time.now.to_i.to_s + "%04d" % [rand(10000)] + ".txt"
+    name = i.to_s + ".txt"
+    file = File.join(Rails.root, "public", "spider", name) 
+    File.open(file,'w+') do|f| 
+      f.write(doc)
+    end
   end
 
 end

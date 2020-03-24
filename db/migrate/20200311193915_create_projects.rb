@@ -120,7 +120,7 @@ class CreateProjects < ActiveRecord::Migration
     
       t.string :prj_manager,  null: false, default: Setting.systems.default_str
     
-      t.string :status,  null: false, default: Setting.systems.default_str
+      t.string :status,  null: false, default: Setting.systems.opening
     
 
     

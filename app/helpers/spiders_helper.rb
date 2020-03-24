@@ -16,7 +16,7 @@ module SpidersHelper
     {
       Setting.selectors.categories.text.info => Setting.selectors.categories.text.value,
       Setting.selectors.categories.attr.info => Setting.selectors.categories.attr.value,
-      Setting.selectors.categories.file.info => Setting.selectors.categories.file.value
+      Setting.selectors.categories.img.info => Setting.selectors.categories.img.value
     }
   end
 end  

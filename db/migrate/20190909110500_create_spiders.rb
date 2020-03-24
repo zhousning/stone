@@ -3,6 +3,12 @@ class CreateSpiders < ActiveRecord::Migration
     create_table :spiders do |t|
     
       t.string :link,  null: false, default: Setting.systems.default_str
+
+      t.boolean :doc_save,  null: false, default: Setting.systems.default_boolean
+
+      t.boolean :doc_parse,  null: false, default: Setting.systems.default_boolean
+
+      t.text :header,  null: false, default: Setting.systems.default_str
     
       t.string :cookie,  null: false, default: Setting.systems.default_str
     

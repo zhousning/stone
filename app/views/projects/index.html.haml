@@ -8,7 +8,7 @@
         .card-header.bg-primary.text-white.rounded-0
           %h5
             = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
-            = link_to "/#{controller_name}/new", :class => "button button-border button-rounded button-primary pull-right bg-white" do
+            = link_to new_labour_project_path(@labour), :class => "button button-border button-rounded button-primary pull-right bg-white" do
               = fa_icon "plus", text: Setting.systems.btn_new, right: false 
         .card-body
           .container-fluid.p-0
@@ -22,122 +22,6 @@
                       %th{:scope => "col"}
                         = Setting.projects.name
                       %th{:scope => "col"}
-                        = Setting.projects.itemname
-                      %th{:scope => "col"}
-                        = Setting.projects.dep_prj
-                      %th{:scope => "col"}
-                        = Setting.projects.cstr
-                      %th{:scope => "col"}
-                        = Setting.projects.carry
-                      %th{:scope => "col"}
-                        = Setting.projects.survey
-                      %th{:scope => "col"}
-                        = Setting.projects.design
-                      %th{:scope => "col"}
-                        = Setting.projects.control
-                      %th{:scope => "col"}
-                        = Setting.projects.detect
-                      %th{:scope => "col"}
-                        = Setting.projects.monitor
-                      %th{:scope => "col"}
-                        = Setting.projects.domain
-                      %th{:scope => "col"}
-                        = Setting.projects.major
-                      %th{:scope => "col"}
-                        = Setting.projects.agent
-                      %th{:scope => "col"}
-                        = Setting.projects.plan_permit
-                      %th{:scope => "col"}
-                        = Setting.projects.carry_permit
-                      %th{:scope => "col"}
-                        = Setting.projects.monitor_permit
-                      %th{:scope => "col"}
-                        = Setting.projects.cstr_agent
-                      %th{:scope => "col"}
-                        = Setting.projects.receive_leader
-                      %th{:scope => "col"}
-                        = Setting.projects.receive_operator
-                      %th{:scope => "col"}
-                        = Setting.projects.general_supervisor
-                      %th{:scope => "col"}
-                        = Setting.projects.prfs_supervisor
-                      %th{:scope => "col"}
-                        = Setting.projects.supervisor
-                      %th{:scope => "col"}
-                        = Setting.projects.supervising_engineer
-                      %th{:scope => "col"}
-                        = Setting.projects.technical_director
-                      %th{:scope => "col"}
-                        = Setting.projects.project_manager
-                      %th{:scope => "col"}
-                        = Setting.projects.subctr_manager
-                      %th{:scope => "col"}
-                        = Setting.projects.cstr_foreman
-                      %th{:scope => "col"}
-                        = Setting.projects.constructors
-                      %th{:scope => "col"}
-                        = Setting.projects.quality_worker
-                      %th{:scope => "col"}
-                        = Setting.projects.inspector
-                      %th{:scope => "col"}
-                        = Setting.projects.test_person
-                      %th{:scope => "col"}
-                        = Setting.projects.detect_person
-                      %th{:scope => "col"}
-                        = Setting.projects.auditor
-                      %th{:scope => "col"}
-                        = Setting.projects.reviewer
-                      %th{:scope => "col"}
-                        = Setting.projects.tester
-                      %th{:scope => "col"}
-                        = Setting.projects.issuer
-                      %th{:scope => "col"}
-                        = Setting.projects.examiner
-                      %th{:scope => "col"}
-                        = Setting.projects.calculator
-                      %th{:scope => "col"}
-                        = Setting.projects.recorder
-                      %th{:scope => "col"}
-                        = Setting.projects.surveyor
-                      %th{:scope => "col"}
-                        = Setting.projects.filler
-                      %th{:scope => "col"}
-                        = Setting.projects.operator
-                      %th{:scope => "col"}
-                        = Setting.projects.equipment
-                      %th{:scope => "col"}
-                        = Setting.projects.address
-                      %th{:scope => "col"}
-                        = Setting.projects.structor
-                      %th{:scope => "col"}
-                        = Setting.projects.layer_number
-                      %th{:scope => "col"}
-                        = Setting.projects.prj_category
-                      %th{:scope => "col"}
-                        = Setting.projects.prj_scale
-                      %th{:scope => "col"}
-                        = Setting.projects.start
-                      %th{:scope => "col"}
-                        = Setting.projects.end
-                      %th{:scope => "col"}
-                        = Setting.projects.review_unit
-                      %th{:scope => "col"}
-                        = Setting.projects.review_permission
-                      %th{:scope => "col"}
-                        = Setting.projects.measure_cert
-                      %th{:scope => "col"}
-                        = Setting.projects.supervision_no
-                      %th{:scope => "col"}
-                        = Setting.projects.quality_info
-                      %th{:scope => "col"}
-                        = Setting.projects.regist_no
-                      %th{:scope => "col"}
-                        = Setting.projects.prj_designer
-                      %th{:scope => "col"}
-                        = Setting.projects.geo_prospect
-                      %th{:scope => "col"}
-                        = Setting.projects.prj_manager
-                      %th{:scope => "col"}
                         = Setting.projects.status
                       %th{:scope => "col"}
                   %tbody
@@ -149,130 +33,12 @@
                         %td
                           = project.name
                         %td
-                          = project.itemname
-                        %td
-                          = project.dep_prj
-                        %td
-                          = project.cstr
-                        %td
-                          = project.carry
-                        %td
-                          = project.survey
-                        %td
-                          = project.design
-                        %td
-                          = project.control
-                        %td
-                          = project.detect
-                        %td
-                          = project.monitor
-                        %td
-                          = project.domain
-                        %td
-                          = project.major
-                        %td
-                          = project.agent
-                        %td
-                          = project.plan_permit
-                        %td
-                          = project.carry_permit
-                        %td
-                          = project.monitor_permit
-                        %td
-                          = project.cstr_agent
-                        %td
-                          = project.receive_leader
-                        %td
-                          = project.receive_operator
-                        %td
-                          = project.general_supervisor
-                        %td
-                          = project.prfs_supervisor
-                        %td
-                          = project.supervisor
-                        %td
-                          = project.supervising_engineer
-                        %td
-                          = project.technical_director
-                        %td
-                          = project.project_manager
-                        %td
-                          = project.subctr_manager
-                        %td
-                          = project.cstr_foreman
-                        %td
-                          = project.constructors
-                        %td
-                          = project.quality_worker
-                        %td
-                          = project.inspector
-                        %td
-                          = project.test_person
-                        %td
-                          = project.detect_person
-                        %td
-                          = project.auditor
-                        %td
-                          = project.reviewer
-                        %td
-                          = project.tester
-                        %td
-                          = project.issuer
-                        %td
-                          = project.examiner
-                        %td
-                          = project.calculator
-                        %td
-                          = project.recorder
-                        %td
-                          = project.surveyor
-                        %td
-                          = project.filler
-                        %td
-                          = project.operator
-                        %td
-                          = project.equipment
-                        %td
-                          = project.address
-                        %td
-                          = project.structor
-                        %td
-                          = project.layer_number
-                        %td
-                          = project.prj_category
-                        %td
-                          = project.prj_scale
-                        %td
-                          = project.start
-                        %td
-                          = project.end
-                        %td
-                          = project.review_unit
-                        %td
-                          = project.review_permission
-                        %td
-                          = project.measure_cert
-                        %td
-                          = project.supervision_no
-                        %td
-                          = project.quality_info
-                        %td
-                          = project.regist_no
-                        %td
-                          = project.prj_designer
-                        %td
-                          = project.geo_prospect
-                        %td
-                          = project.prj_manager
-                        %td
                           = project.status
                         %td
                           .container-fluid
                             .row
-                              = link_to project_path(project), :class => "text-info col" do
-                                = fa_icon "search"
-                              = link_to edit_project_path(project), :class => "text-success col" do
+                              = link_to edit_labour_project_path(@labour, project), :class => "text-success col" do
                                 = fa_icon "edit"
-                              = link_to project, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                              = link_to labour_project_path(@labour, project), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                 = fa_icon "trash"
 

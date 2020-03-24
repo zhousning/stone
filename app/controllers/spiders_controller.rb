@@ -73,7 +73,7 @@ class SpidersController < ApplicationController
 
   private
     def spider_params
-      params.require(:spider).permit( :link, :cookie, :agent, :content_type, :page, :file, :referer, :host, :redirection, selectors_attributes: selector_params)
+      params.require(:spider).permit( :link, :cookie, :header, :agent, :doc_parse, :content_type, :page, :file, :referer, :doc_save, :host, :redirection, selectors_attributes: selector_params)
     end
   
   

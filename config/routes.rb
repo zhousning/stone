@@ -111,12 +111,13 @@ Rails.application.routes.draw do
       get :download_append, :on => :member
     end
   end
-  resources :project_tables do
+  resources :project_tables, :only => [] do
     get :download_append, :on => :member
+    resources :project_pages do
+      get :download_append, :on => :member
+    end
   end
-  resources :project_pages do
-    get :download_append, :on => :member
-  end
+
   resources :cert_ctgs do
   end
 

@@ -119,4 +119,9 @@ class WebsiteFormBuilder < ActionView::Helpers::FormBuilder
     file = objectify_options(options)[:object].public_send(url)
     file.blank? ? '选择文件' : URI.decode(File.basename(file))
   end
+
+  def page_html
+    html = objectify_options(options)[:object].content
+    html.html_safe
+  end
 end

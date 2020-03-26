@@ -2,7 +2,8 @@ class CreateTablePages < ActiveRecord::Migration
   def change
     create_table :table_pages do |t|
     
-      t.text :content,  null: false, default: Setting.systems.default_str
+      t.text :style,  null: false, default: Setting.systems.default_str
+      t.text :html,  null: false, default: Setting.systems.default_str
     
 
     

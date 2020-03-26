@@ -363,16 +363,17 @@
             = f.text_field :prj_manager, :class => "form-control"
           
     
-    .form-row
-      .col-12
-        .form-group.row
-          = f.label "工程用表", :class => "col-2  text-center col-form-label col-form-label"
-          .col-10
-            .row
-              = f.fields_for :project_tables do |project_table|
-                = render 'project_table_fields', f: project_table 
-              .links
-                = link_to_add_association "添加", f, :project_tables, :class => "btn btn-success"
+    -#
+      .form-row
+        .col-12
+          .form-group.row
+            = f.label "工程用表", :class => "col-2  text-center col-form-label col-form-label"
+            .col-10
+              .row
+                = f.fields_for :project_tables do |project_table|
+                  = render 'project_table_fields', f: project_table 
+                .links
+                  = link_to_add_association "添加", f, :project_tables, :class => "btn btn-success"
     
     .form-group.row
       .col-3.offset-2

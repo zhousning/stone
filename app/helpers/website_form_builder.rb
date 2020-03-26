@@ -121,7 +121,12 @@ class WebsiteFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def page_html
-    html = objectify_options(options)[:object].content
+    html = objectify_options(options)[:object].html
     html.html_safe
+  end
+
+  def page_style
+    style = objectify_options(options)[:object].style
+    style.html_safe
   end
 end

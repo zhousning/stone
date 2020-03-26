@@ -108,11 +108,12 @@ class ProjectsController < ApplicationController
     begin
       ids = params[:data]
       table_tmpts = TableTemplate.find(ids.split(","))
+      #TODO这个地方需要改成事务
       table_tmpts.each do |tmpt|
         @prj_table = ProjectTable.create(:category => tmpt.category, :number => tmpt.number, :name => tmpt.name, :info => tmpt.info, :project => @project, :attachment => tmpt.attachment)
         pages = tmpt.table_pages
         pages.each do |page|
-          ProjectPage.create(:content => page.content, :project_table => @prj_table) 
+          ProjectPage.create(:style => page.style, :html => page.html, :project_table => @prj_table) 
         end
       end
       respond_to do |f|

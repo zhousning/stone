@@ -23,7 +23,7 @@ class TablePagesController < ApplicationController
 
   private
     def table_page_params
-      params.require(:table_page).permit( :content)
+      params.require(:table_page).permit( :html, :style)
     end
   
   

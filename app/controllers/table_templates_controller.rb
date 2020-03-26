@@ -82,7 +82,7 @@ class TableTemplatesController < ApplicationController
   
   
     def table_page_params
-      [:id, :content ,:_destroy]
+      [:id, :html, :style ,:_destroy]
     end
   
 end

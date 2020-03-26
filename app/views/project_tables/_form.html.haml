@@ -6,15 +6,18 @@
         %ul
           - @project_table.errors.full_messages.each do |msg|
             %li= msg
-
-    .form-group.row
-      .col-3.offset-2
-        = f.submit '保存', :class => "btn btn-success"
-
-    .form-row
-      = f.fields_for :project_pages do |project_page|
-        = render 'project_page_fields', f: project_page 
-      -#
-        .links
-          = link_to_add_association "添加", f, :project_pages, :class => "btn btn-success"
+    .card.shadow.rounded-0
+      .card-header.bg-success.text-white.rounded-0
+        %h5
+          = fa_icon "wpforms", text: t(controller_name + "." + action_name + '.title')
+          = f.submit '保存', :id => "project-table-save", :class => "button button-border button-rounded button-action pull-right bg-white"
+          = link_to project_project_tables_path(@project), :class => "button button-border button-rounded button-caution pull-right bg-white" do
+            = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
+      .card-body
+        .form-row.justify-content-center
+          = f.fields_for :project_pages do |project_page|
+            = render 'project_page_fields', f: project_page 
+          -#
+            .links
+              = link_to_add_association "添加", f, :project_pages, :class => "btn btn-success"
     

@@ -1,7 +1,9 @@
-.col-12
+.project-table-page-ctn.shadow.my-3
   .nested-fields.nestd-item.w-100
     .field.d-inline{:contenteditable =>"true"}
+      = f.page_style
       = f.page_html 
+      = f.hidden_field :html
       -#
         = f.text_area :content, :class => "form-control", :rows => "20"
     -#

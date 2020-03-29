@@ -144,6 +144,8 @@ gem 'cocoon'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 #gem 'introjs-rails'
+#
+gem 'deep_cloneable', '~> 3.0.0'
 
 gem 'chinese_pinyin'
 

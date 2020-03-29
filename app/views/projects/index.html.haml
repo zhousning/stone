@@ -39,6 +39,7 @@
                             .row
                               = link_to edit_labour_project_path(@labour, project), :class => "text-success col" do
                                 = fa_icon "edit"
+                              = link_to "项目组", edit_project_work_group_path(project), :class => "text-success col"
                               = link_to "工程用表", project_project_tables_path(project), :class => "text-success col"
                               = link_to labour_project_path(@labour, project), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                 = fa_icon "trash"

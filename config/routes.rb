@@ -37,6 +37,8 @@ Rails.application.routes.draw do
       get :download_append, :on => :member
       get :project_table, :on => :member
       put :create_table, :on => :member
+      resources :work_groups do
+      end
     end
   end
   resources :labour_handles do

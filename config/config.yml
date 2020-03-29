@@ -161,7 +161,7 @@ defaults:
     delete: delete
     edit: edit
     btn_back: 返回
-    btn_next: 下一步 
+    btn_next: 下一步
     btn_edit: 编辑
     btn_new: 添加
     btn_show: 详情
@@ -344,7 +344,7 @@ development:
         info: 属性
         value: '1'
       img:
-        info: 图片 
+        info: 图片
         value: '2'
   websites:
     label: 网站
@@ -1197,6 +1197,15 @@ development:
     level: 职称等级
     status: 状态
     idnumber: 标识符
+  work_groups:
+    label: 项目组
+    name: 名称
+    status: 状态
+    idnumber: 标识符
+    status_opening: "新建" 
+    status_pending: "待加入" 
+    status_join: "已加入" 
+    status_reject: "已拒绝" 
 test:
   admins: *1
   users: *2

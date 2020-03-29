@@ -12,6 +12,7 @@ class LabourHandlesController < ApplicationController
    
    
   def new
+    @labour = current_user.labour
     @labour_handle = LabourHandle.new
   end
    

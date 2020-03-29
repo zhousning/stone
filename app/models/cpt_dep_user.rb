@@ -1,4 +1,6 @@
 class CptDepUser < ActiveRecord::Base
+  has_many :project_group_users, :dependent => :destroy
+  has_many :project_groups, :through => :project_group_users
 end
 
 # == Schema Information

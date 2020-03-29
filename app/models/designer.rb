@@ -15,6 +15,9 @@ class Designer < ActiveRecord::Base
   has_many :designer_electrics
   has_many :designer_warms
 
+  has_many :group_designers, :dependent => :destroy
+  has_many :project_groups, :through => :group_designers
+
   belongs_to :user
 
   mount_uploader :cert_front, EnclosureUploader

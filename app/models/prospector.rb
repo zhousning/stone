@@ -10,6 +10,9 @@ class Prospector < ActiveRecord::Base
   has_many :prospector_majors, :dependent => :destroy
   has_many :majors, :through => :prospector_majors
 
+  has_many :group_prospectors, :dependent => :destroy
+  has_many :project_groups, :through => :group_prospectors
+
   belongs_to :user
 
   mount_uploader :cert_front, EnclosureUploader

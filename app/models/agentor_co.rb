@@ -10,6 +10,9 @@ class AgentorCo < ActiveRecord::Base
   has_many :agentor_majors, :dependent => :destroy
   has_many :majors, :through => :agentor_majors
 
+  has_many :group_agentors, :dependent => :destroy
+  has_many :project_groups, :through => :group_agentors
+
   belongs_to :user
 
   mount_uploader :cert_front, EnclosureUploader

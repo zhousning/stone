@@ -8,11 +8,13 @@
             %li= msg
     .card.shadow.rounded-0
       .card-header.bg-success.text-white.rounded-0
-        %h5
-          = fa_icon "wpforms", text: t(controller_name + "." + action_name + '.title')
-          = f.submit '保存', :id => "project-table-save", :class => "button button-border button-rounded button-action pull-right bg-white"
-          = link_to project_project_tables_path(@project), :class => "button button-border button-rounded button-caution pull-right bg-white" do
-            = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
+        .row
+          = f.text_field :number, :class => "form-control col-2 mr-3"
+          = f.text_field :name, :class => "form-control col-4"
+          .col-5
+            = f.submit '保存', :id => "project-table-save", :class => "button button-border button-rounded button-action pull-right bg-white"
+            = link_to project_project_tables_path(@project), :class => "button button-border button-rounded button-caution pull-right bg-white" do
+              = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
       .card-body
         .form-row.justify-content-center
           = f.fields_for :project_pages do |project_page|

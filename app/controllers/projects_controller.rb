@@ -1,59 +1,63 @@
 class ProjectsController < ApplicationController
   layout "application_control"
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
   #load_and_authorize_resource
 
    
   def index
-    @labour = current_user.labour
-    @projects = @labour.projects 
-  end
-   
-
-   
-  def show
-    @labour = current_user.labour
-    @project = @labour.projects.find(params[:id])
-  end
-   
-
-   
-  def new
-    @labour = current_user.labour
-
-    @project = Project.new
-    
-    @project.project_tables.build
-    
-  end
-   
-
-   
-  def create
-    @labour = current_user.labour
-    @project = Project.new(project_params)
-    @project.labour = @labour
-    if @project.save
-      redirect_to edit_labour_project_path(@labour, @project)
-    else
-      render :new
+    @user = CptDepUser.find_by_user_id(current_user.id)
+    @groups = @user.project_groups
+    @projects = []
+    @groups.each do |g|
+      @projects << g.project
     end
   end
    
 
    
+  def show
+    @project = get_project
+  end
+   
+
+   
+  def new
+    @project = Project.new
+  end
+   
+
+   
+  def create
+    @user = CptDepUser.find_by_user_id(current_user.id)
+    @project = Project.new(project_params)
+    @project.build_project_group(:name => @project.name + "项目组")
+    if @project.save
+      @project_group = @project.project_group
+      @project_group.cpt_dep_users << @user
+      clazz = @user.cpt_id.split("+")[0]
+
+      eval("
+            @#{clazz.downcase} = #{clazz}.find_by_idnumber(@user.cpt_id)\n
+            @project_group.#{clazz.downcase.pluralize} << @#{clazz.downcase}
+           ")
+
+      redirect_to edit_project_path(@project)
+    else
+      render :new
+    end
+  end
+   
+   
   def edit
-    @labour = current_user.labour
-    @project = @labour.projects.find(params[:id])
+    @project = get_project
   end
    
 
    
   def update
-    @labour = current_user.labour
-    @project = @labour.projects.find(params[:id])
+    @project = get_project
     if @project.update(project_params)
-      redirect_to edit_labour_project_path(@labour, @project)
+      redirect_to edit_project_path(@project)
     else
       render :edit
     end
@@ -62,25 +66,14 @@ class ProjectsController < ApplicationController
 
    
   def destroy
-    @labour = current_user.labour
-    @project = @labour.projects.find(params[:id])
+    @project = get_project
     @project.destroy
     redirect_to :action => :index
   end
 
   def project_table
-    @labour = current_user.labour
-    @project = @labour.projects.find(params[:id])
-    @prj_tables = @project.project_tables
-    numbers = @prj_tables.select('number')
-    number_arr = []
-    numbers.each do |n|
-      number_arr << n.number
-    end
-
-    @table_templates = TableTemplate.all.reject do |t|
-      number_arr.include?(t.number)
-    end
+    @project = get_project
+    @table_templates = TableTemplate.all
 
     start = @table_templates.first.category
     cache_arr = []
@@ -102,8 +95,7 @@ class ProjectsController < ApplicationController
   end
 
   def create_my_table
-    @labour = current_user.labour
-    @project = @labour.projects.find(params[:id])
+    @project = get_project
 
     begin
       ids = params[:data]
@@ -138,6 +130,15 @@ class ProjectsController < ApplicationController
     def project_table_params
       [:id, :category, :number, :name, :info ,:_destroy]
     end
-  
+
+    def get_project
+      @user = CptDepUser.find_by_user_id(current_user.id)
+      project_groups = @user.project_groups
+      project = nil
+      project_groups.each do |p|
+        project = p.project if p.project.id == params[:id].to_i
+      end
+      project
+    end
 end
 

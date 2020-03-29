@@ -15,6 +15,9 @@ class Labour < ActiveRecord::Base
   has_many :labour_lines
   has_many :labour_workers
 
+  has_many :group_labours, :dependent => :destroy
+  has_many :project_groups, :through => :group_labours
+
   belongs_to :user
 
   #validates  :company, :presence => true   

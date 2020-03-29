@@ -5,14 +5,12 @@ class ProjectTablesController < ApplicationController
 
    
   def index
-    @labour = current_user.labour
-    @project = @labour.projects.find(params[:project_id])
+    @project = get_project 
     @project_tables = @project.project_tables
   end
    
   def edit
-    @labour = current_user.labour
-    @project = @labour.projects.find(params[:project_id])
+    @project = get_project 
     @project_table = @project.project_tables.find(params[:id])
     @project_pages = @project_table.project_pages
   end
@@ -20,8 +18,7 @@ class ProjectTablesController < ApplicationController
 
    
   def update
-    @labour = current_user.labour
-    @project = @labour.projects.find(params[:project_id])
+    @project = get_project 
     @project_table = @project.project_tables.find(params[:id])
     if @project_table.update(project_table_params)
       redirect_to edit_project_project_table_path(@project, @project_table) 
@@ -33,8 +30,7 @@ class ProjectTablesController < ApplicationController
 
    
   def destroy
-    @labour = current_user.labour
-    @project = @labour.projects.find(params[:project_id])
+    @project = get_project 
     @project_table = @project.project_tables.find(params[:id])
     @project_table.destroy
     redirect_to project_project_tables_path(@project, @project_table) 
@@ -63,5 +59,14 @@ class ProjectTablesController < ApplicationController
       [:id, :html, :style ,:_destroy]
     end
   
+    def get_project
+      @user = CptDepUser.find_by_user_id(current_user.id)
+      project_groups = @user.project_groups
+      project = nil
+      project_groups.each do |p|
+        project = p.project if p.project.id == params[:project_id].to_i
+      end
+      project
+    end
 end
 

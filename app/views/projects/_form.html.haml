@@ -1,5 +1,5 @@
 .container-fluid
-  = form_for [@labour, @project], :builder => WebsiteFormBuilder do |f|
+  = form_for @project, :builder => WebsiteFormBuilder do |f|
     - if @project.errors.any?
       #error_explanation
         %h2= "#{pluralize(@project.errors.count, "error")} prohibited this buyer from being saved:"

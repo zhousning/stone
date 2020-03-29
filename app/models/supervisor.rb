@@ -12,6 +12,9 @@ class Supervisor < ActiveRecord::Base
   has_many :supervisor_targets 
   has_many :supervisor_workers
 
+  has_many :group_supervisors, :dependent => :destroy
+  has_many :project_groups, :through => :group_supervisors
+
   belongs_to :user
 
   mount_uploader :cert_front, EnclosureUploader

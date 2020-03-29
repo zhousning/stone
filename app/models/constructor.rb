@@ -9,6 +9,9 @@ class Constructor < ActiveRecord::Base
 
   has_many :constructor_handles
 
+  has_many :group_constructors, :dependent => :destroy
+  has_many :project_groups, :through => :group_constructors
+
   belongs_to :user
 
 

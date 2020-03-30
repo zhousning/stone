@@ -10,6 +10,8 @@
             = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
             = link_to project_table_project_path(@project), :class => "button button-border button-rounded button-primary pull-right bg-white" do
               = fa_icon "plus", text: Setting.systems.btn_new, right: false 
+            = link_to projects_path, :class => "button button-border button-rounded button-caution pull-right  bg-white" do
+              = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
         .card-body
           .container-fluid.p-0
             .row

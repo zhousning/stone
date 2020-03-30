@@ -126,6 +126,11 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :project_groups, :only => [] do
+    get :invite, :on => :collection
+    get :agree, :on => :member
+    get :refuse, :on => :member
+  end
 
   resources :project_tables, :only => [] do
     get :download_append, :on => :member

@@ -103,7 +103,40 @@ class ProjectGroupsController < ApplicationController
       render :edit
     end
   end
+
+  def invite 
+    @user = CptDepUser.find_by_user_id(current_user.id)
+    clazz = @user.cpt_id.split("+")[0]
+
+    eval("
+          @#{clazz.underscore} = #{clazz}.find_by_idnumber(@user.cpt_id)\n
+          @group_ships = Group#{clazz}.where(:#{clazz.underscore}_id => @#{clazz.underscore}.id, :status => Setting.project_groups.status_pending)
+         ")
+  end
+
+  def agree
+    @user = CptDepUser.find_by_user_id(current_user.id)
+    clazz = @user.cpt_id.split("+")[0]
+
+    eval("
+          @group_ship = Group#{clazz}.find(params[:id])
+         ")
+    @group_ship.agree
+    @project_group = @group_ship.project_group
+    ProjectGroupUser.create(:project_group => @project_group, :cpt_dep_user => @user)
+    redirect_to projects_path
+  end
    
+  def refuse 
+    @user = CptDepUser.find_by_user_id(current_user.id)
+    clazz = @user.cpt_id.split("+")[0]
+
+    eval("
+          @group_ship = Group#{clazz}.find(params[:id])
+         ")
+    @group_ship.reject
+    redirect_to invite_project_groups_path
+  end
   
   private
     def project_group_params

@@ -6,10 +6,14 @@ class ProjectsController < ApplicationController
    
   def index
     @user = CptDepUser.find_by_user_id(current_user.id)
-    @groups = @user.project_groups
+    clazz = @user.cpt_id.split("+")[0]
+    eval("
+          @#{clazz.underscore} = #{clazz}.find_by_idnumber(@user.cpt_id)\n
+          @groups = Group#{clazz}.where(:#{clazz.underscore} => @#{clazz.underscore}, :status => Setting.project_groups.status_join)
+         ")
     @projects = []
     @groups.each do |g|
-      @projects << g.project
+      @projects << g.project_group.project
     end
   end
    

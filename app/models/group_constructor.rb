@@ -11,6 +11,19 @@ class GroupConstructor < ActiveRecord::Base
   belongs_to :constructor
 
 
+
+  def pend
+    update_attribute :status, Setting.project_groups.status_pending
+  end
+
+  def agree 
+    update_attribute :status, Setting.project_groups.status_join
+  end
+
+  def reject
+    update_attribute :status, Setting.project_groups.status_reject
+  end
+
 end
 
 # == Schema Information

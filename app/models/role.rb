@@ -20,12 +20,14 @@ class Role < ActiveRecord::Base
   end
 end
 
+
 # == Schema Information
 #
 # Table name: roles
 #
 #  id            :integer         not null, primary key
 #  name          :string          default(""), not null
+#  level         :string          default(""), not null
 #  resource_id   :integer
 #  resource_type :string
 #  created_at    :datetime

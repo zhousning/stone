@@ -9,8 +9,8 @@ class MonitorCo < ActiveRecord::Base
   has_many :monitor_majors, :dependent => :destroy
   has_many :majors, :through => :monitor_majors
 
-  has_many :group_monitors, :dependent => :destroy
-  has_many :project_groups, :through => :group_monitors
+  has_many :group_monitor_cos, :dependent => :destroy
+  has_many :project_groups, :through => :group_monitor_cos
 
   belongs_to :user
 

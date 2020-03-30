@@ -1,5 +1,5 @@
 .container-fluid
-  = form_for @project_group, :builder => WebsiteFormBuilder do |f|
+  = form_for [@project, @project_group], :builder => WebsiteFormBuilder do |f|
     - if @project_group.errors.any?
       #error_explanation.alert.alert-danger.alert-dismissible.fade.show
         %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
@@ -16,24 +16,6 @@
           .col-9
             = f.text_field :name, :class => "form-control"
           
-      .col-6
-        .form-group.row
-          = f.label Setting.project_groups.status, :class => "col-3 text-right col-form-label col-form-label"
-          .col-9
-            = f.text_field :status, :class => "form-control"
-          
-      .col-6
-        .form-group.row
-          = f.label Setting.project_groups.idnumber, :class => "col-3 text-right col-form-label col-form-label"
-          .col-9
-            = f.text_field :idnumber, :class => "form-control"
-          
-    .form-row
-    
-    .form-row
-    
-    
-    
     
     .form-group.row
       .col-3.offset-2

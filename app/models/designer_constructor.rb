@@ -33,6 +33,7 @@ class DesignerConstructor < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: designer_constructors
@@ -41,7 +42,7 @@ end
 #  name         :string          default(""), not null
 #  phone        :string          default(""), not null
 #  idno         :string          default(""), not null
-#  status       :string          default(""), not null
+#  status       :string          default("新用户"), not null
 #  idnumber     :string          default(""), not null
 #  idcard_front :string          default(""), not null
 #  idcard_back  :string          default(""), not null

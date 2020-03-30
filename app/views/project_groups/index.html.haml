@@ -8,19 +8,21 @@
         .card-header.bg-primary.text-white.rounded-0
           %h5
             = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
-            = link_to "/#{controller_name}/new", :class => "button button-border button-rounded button-primary pull-right bg-white" do
+            = link_to new_project_project_group_url(@project), :class => "button button-border button-rounded button-primary pull-right bg-white" do
               = fa_icon "plus", text: Setting.systems.btn_new, right: false 
         .card-body
           .container-fluid.p-0
-            .row
+            .row.mb-5
               .col-md-12
-                %table.text-center.table-bordered.table-sm{:'data-toggle' => "table", :"data-pagination"=>"true", :"data-search" => "true",:'data-advanced-search'=>"true", :'data-id-table'=>"advancedTable"}
+                %table.text-center.table-bordered.table-sm{:'data-toggle' => "table"}
                   %thead.thead-light
                     %tr
                       %th{:scope => "col"} #
                     
                       %th{:scope => "col"}
                         = Setting.labours.label
+                      %th{:scope => "col"}
+                        状态
                       %th{:scope => "col"}
                   %tbody
                     - @labours.each_with_index do |labour, index|
@@ -31,6 +33,8 @@
                         %td
                           = labour.company
                         %td
+                          = labour.group_labours.where(:project_group => @project_group)[0].status
+                        %td
                           .container-fluid
                             .row
                               -#
@@ -38,18 +42,21 @@
                                   = fa_icon "search"
                                 = link_to edit_labour_path(labour), :class => "text-success col" do
                                   = fa_icon "edit"
-                                = link_to labour, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                              - if @project.creator == current_user.id && labour.user_id != @project.creator
+                                = link_to destroy_labour_project_project_group_path(@project, @project_group, :labour => labour.id), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                   = fa_icon "trash"
 
-            .row
+            .row.mb-5
               .col-md-12
-                %table.text-center.table-bordered.table-sm{:'data-toggle' => "table", :"data-pagination"=>"true", :"data-search" => "true",:'data-advanced-search'=>"true", :'data-id-table'=>"advancedTable"}
+                %table.text-center.table-bordered.table-sm{:'data-toggle' => "table"}
                   %thead.thead-light
                     %tr
                       %th{:scope => "col"} #
                     
                       %th{:scope => "col"}
                         = Setting.constructors.label
+                      %th{:scope => "col"}
+                        状态
                       %th{:scope => "col"}
                   %tbody
                     - @constructors.each_with_index do |constructor, index|
@@ -60,6 +67,156 @@
                         %td
                           = constructor.company
                         %td
+                          = constructor.group_constructors.where(:project_group => @project_group)[0].status
+                        %td
                           .container-fluid
                             .row
+                              - if @project.creator == current_user.id && constructor.user_id != @project.creator
+                                = link_to destroy_constructor_project_project_group_path(@project, @project_group, :constructor => constructor.id), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                  = fa_icon "trash"
+
+            .row.mb-5
+              .col-md-12
+                %table.text-center.table-bordered.table-sm{:'data-toggle' => "table"}
+                  %thead.thead-light
+                    %tr
+                      %th{:scope => "col"} #
+                    
+                      %th{:scope => "col"}
+                        = Setting.supervisors.label
+                      %th{:scope => "col"}
+                        状态
+                      %th{:scope => "col"}
+                  %tbody
+                    - @supervisors.each_with_index do |supervisor, index|
+                      %tr
+                        %td{:scope => "row"}
+                          = index+1
+                      
+                        %td
+                          = supervisor.company
+                        %td
+                          = supervisor.group_supervisors.where(:project_group => @project_group)[0].status
+                        %td
+                          .container-fluid
+                            .row
+                              - if @project.creator == current_user.id && supervisor.user_id != @project.creator
+                                = link_to destroy_supervisor_project_project_group_path(@project, @project_group, :supervisor => supervisor.id), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                  = fa_icon "trash"
+
+            .row.mb-5
+              .col-md-12
+                %table.text-center.table-bordered.table-sm{:'data-toggle' => "table"}
+                  %thead.thead-light
+                    %tr
+                      %th{:scope => "col"} #
+                    
+                      %th{:scope => "col"}
+                        = Setting.prospectors.label
+                      %th{:scope => "col"}
+                        状态
+                      %th{:scope => "col"}
+                  %tbody
+                    - @prospectors.each_with_index do |prospector, index|
+                      %tr
+                        %td{:scope => "row"}
+                          = index+1
+                      
+                        %td
+                          = prospector.company
+                        %td
+                          = prospector.group_prospectors.where(:project_group => @project_group)[0].status
+                        %td
+                          .container-fluid
+                            .row
+                              - if @project.creator == current_user.id && prospector.user_id != @project.creator
+                                = link_to destroy_prospector_project_project_group_path(@project, @project_group, :prospector => prospector.id), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                  = fa_icon "trash"
+
+            .row.mb-5
+              .col-md-12
+                %table.text-center.table-bordered.table-sm{:'data-toggle' => "table"}
+                  %thead.thead-light
+                    %tr
+                      %th{:scope => "col"} #
+                    
+                      %th{:scope => "col"}
+                        = Setting.designers.label
+                      %th{:scope => "col"}
+                        状态
+                      %th{:scope => "col"}
+                  %tbody
+                    - @designers.each_with_index do |designer, index|
+                      %tr
+                        %td{:scope => "row"}
+                          = index+1
+                      
+                        %td
+                          = designer.company
+                        %td
+                          = designer.group_designers.where(:project_group => @project_group)[0].status
+                        %td
+                          .container-fluid
+                            .row
+                              - if @project.creator == current_user.id && designer.user_id != @project.creator
+                                = link_to destroy_designer_project_project_group_path(@project, @project_group, :designer => designer.id), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                  = fa_icon "trash"
+
+            .row.mb-5
+              .col-md-12
+                %table.text-center.table-bordered.table-sm{:'data-toggle' => "table"}
+                  %thead.thead-light
+                    %tr
+                      %th{:scope => "col"} #
+                    
+                      %th{:scope => "col"}
+                        = Setting.agentors.label
+                      %th{:scope => "col"}
+                        状态
+                      %th{:scope => "col"}
+                  %tbody
+                    - @agentor_cos.each_with_index do |agentor_co, index|
+                      %tr
+                        %td{:scope => "row"}
+                          = index+1
+                      
+                        %td
+                          = agentor_co.company
+                        %td
+                          = agentor_co.group_agentor_cos.where(:project_group => @project_group)[0].status
+                        %td
+                          .container-fluid
+                            .row
+                              - if @project.creator == current_user.id && agentor_co.user_id != @project.creator
+                                = link_to destroy_agentor_co_project_project_group_path(@project, @project_group, :agentor_co => agentor_co.id), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                  = fa_icon "trash"
+
+            .row.mb-5
+              .col-md-12
+                %table.text-center.table-bordered.table-sm{:'data-toggle' => "table"}
+                  %thead.thead-light
+                    %tr
+                      %th{:scope => "col"} #
+                    
+                      %th{:scope => "col"}
+                        = Setting.monitors.label
+                      %th{:scope => "col"}
+                        状态
+                      %th{:scope => "col"}
+                  %tbody
+                    - @monitor_cos.each_with_index do |monitor_co, index|
+                      %tr
+                        %td{:scope => "row"}
+                          = index+1
+                      
+                        %td
+                          = monitor_co.company
+                        %td
+                          = monitor_co.group_monitor_cos.where(:project_group => @project_group)[0].status
+                        %td
+                          .container-fluid
+                            .row
+                              - if @project.creator == current_user.id && monitor_co.user_id != @project.creator
+                                = link_to destroy_monitor_co_project_project_group_path(@project, @project_group, :monitor_co => monitor_co.id), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                  = fa_icon "trash"
 

@@ -8,8 +8,89 @@
         .card-header.bg-danger.text-white.rounded-0
           %h5
             = fa_icon "plus-square-o", text: t(controller_name + "." + action_name + '.title')
-            = link_to "/#{controller_name}", :class => "button button-border button-rounded button-caution pull-right  bg-white" do
+            = link_to project_project_groups_path(@project), :class => "button button-border button-rounded button-caution pull-right  bg-white" do
               = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
         .card-body
-          = render 'form'
+          .container-fluid
+            = form_for [@project, @project_group], :builder => WebsiteFormBuilder do |f|
+              - if @project_group.errors.any?
+                #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+                  %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+                    %span{"aria-hidden" => "true"} x 
+                  %h2= "#{pluralize(@project_group.errors.count, "error")} prohibited this buyer from being saved:"
+                  %ul
+                    - @project_group.errors.full_messages.each do |msg|
+                      %li= msg
+              .card.mb-3
+                .card-body
+                  .card-title
+                    = Setting.labours.label
+                  - @labours.each do |labour|
+                    .form-check.form-check-inline
+                      %input.form-check-input{:name => "labours[]", :type => "checkbox", :value => labour.id}
+                      %label.form-check-label
+                        = labour.company
+              
+              .card.mb-3
+                .card-body
+                  .card-title
+                    = Setting.constructors.label
+                  - @constructors.each do |constructor|
+                    .form-check.form-check-inline
+                      %input.form-check-input{:name => "constructors[]", :type => "checkbox", :value => constructor.id}
+                      %label.form-check-label
+                        = constructor.company
 
+              .card.mb-3
+                .card-body
+                  .card-title
+                    = Setting.supervisors.label
+                  - @supervisors.each do |supervisor|
+                    .form-check.form-check-inline
+                      %input.form-check-input{:name => "supervisors[]", :type => "checkbox", :value => supervisor.id}
+                      %label.form-check-label
+                        = supervisor.company
+
+              .card.mb-3
+                .card-body
+                  .card-title
+                    = Setting.prospectors.label
+                  - @prospectors.each do |prospector|
+                    .form-check.form-check-inline
+                      %input.form-check-input{:name => "prospectors[]", :type => "checkbox", :value => prospector.id}
+                      %label.form-check-label
+                        = prospector.company
+
+              .card.mb-3
+                .card-body
+                  .card-title
+                    = Setting.designers.label
+                  - @designers.each do |designer|
+                    .form-check.form-check-inline
+                      %input.form-check-input{:name => "designers[]", :type => "checkbox", :value => designer.id}
+                      %label.form-check-label
+                        = designer.company
+
+              .card.mb-3
+                .card-body
+                  .card-title
+                    = Setting.agentors.label
+                  - @agentor_cos.each do |agentor_co|
+                    .form-check.form-check-inline
+                      %input.form-check-input{:name => "agentor_cos[]", :type => "checkbox", :value => agentor_co.id}
+                      %label.form-check-label
+                        = agentor_co.company
+
+              .card.mb-3
+                .card-body
+                  .card-title
+                    = Setting.monitors.label
+                  - @monitor_cos.each do |monitor_co|
+                    .form-check.form-check-inline
+                      %input.form-check-input{:name => "monitor_cos[]", :type => "checkbox", :value => monitor_co.id}
+                      %label.form-check-label
+                        = monitor_co.company
+
+              .form-group.row
+                .col-3.offset-2
+                  = f.submit '保存', :class => "btn btn-success"

@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: projects
@@ -71,8 +72,8 @@ end
 #  prj_designer         :string          default(""), not null
 #  geo_prospect         :string          default(""), not null
 #  prj_manager          :string          default(""), not null
-#  status               :string          default(""), not null
-#  labour_id            :integer
+#  status               :string          default("新用户"), not null
+#  project_group_id     :integer
 #  created_at           :datetime        not null
 #  updated_at           :datetime        not null
 #

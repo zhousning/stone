@@ -1,6 +1,6 @@
-class CreateGroupMonitors < ActiveRecord::Migration
+class CreateGroupMonitorCos < ActiveRecord::Migration
   def change
-    create_table :group_monitors do |t|
+    create_table :group_monitor_cos do |t|
     
       t.string :status,  null: false, default: Setting.systems.default_str
     

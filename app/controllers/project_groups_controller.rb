@@ -12,45 +12,91 @@ class ProjectGroupsController < ApplicationController
     @supervisors = @project_group.supervisors
     @prospectors = @project_group.prospectors
     @designers = @project_group.designers
-    @agentors = @project_group.agentor_cos
-    @monitors = @project_group.monitor_cos
+    @agentor_cos = @project_group.agentor_cos
+    @monitor_cos = @project_group.monitor_cos
   end
    
 
    
   def show
+    @project = get_project
+    @project_group = @project.project_group 
     @project_group = ProjectGroup.find(params[:id])
   end
    
 
    
   def new
-    @project_group = ProjectGroup.new
-    
-  end
-   
+    @project = get_project
+    @project_group = ProjectGroup.new 
+    @my_labours = @project.project_group.labours.pluck(:id)
+    @my_constructors = @project.project_group.constructors.pluck(:id)
+    @my_supervisors = @project.project_group.supervisors.pluck(:id)
+    @my_prospectors = @project.project_group.prospectors.pluck(:id)
+    @my_designers = @project.project_group.designers.pluck(:id)
+    @my_monitor_cos = @project.project_group.monitor_cos.pluck(:id)
+    @my_agentor_cos = @project.project_group.agentor_cos.pluck(:id)
 
+    #TODO修改查询为审核通过的单位
+    @labours = Labour.where.not(id: @my_labours)
+    @constructors = Constructor.where.not(id: @my_constructors)
+    @supervisors = Supervisor.where.not(id: @my_supervisors) 
+    @prospectors = Prospector.where.not(id: @my_prospectors)
+    @designers = Designer.where.not(id: @my_designers)
+    @monitor_cos = MonitorCo.where.not(id: @my_monitor_cos)
+    @agentor_cos = AgentorCo.where.not(id: @my_agentor_cos)
+  end
    
   def create
-    @project_group = ProjectGroup.new(project_group_params)
-    #@project_group.user = current_user
-    if @project_group.save
-      redirect_to @project_group
-    else
-      render :new
-    end
-  end
-   
+    @project = get_project
+    @project_group = @project.project_group 
 
+    @labours = Labour.find(params[:labours] || [])
+    @labours.each do |labour|
+      GroupLabour.create(:project_group => @project_group, :labour => labour, :status => Setting.project_groups.status_pending)
+    end
+
+    @constructors = Constructor.find(params[:constructors] || [])
+    @constructors.each do |constructor|
+      GroupConstructor.create(:project_group => @project_group, :constructor => constructor, :status => Setting.project_groups.status_pending)
+    end
+
+    @supervisors = Supervisor.find(params[:supervisors] || [])
+    @supervisors.each do |supervisor|
+      GroupSupervisor.create(:project_group => @project_group, :supervisor => supervisor, :status => Setting.project_groups.status_pending)
+    end
+
+    @prospectors = Prospector.find(params[:prospectors] || [])
+    @prospectors.each do |prospector|
+      GroupProspector.create(:project_group => @project_group, :prospector => prospector, :status => Setting.project_groups.status_pending)
+    end
+
+    @designers = Designer.find(params[:designers] || [])
+    @designers.each do |designer|
+      GroupDesigner.create(:project_group => @project_group, :designer => designer, :status => Setting.project_groups.status_pending)
+    end
+
+    @agentor_cos = AgentorCo.find(params[:agentor_cos] || [])
+    @agentor_cos.each do |agentor_co|
+      GroupAgentorCo.create(:project_group => @project_group, :agentor_co => agentor_co, :status => Setting.project_groups.status_pending)
+    end
+
+    @monitor_cos = MonitorCo.find(params[:monitor_cos] || [])
+    @monitor_cos.each do |monitor_co|
+      GroupMonitorCo.create(:project_group => @project_group, :monitor_co => monitor_co, :status => Setting.project_groups.status_pending)
+    end
+
+    redirect_to project_project_groups_url(@project)
+  end
    
   def edit
-    @project_group = ProjectGroup.find(params[:id])
+    @project = get_project
+    @project_group = @project.project_group 
   end
    
-
-   
   def update
-    @project_group = ProjectGroup.find(params[:id])
+    @project = get_project
+    @project_group = @project.project_group 
     if @project_group.update(project_group_params)
       redirect_to project_group_path(@project_group) 
     else
@@ -58,19 +104,71 @@ class ProjectGroupsController < ApplicationController
     end
   end
    
-
-   
   def destroy
-    @project_group = ProjectGroup.find(params[:id])
+    @project = get_project
+    @project_group = @project.project_group 
     @project_group.destroy
     redirect_to :action => :index
   end
    
 
+  def destroy_constructor
+    @project = get_project
+    @project_group = @project.project_group 
+    @constructor = @project_group.group_constructors.where(:project_group_id => @project_group.id, :constructor_id => params[:constructor])[0]
+    @constructor.destroy
+    redirect_to project_project_groups_url(@project) 
+  end
   
-
+  def destroy_labour
+    @project = get_project
+    @project_group = @project.project_group 
+    @labour = @project_group.group_labours.where(:project_group_id => @project_group.id, :labour_id => params[:labour])[0]
+    @labour.destroy
+    redirect_to project_project_groups_url(@project) 
+  end
   
-
+  def destroy_supervisor
+    @project = get_project
+    @project_group = @project.project_group 
+    @supervisor = @project_group.group_supervisors.where(:project_group_id => @project_group.id, :supervisor_id => params[:supervisor])[0]
+    @supervisor.destroy
+    redirect_to project_project_groups_url(@project) 
+  end
+  
+  def destroy_prospector
+    @project = get_project
+    @project_group = @project.project_group 
+    @prospector = @project_group.group_prospectors.where(:project_group_id => @project_group.id, :prospector_id => params[:prospector])[0]
+    @prospector.destroy
+    redirect_to project_project_groups_url(@project) 
+  end
+  
+  def destroy_designer
+    @project = get_project
+    @project_group = @project.project_group 
+    @designer = @project_group.group_designers.where(:project_group_id => @project_group.id, :designer_id => params[:designer])[0]
+    @designer.destroy
+    redirect_to project_project_groups_url(@project) 
+  end
+  
+  def destroy_agentor_co
+    @project = get_project
+    @project_group = @project.project_group 
+    @agentor_co = @project_group.group_agentor_cos.where(:project_group_id => @project_group.id, :agentor_co_id => params[:agentor_co])[0]
+    @agentor_co.destroy
+    redirect_to project_project_groups_url(@project) 
+  end
+  
+  def destroy_monitor_co
+    @project = get_project
+    @project_group = @project.project_group 
+    @monitor_co = @project_group.group_monitor_cos.where(:project_group_id => @project_group.id, :monitor_co_id => params[:monitor_co])[0]
+    @monitor_co.destroy
+    redirect_to project_project_groups_url(@project) 
+  end
+  
+  
   private
     def project_group_params
       params.require(:project_group).permit( :name, :status, :idnumber)

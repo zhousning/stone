@@ -1,6 +1,6 @@
-class CreateGroupAgentors < ActiveRecord::Migration
+class CreateGroupAgentorCos < ActiveRecord::Migration
   def change
-    create_table :group_agentors do |t|
+    create_table :group_agentor_cos do |t|
     
       t.string :status,  null: false, default: Setting.systems.default_str
     

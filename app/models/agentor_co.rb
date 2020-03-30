@@ -10,8 +10,8 @@ class AgentorCo < ActiveRecord::Base
   has_many :agentor_majors, :dependent => :destroy
   has_many :majors, :through => :agentor_majors
 
-  has_many :group_agentors, :dependent => :destroy
-  has_many :project_groups, :through => :group_agentors
+  has_many :group_agentor_cos, :dependent => :destroy
+  has_many :project_groups, :through => :group_agentor_cos
 
   belongs_to :user
 

@@ -20,6 +20,7 @@ class DesignerPostCert < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: designer_post_certs
@@ -28,9 +29,10 @@ end
 #  reg_no           :string          default(""), not null
 #  start            :datetime
 #  cert_no          :string          default(""), not null
+#  dep              :string          default(""), not null
 #  end              :datetime
 #  level            :string          default(""), not null
-#  status           :string          default(""), not null
+#  status           :string          default("新用户"), not null
 #  idnumber         :string          default(""), not null
 #  cert_front       :string          default(""), not null
 #  cert_back        :string          default(""), not null

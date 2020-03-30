@@ -122,7 +122,7 @@ class CreateProjects < ActiveRecord::Migration
     
       t.string :status,  null: false, default: Setting.systems.opening
     
-
+      t.integer :creator
     
       t.references :project_group
     

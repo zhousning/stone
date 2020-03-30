@@ -16,13 +16,26 @@ class ProjectGroup < ActiveRecord::Base
   has_many :group_designers, :dependent => :destroy
   has_many :designers, :through => :group_designers
 
-  has_many :group_agentors, :dependent => :destroy
-  has_many :agentor_cos, :through => :group_agentors
+  has_many :group_agentor_cos, :dependent => :destroy
+  has_many :agentor_cos, :through => :group_agentor_cos
 
-  has_many :group_monitors, :dependent => :destroy
-  has_many :monitor_cos, :through => :group_monitors
+  has_many :group_monitor_cos, :dependent => :destroy
+  has_many :monitor_cos, :through => :group_monitor_cos
 
   has_many :group_prospectors, :dependent => :destroy
   has_many :prospectors, :through => :group_prospectors
 
 end
+
+# == Schema Information
+#
+# Table name: project_groups
+#
+#  id         :integer         not null, primary key
+#  name       :string          default(""), not null
+#  status     :string          default(""), not null
+#  idnumber   :string          default(""), not null
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+

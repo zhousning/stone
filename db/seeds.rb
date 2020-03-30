@@ -22,3 +22,32 @@ AdminUser.create!(:phone => Setting.admins.phone, :email => Setting.admins.email
 
 User.create!(:phone => "15763703188", :password => "15763703188", :password_confirmation => "15763703188")
 
+
+Constructor.create(:company => "constructor1")
+Constructor.create(:company => "constructor2")
+Constructor.create(:company => "constructor3")
+
+Supervisor.create(:company => "Supervisor1")
+Supervisor.create(:company => "Supervisor2")
+Supervisor.create(:company => "Supervisor3")
+
+Prospector.create(:company => "Prospector1")
+Prospector.create(:company => "Prospector2")
+Prospector.create(:company => "Prospector3")
+
+Designer.create(:company => "Designer1")
+Designer.create(:company => "Designer2")
+Designer.create(:company => "Designer3")
+
+Labour.create(:company => "Labour1")
+Labour.create(:company => "Labour2")
+Labour.create(:company => "Labour3")
+
+AgentorCo.create(:company => "AgentorCo1")
+AgentorCo.create(:company => "AgentorCo2")
+AgentorCo.create(:company => "AgentorCo3")
+
+MonitorCo.create(:company => "MonitorCo1")
+MonitorCo.create(:company => "MonitorCo2")
+MonitorCo.create(:company => "MonitorCo3")
+

@@ -8,12 +8,7 @@ class CreateProjectGroups < ActiveRecord::Migration
     
       t.string :idnumber,  null: false, default: Setting.systems.default_str
     
-
-    
-
-    
-
-    
+      t.integer :creator
 
       t.timestamps null: false
     end

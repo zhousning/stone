@@ -30,16 +30,18 @@ class ProjectsController < ApplicationController
   def create
     @user = CptDepUser.find_by_user_id(current_user.id)
     @project = Project.new(project_params)
-    @project.build_project_group(:name => @project.name + "项目组")
+    @project.creator = current_user.id
+    @project.build_project_group(:name => @project.name + "项目组", :creator => current_user.id)
     if @project.save
       @project_group = @project.project_group
       @project_group.cpt_dep_users << @user
       clazz = @user.cpt_id.split("+")[0]
 
       eval("
-            @#{clazz.downcase} = #{clazz}.find_by_idnumber(@user.cpt_id)\n
-            @project_group.#{clazz.downcase.pluralize} << @#{clazz.downcase}
+            @#{clazz.underscore} = #{clazz}.find_by_idnumber(@user.cpt_id)\n
+            Group#{clazz}.create(:project_group => @project_group, :#{clazz.underscore} => @#{clazz.underscore}, :status => Setting.project_groups.status_join)
            ")
+      
 
       redirect_to edit_project_path(@project)
     else

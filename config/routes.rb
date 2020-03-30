@@ -100,6 +100,7 @@ Rails.application.routes.draw do
   resources :table_pages do
     get :download_append, :on => :member
   end
+
   resources :projects do
     get :create_my_table, :on => :member
     resources :project_tables do
@@ -109,8 +110,16 @@ Rails.application.routes.draw do
     get :project_table, :on => :member
     put :create_table, :on => :member
     resources :project_groups do
+      delete :destroy_labour, :on => :member
+      delete :destroy_constructor, :on => :member
+      delete :destroy_supervisor, :on => :member
+      delete :destroy_prospector, :on => :member
+      delete :destroy_designer, :on => :member
+      delete :destroy_agentor_co, :on => :member
+      delete :destroy_monitor_co, :on => :member
     end
   end
+
   resources :project_tables, :only => [] do
     get :download_append, :on => :member
     resources :project_pages do

@@ -104,70 +104,6 @@ class ProjectGroupsController < ApplicationController
     end
   end
    
-  def destroy
-    @project = get_project
-    @project_group = @project.project_group 
-    @project_group.destroy
-    redirect_to :action => :index
-  end
-   
-
-  def destroy_constructor
-    @project = get_project
-    @project_group = @project.project_group 
-    @constructor = @project_group.group_constructors.where(:project_group_id => @project_group.id, :constructor_id => params[:constructor])[0]
-    @constructor.destroy
-    redirect_to project_project_groups_url(@project) 
-  end
-  
-  def destroy_labour
-    @project = get_project
-    @project_group = @project.project_group 
-    @labour = @project_group.group_labours.where(:project_group_id => @project_group.id, :labour_id => params[:labour])[0]
-    @labour.destroy
-    redirect_to project_project_groups_url(@project) 
-  end
-  
-  def destroy_supervisor
-    @project = get_project
-    @project_group = @project.project_group 
-    @supervisor = @project_group.group_supervisors.where(:project_group_id => @project_group.id, :supervisor_id => params[:supervisor])[0]
-    @supervisor.destroy
-    redirect_to project_project_groups_url(@project) 
-  end
-  
-  def destroy_prospector
-    @project = get_project
-    @project_group = @project.project_group 
-    @prospector = @project_group.group_prospectors.where(:project_group_id => @project_group.id, :prospector_id => params[:prospector])[0]
-    @prospector.destroy
-    redirect_to project_project_groups_url(@project) 
-  end
-  
-  def destroy_designer
-    @project = get_project
-    @project_group = @project.project_group 
-    @designer = @project_group.group_designers.where(:project_group_id => @project_group.id, :designer_id => params[:designer])[0]
-    @designer.destroy
-    redirect_to project_project_groups_url(@project) 
-  end
-  
-  def destroy_agentor_co
-    @project = get_project
-    @project_group = @project.project_group 
-    @agentor_co = @project_group.group_agentor_cos.where(:project_group_id => @project_group.id, :agentor_co_id => params[:agentor_co])[0]
-    @agentor_co.destroy
-    redirect_to project_project_groups_url(@project) 
-  end
-  
-  def destroy_monitor_co
-    @project = get_project
-    @project_group = @project.project_group 
-    @monitor_co = @project_group.group_monitor_cos.where(:project_group_id => @project_group.id, :monitor_co_id => params[:monitor_co])[0]
-    @monitor_co.destroy
-    redirect_to project_project_groups_url(@project) 
-  end
-  
   
   private
     def project_group_params
@@ -183,7 +119,6 @@ class ProjectGroupsController < ApplicationController
       end
       project
     end
-  
   
 end
 

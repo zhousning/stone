@@ -8,8 +8,9 @@
         .card-header.bg-primary.text-white.rounded-0
           %h5
             = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
-            = link_to new_project_project_group_url(@project), :class => "button button-border button-rounded button-primary pull-right bg-white" do
-              = fa_icon "plus", text: Setting.systems.btn_new, right: false 
+            - if @project.creator == current_user.id
+              = link_to new_project_project_group_url(@project), :class => "button button-border button-rounded button-primary pull-right bg-white" do
+                = fa_icon "plus", text: Setting.systems.btn_new, right: false 
         .card-body
           .container-fluid.p-0
             .row.mb-5
@@ -43,7 +44,7 @@
                                 = link_to edit_labour_path(labour), :class => "text-success col" do
                                   = fa_icon "edit"
                               - if @project.creator == current_user.id && labour.user_id != @project.creator
-                                = link_to destroy_labour_project_project_group_path(@project, @project_group, :labour => labour.id), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                = link_to project_project_group_group_labour_path(@project, @project_group, labour), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                   = fa_icon "trash"
 
             .row.mb-5
@@ -72,7 +73,7 @@
                           .container-fluid
                             .row
                               - if @project.creator == current_user.id && constructor.user_id != @project.creator
-                                = link_to destroy_constructor_project_project_group_path(@project, @project_group, :constructor => constructor.id), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                = link_to project_project_group_group_constructor_path(@project, @project_group, constructor), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                   = fa_icon "trash"
 
             .row.mb-5
@@ -101,7 +102,7 @@
                           .container-fluid
                             .row
                               - if @project.creator == current_user.id && supervisor.user_id != @project.creator
-                                = link_to destroy_supervisor_project_project_group_path(@project, @project_group, :supervisor => supervisor.id), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                = link_to project_project_group_group_supervisor_path(@project, @project_group, supervisor), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                   = fa_icon "trash"
 
             .row.mb-5
@@ -130,7 +131,7 @@
                           .container-fluid
                             .row
                               - if @project.creator == current_user.id && prospector.user_id != @project.creator
-                                = link_to destroy_prospector_project_project_group_path(@project, @project_group, :prospector => prospector.id), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                = link_to project_project_group_group_prospector_path(@project, @project_group, prospector), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                   = fa_icon "trash"
 
             .row.mb-5
@@ -159,7 +160,7 @@
                           .container-fluid
                             .row
                               - if @project.creator == current_user.id && designer.user_id != @project.creator
-                                = link_to destroy_designer_project_project_group_path(@project, @project_group, :designer => designer.id), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                = link_to project_project_group_group_designer_path(@project, @project_group, designer), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                   = fa_icon "trash"
 
             .row.mb-5
@@ -188,7 +189,7 @@
                           .container-fluid
                             .row
                               - if @project.creator == current_user.id && agentor_co.user_id != @project.creator
-                                = link_to destroy_agentor_co_project_project_group_path(@project, @project_group, :agentor_co => agentor_co.id), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                = link_to project_project_group_group_agentor_co_path(@project, @project_group, agentor_co), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                   = fa_icon "trash"
 
             .row.mb-5
@@ -217,6 +218,6 @@
                           .container-fluid
                             .row
                               - if @project.creator == current_user.id && monitor_co.user_id != @project.creator
-                                = link_to destroy_monitor_co_project_project_group_path(@project, @project_group, :monitor_co => monitor_co.id), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                = link_to project_project_group_group_monitor_co_path(@project, @project_group, monitor_co), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                   = fa_icon "trash"
 

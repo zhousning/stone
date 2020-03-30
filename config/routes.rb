@@ -110,13 +110,20 @@ Rails.application.routes.draw do
     get :project_table, :on => :member
     put :create_table, :on => :member
     resources :project_groups do
-      delete :destroy_labour, :on => :member
-      delete :destroy_constructor, :on => :member
-      delete :destroy_supervisor, :on => :member
-      delete :destroy_prospector, :on => :member
-      delete :destroy_designer, :on => :member
-      delete :destroy_agentor_co, :on => :member
-      delete :destroy_monitor_co, :on => :member
+      resources :group_labours do
+      end
+      resources :group_constructors do
+      end
+      resources :group_designers do
+      end
+      resources :group_prospectors do
+      end
+      resources :group_supervisors do
+      end
+      resources :group_monitor_cos do
+      end
+      resources :group_agentor_cos do
+      end
     end
   end
 

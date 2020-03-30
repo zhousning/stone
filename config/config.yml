@@ -805,7 +805,7 @@ development:
     label: 用户专业承包
     level: 等级
   constructors:
-    label: 建设单位信息
+    label: 建设单位
     company: 单位全称名称
     cert: 统一社会信用代码
     corp: 法定代表人姓名

@@ -29,7 +29,7 @@ RUN apt-get install -y vim
 
 # 设置环境变量，即在后面可以用 $RAILS_ROOT
 # 来指代容器中的 rails 程序放的目录
-ENV RAILS_ROOT /var/www/tax
+ENV RAILS_ROOT /var/www/stone
 
 # 创建 rails 程序目录和程序运行所需要的 pids 的目录
 RUN mkdir -p $RAILS_ROOT/tmp/pids
@@ -43,10 +43,13 @@ COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
 
 # 安装 Rails 环境
-RUN gem install bundler
+RUN gem install bundler -v 1.16.6
 RUN bundle install
 
 RUN gem install passenger
+RUN apt-get install -y libcurl4-openssl-dev
+RUN apt-get install -y wget curl
+RUN passenger-install-nginx-module
 
 # 将 Dockerfile 目录下所有内容复制到容器工作目录
 COPY . .

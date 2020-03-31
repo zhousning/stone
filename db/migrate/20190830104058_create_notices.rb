@@ -4,7 +4,7 @@ class CreateNotices < ActiveRecord::Migration
     
       t.string :title,  null: false, default: Setting.systems.default_str
     
-      t.text :content,  null: false, default: Setting.systems.default_str
+      t.text :content
     
 
     

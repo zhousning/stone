@@ -1,8 +1,10 @@
 class Create<%= @mpc %> < ActiveRecord::Migration
   def change
     create_table :<%= @mpu %> do |t|
-    <% @columns.each do |column| %><% column_arr = column.split(":") %><% if column_arr[1] == "string" || column_arr[1] == "text" %>
+    <% @columns.each do |column| %><% column_arr = column.split(":") %><% if column_arr[1] == "string" %>
       t.<%= column_arr[1] %> :<%= column_arr[0] %>,  null: false, default: Setting.systems.default_str
+    <% elsif column_arr[1] == "text" %>
+      t.<%= column_arr[1] %> :<%= column_arr[0] %>
     <% elsif column_arr[1] == "integer" || column_arr[1] == "float" %>
       t.<%= column_arr[1] %> :<%= column_arr[0] %>,  null: false, default: Setting.systems.default_num 
     <% elsif column_arr[1] == "boolean" %>

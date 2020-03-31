@@ -8,7 +8,7 @@ class CreateSpiders < ActiveRecord::Migration
 
       t.boolean :doc_parse,  null: false, default: Setting.systems.default_boolean
 
-      t.text :header,  null: false, default: Setting.systems.default_str
+      t.text :header
     
       t.string :cookie,  null: false, default: Setting.systems.default_str
     

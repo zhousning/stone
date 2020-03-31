@@ -4,7 +4,7 @@ class CreateArticleContents < ActiveRecord::Migration
     
       t.string :title,  null: false, default: Setting.systems.default_str
     
-      t.text :desc,  null: false, default: Setting.systems.default_str
+      t.text :desc
     
       t.string :tag,  null: false, default: Setting.systems.default_str
       t.references :article

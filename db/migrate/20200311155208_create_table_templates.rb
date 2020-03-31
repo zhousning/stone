@@ -8,7 +8,7 @@ class CreateTableTemplates < ActiveRecord::Migration
     
       t.string :name,  null: false, default: Setting.systems.default_str
     
-      t.text :info,  null: false, default: Setting.systems.default_str
+      t.text :info
     
 
     

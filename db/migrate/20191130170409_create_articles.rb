@@ -10,7 +10,7 @@ class CreateArticles < ActiveRecord::Migration
 
       t.string :desc,  null: false, default: Setting.systems.default_str
     
-      t.text :category,  null: false, default: Setting.systems.default_str
+      t.text :category
     
       t.string :address,  null: false, default: Setting.systems.default_str
     

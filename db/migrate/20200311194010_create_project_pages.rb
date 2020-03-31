@@ -2,8 +2,8 @@ class CreateProjectPages < ActiveRecord::Migration
   def change
     create_table :project_pages do |t|
     
-      t.text :style,  null: false, default: Setting.systems.default_str
-      t.text :html,  null: false, default: Setting.systems.default_str
+      t.text :style
+      t.text :html
     
 
     

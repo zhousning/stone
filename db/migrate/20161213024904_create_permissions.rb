@@ -5,7 +5,7 @@ class CreatePermissions < ActiveRecord::Migration
       t.string :subject_class,       null: false, default: ""
       t.string :action,              null: false, default: ""
       t.integer :subject_id,         null: false, default: 0
-      t.text :description,           null: false, default: ""
+      t.text :description
 
       t.timestamps null: false
     end

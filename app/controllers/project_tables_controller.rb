@@ -26,6 +26,12 @@ class ProjectTablesController < ApplicationController
       render :edit
     end
   end
+
+  def show
+    @project = get_project 
+    @project_table = @project.project_tables.find(params[:id])
+    @project_pages = @project_table.project_pages
+  end
    
 
    

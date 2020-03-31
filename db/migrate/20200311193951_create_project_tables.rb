@@ -10,6 +10,7 @@ class CreateProjectTables < ActiveRecord::Migration
     
       t.string :info,  null: false, default: Setting.systems.default_str
     
+      t.integer :creator
 
     
 

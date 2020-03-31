@@ -1,13 +1,13 @@
 zh-CN:
   layouts:
     application:
-      site_title: "红宝石"
+      site_title: "徽卅科技"
     application_control:
-      site_title: "红宝石"
+      site_title: "徽卅科技"
     application_mobile:
-      site_title: "红宝石"
+      site_title: "徽卅科技"
     application_home:
-      site_title: "红宝石"
+      site_title: "徽卅科技"
 
   home:
     index:
@@ -189,7 +189,7 @@ zh-CN:
   trees:
     index:
       title:
-        红宝石
+        徽卅科技
   pick_records:
     index:
       title:
@@ -208,3 +208,349 @@ zh-CN:
   statistics:
     index:
       title: 数据统计
+  constructors:
+    edit:
+      title: 建设单位信息
+  constructor_handles:
+    index:
+      title: 列表-建设单位-员工
+    new:
+      title: 新建-建设单位-员工
+    edit:
+      title: 编辑-建设单位-员工
+    show:
+      title: 详情-建设单位-员工
+  monitor_cos:
+    edit:
+      title: 监督单位信息
+  monitor_handles:
+    index:
+      title: 列表-监督单位-员工
+    new:
+      title: 新建-监督单位-员工
+    edit:
+      title: 编辑-监督单位-员工
+    show:
+      title: 详情-监督单位-员工
+  prospectors:
+    edit:
+      title: 地勘单位信息
+  prospector_handles:
+    index:
+      title: 列表-地勘单位-员工
+    new:
+      title: 新建-地勘单位-员工
+    edit:
+      title: 编辑-地勘单位-员工
+    show:
+      title: 详情-地勘单位-员工
+  agentor_cos:
+    edit:
+      title: 代建单位信息
+  agentor_handles:
+    index:
+      title: 列表-代建单位-员工
+    new:
+      title: 新建-代建单位-员工
+    edit:
+      title: 编辑-代建单位-员工
+    show:
+      title: 详情-代建单位-员工
+  agentor_co_handle_certs:
+    index:
+      title: 备案列表-代建单位-员工
+    new:
+      title: 新建备案-代建单位-员工
+    edit:
+      title: 编辑备案-监理单位-员工
+    show:
+      title: 备案详情-监理单位-员工
+  supervisor_workers:
+    index:
+      title: 列表-监理单位-从业监理人员
+    new:
+      title: 新建-监理单位-从业监理人员
+    edit:
+      title: 编辑-监理单位-从业监理人员
+    show:
+      title: 详情-监理单位-从业监理人员
+  supervisor_worker_certs:
+    index:
+      title: 备案列表-监理单位-从业监理人员
+    new:
+      title: 新建备案-监理单位-从业监理人员
+    edit:
+      title: 编辑备案-监理单位-从业监理人员
+    show:
+      title: 备案详情-监理单位-从业监理人员
+  supervisor_targets:
+    index:
+      title: 列表-监理单位-专业注册监理工程师
+    new:
+      title: 新建-监理单位-专业注册监理工程师
+    edit:
+      title: 编辑-监理单位-专业注册监理工程师
+    show:
+      title: 详情-监理单位-专业注册监理工程师
+  supervisor_target_certs:
+    index:
+      title: 备案列表-监理单位-专业注册监理工程师
+    new:
+      title: 新建备案-监理单位-专业注册监理工程师
+    edit:
+      title: 编辑备案-监理单位-专业注册监理工程师
+    show:
+      title: 备案详情-监理单位-专业注册监理工程师
+  supervisor_states:
+    index:
+      title: 列表-监理单位-全国注册监理工程师
+    new:
+      title: 新建-监理单位-全国注册监理工程师
+    edit:
+      title: 编辑-监理单位-全国注册监理工程师
+    show:
+      title: 详情-监理单位-全国注册监理工程师
+  supervisor_state_certs:
+    index:
+      title: 备案列表-监理单位-全国注册监理工程师
+    new:
+      title: 新建备案-监理单位-全国注册监理工程师
+    edit:
+      title: 编辑备案-监理单位-全国注册监理工程师
+    show:
+      title: 备案详情-监理单位-全国注册监理工程师
+  designers:
+    edit:
+      title: 施工单位信息
+  designer_posts:
+    index:
+      title: 列表-设计单位-职称工程师
+    new:
+      title: 新建-设计单位-职称工程师
+    edit:
+      title: 编辑-设计单位-职称工程师
+    show:
+      title: 详情-设计单位-职称工程师
+  designer_post_certs:
+    index:
+      title: 备案列表-设计单位-职称工程师
+    new:
+      title: 新建备案-设计单位-职称工程师
+    edit:
+      title: 编辑备案-设计单位-职称工程师
+    show:
+      title: 备案详情-设计单位-职称工程师
+  designer_waters:
+    index:
+      title: 列表-设计单位-注册排水工程师
+    new:
+      title: 新建-设计单位-注册排水工程师
+    edit:
+      title: 编辑-设计单位-注册排水工程师
+    show:
+      title: 详情-设计单位-注册排水工程师
+  designer_water_certs:
+    index:
+      title: 备案列表-设计单位-注册排水工程师
+    new:
+      title: 新建备案-设计单位-注册排水工程师
+    edit:
+      title: 编辑备案-设计单位-注册排水工程师
+    show:
+      title: 备案详情-设计单位-注册排水工程师
+  designer_warms:
+    index:
+      title: 列表-设计单位-注册暖通工程师
+    new:
+      title: 新建-设计单位-注册暖通工程师
+    edit:
+      title: 编辑-设计单位-注册暖通工程师
+    show:
+      title: 详情-设计单位-注册暖通工程师
+  designer_warm_certs:
+    index:
+      title: 备案列表-设计单位-注册暖通工程师
+    new:
+      title: 新建备案-设计单位-注册暖通工程师
+    edit:
+      title: 编辑备案-设计单位-注册暖通工程师
+    show:
+      title: 备案详情-设计单位-注册暖通工程师
+  designer_structures:
+    index:
+      title: 列表-设计单位-注册结构工程师
+    new:
+      title: 新建-设计单位-注册结构工程师
+    edit:
+      title: 编辑-设计单位-注册结构工程师
+    show:
+      title: 详情-设计单位-注册结构工程师
+  designer_structure_certs:
+    index:
+      title: 备案列表-设计单位-注册结构工程师
+    new:
+      title: 新建备案-设计单位-注册结构工程师
+    edit:
+      title: 编辑备案-设计单位-注册结构工程师
+    show:
+      title: 备案详情-设计单位-注册结构工程师
+  designer_electrics:
+    index:
+      title: 列表-设计单位-注册电气工程师
+    new:
+      title: 新建-设计单位-注册电气工程师
+    edit:
+      title: 编辑-设计单位-注册电气工程师
+    show:
+      title: 详情-设计单位-注册电气工程师
+  designer_electric_certs:
+    index:
+      title: 备案列表-设计单位-注册电气工程师
+    new:
+      title: 新建备案-设计单位-注册电气工程师
+    edit:
+      title: 编辑备案-设计单位-注册电气工程师
+    show:
+      title: 备案详情-设计单位-注册电气工程师
+  designer_constructors:
+    index:
+      title: 列表-设计单位-注册建筑工程师
+    new:
+      title: 新建-设计单位-注册建筑工程师
+    edit:
+      title: 编辑-设计单位-注册建筑工程师
+    show:
+      title: 详情-设计单位-注册建筑工程师
+  designer_constructor_certs:
+    index:
+      title: 备案列表-设计单位-注册建筑工程师
+    new:
+      title: 新建备案-设计单位-注册建筑工程师
+    edit:
+      title: 编辑备案-设计单位-注册建筑工程师
+    show:
+      title: 备案详情-设计单位-注册建筑工程师
+  labours:
+    edit:
+      title: 施工单位信息
+  labour_handles:
+    index:
+      title: 列表-施工单位-项目经理
+    new:
+      title: 新建-施工单位-项目经理
+    edit:
+      title: 编辑-施工单位-项目经理
+    show:
+      title: 详情-施工单位-项目经理
+  handle_certs:
+    index:
+      title: 备案列表-施工单位-项目经理
+    new:
+      title: 新建备案-施工单位-项目经理
+    edit:
+      title: 编辑备案-施工单位-项目经理
+    show:
+      title: 备案详情-施工单位-项目经理
+  labour_teches:
+    index:
+      title: 列表-施工单位-技术负责人
+    new:
+      title: 新建-施工单位-技术负责人
+    edit:
+      title: 编辑-施工单位-技术负责人
+    show:
+      title: 详情-施工单位-技术负责人
+  tech_certs:
+    index:
+      title: 备案列表-施工单位-技术负责人
+    new:
+      title: 新建备案-施工单位-技术负责人
+    edit:
+      title: 编辑备案-施工单位-技术负责人
+    show:
+      title: 备案详情-施工单位-技术负责人
+  labour_lines:
+    index:
+      title: 列表-施工单位-现场管理人员
+    new:
+      title: 新建-施工单位-现场管理人员
+    edit:
+      title: 编辑-施工单位-现场管理人员
+    show:
+      title: 详情-施工单位-现场管理人员
+  line_certs:
+    index:
+      title: 备案列表-施工单位-现场管理人员
+    new:
+      title: 新建备案-施工单位-现场管理人员
+    edit:
+      title: 编辑备案-施工单位-现场管理人员
+    show:
+      title: 备案详情-施工单位-现场管理人员
+  labour_workers:
+    index:
+      title: 列表-施工单位-技术工人
+    new:
+      title: 新建-施工单位-技术工人
+    edit:
+      title: 编辑-施工单位-技术工人
+    show:
+      title: 详情-施工单位-技术工人
+  worker_certs:
+    index:
+      title: 备案列表-施工单位-技术工人
+    new:
+      title: 新建备案-施工单位-技术工人
+    edit:
+      title: 编辑备案-施工单位-技术工人
+    show:
+      title: 备案详情-施工单位-技术工人
+  labour_handles:
+    index:
+      title: 列表-施工单位-项目经理
+    new:
+      title: 新建-施工单位-项目经理
+    edit:
+      title: 编辑-施工单位-项目经理
+    show:
+      title: 详情-施工单位-项目经理
+  handle_certs:
+    index:
+      title: 备案列表-施工单位-项目经理
+    new:
+      title: 新建备案-施工单位-项目经理
+    edit:
+      title: 编辑备案-施工单位-项目经理
+    show:
+      title: 备案详情-施工单位-项目经理
+  projects:
+    index:
+      title: 工程列表
+    new:
+      title: 新建工程
+    edit:
+      title: 编辑工程
+    show:
+      title: 工程详情
+    project_table:
+      title: 添加工程用表
+  project_groups:
+    index:
+      title: 项目组列表
+    new:
+      title: 添加项目组单位
+    edit:
+      title: 编辑项目组
+    show:
+      title: 项目组详情
+    invite:
+      title: 项目邀请
+  project_tables:
+    index:
+      title: 工程用表列表
+    new:
+      title: 新建工程用表
+    edit:
+      title: 编辑工程用表
+    show:
+      title: 工程用表详情

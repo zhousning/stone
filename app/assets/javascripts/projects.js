@@ -25,15 +25,16 @@ $(".projects").ready(function() {
       if (arr.length == 0) {
         alert("请选择表格");
         return;
-      }
-      var result = arr.join();
-      $.getJSON('/projects/' + gon.project + '/create_my_table', {data: result}, function(res){
-        if (res.status == "success") {
-          location.href = '/projects/' + gon.project + '/project_tables'
-        } else {
-          alert("保存失败, 请重新保存");
-        }
+      } else {
+        var result = arr.join();
+        $.getJSON('/projects/' + gon.project + '/create_my_table', {data: result}, function(res){
+          if (res.status == "success") {
+            location.href = '/projects/' + gon.project + '/project_tables'
+          } else {
+            alert("保存失败, 请重新保存");
+          }
 
-      });
+        });
+      }
     })
 });

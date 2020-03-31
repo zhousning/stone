@@ -104,7 +104,6 @@ Rails.application.routes.draw do
   resources :projects do
     get :create_my_table, :on => :member
     resources :project_tables do
-      get :download_append, :on => :member
     end
     get :download_append, :on => :member
     get :project_table, :on => :member

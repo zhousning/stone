@@ -107,10 +107,11 @@ class ProjectGroupsController < ApplicationController
   def invite 
     @user = CptDepUser.find_by_user_id(current_user.id)
     clazz = @user.cpt_id.split("+")[0]
-
+    
     eval("
           @#{clazz.underscore} = #{clazz}.find_by_idnumber(@user.cpt_id)\n
-          @group_ships = Group#{clazz}.where(:#{clazz.underscore}_id => @#{clazz.underscore}.id, :status => Setting.project_groups.status_pending)
+
+          @group_ships = Group#{clazz}.where(['#{clazz.underscore}_id = ? and status in (?)', @#{clazz.underscore}.id, [Setting.project_groups.status_pending, Setting.project_groups.status_reject]])
          ")
   end
 

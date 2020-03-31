@@ -38,4 +38,4 @@
                           .container-fluid
                             .row
                               = link_to '同意', agree_project_group_path(g), :class => "text-success col"
-                              = link_to '拒绝', refuse_project_group_path(g), :class => "text-success col" 
+                              = link_to '拒绝', refuse_project_group_path(g), :class => "text-danger col", :data => {:confirm => "确定不加入该项目组吗?"}

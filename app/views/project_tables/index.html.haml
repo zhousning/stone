@@ -35,12 +35,13 @@
                         %td
                           = project_table.category
                         %td
-                          = project_table.number + project_table.name
+                          = link_to project_table.number + project_table.name, project_project_table_path(@project, project_table)
                         %td
                           .container-fluid
                             .row
-                              = link_to edit_project_project_table_path(@project, project_table), :class => "text-success col" do
-                                = fa_icon "edit"
-                              = link_to project_project_table_path(@project, project_table), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
-                                = fa_icon "trash"
+                              - if project_table.creator == current_user.id
+                                = link_to edit_project_project_table_path(@project, project_table), :class => "text-success col" do
+                                  = fa_icon "edit"
+                                = link_to project_project_table_path(@project, project_table), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                  = fa_icon "trash"
 

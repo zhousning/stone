@@ -1,5 +1,5 @@
 .container-fluid
-  = form_for [@designer_constructor, @designer_constructor_cert], :builder => WebsiteFormBuilder do |f|
+  = form_for [@designer_constructor, @designer_constructor_cert], :builder => WebsiteFormBuilder, :html => {:'data-parsley-validate' => true} do |f|
     - if @designer_constructor_cert.errors.any?
       #error_explanation.alert.alert-danger.alert-dismissible.fade.show
         %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}

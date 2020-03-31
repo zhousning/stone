@@ -1,5 +1,5 @@
 .container-fluid
-  = form_for [@designer, @designer_post], :builder => WebsiteFormBuilder do |f|
+  = form_for [@designer, @designer_post], :builder => WebsiteFormBuilder, :html => {:'data-parsley-validate' => true} do |f|
     - if @designer_post.errors.any?
       #error_explanation.alert.alert-danger.alert-dismissible.fade.show
         %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
@@ -13,19 +13,19 @@
         .form-group.row
           = f.label Setting.designer_posts.name, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
-            = f.text_field :name, :class => "form-control"
+            = f.text_field :name, :class => "form-control", :required => true
     
       .col-6
         .form-group.row
           = f.label Setting.designer_posts.phone, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
-            = f.text_field :phone, :class => "form-control"
+            = f.text_field :phone, :class => "form-control", :required => true
           
       .col-6
         .form-group.row
           = f.label Setting.designer_posts.idno, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
-            = f.text_field :idno, :class => "form-control"
+            = f.text_field :idno, :class => "form-control", :required => true
           
     .form-row
     
@@ -35,7 +35,7 @@
           .col-3
             %label.newbtn
               = image_tag f.one_image("idcard_front"), :class => "blah"
-              = f.file_field :idcard_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+              = f.file_field :idcard_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :required => true, :onchange => "readURL(this);"
     
       .col-6
         .form-group.row
@@ -43,7 +43,7 @@
           .col-3
             %label.newbtn
               = image_tag f.one_image("idcard_back"), :class => "blah"
-              = f.file_field :idcard_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+              = f.file_field :idcard_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :required => true, :onchange => "readURL(this);"
     
       .col-6
         .form-group.row
@@ -51,7 +51,7 @@
           .col-3
             %label.newbtn
               = image_tag f.one_image("task_front"), :class => "blah"
-              = f.file_field :task_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+              = f.file_field :task_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :required => true, :onchange => "readURL(this);"
     
       .col-6
         .form-group.row
@@ -59,7 +59,7 @@
           .col-3
             %label.newbtn
               = image_tag f.one_image("task_back"), :class => "blah"
-              = f.file_field :task_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+              = f.file_field :task_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :required => true, :onchange => "readURL(this);"
     
       .col-6
         .form-group.row
@@ -67,7 +67,7 @@
           .col-3
             %label.newbtn
               = image_tag f.one_image("hr_front"), :class => "blah"
-              = f.file_field :hr_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+              = f.file_field :hr_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :required => true, :onchange => "readURL(this);"
     
       .col-6
         .form-group.row
@@ -75,7 +75,7 @@
           .col-3
             %label.newbtn
               = image_tag f.one_image("hr_back"), :class => "blah"
-              = f.file_field :hr_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
+              = f.file_field :hr_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :required => true, :onchange => "readURL(this);"
     
     
     .form-group.row

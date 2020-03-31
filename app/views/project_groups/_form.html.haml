@@ -1,5 +1,5 @@
 .container-fluid
-  = form_for [@project, @project_group], :builder => WebsiteFormBuilder do |f|
+  = form_for [@project, @project_group], :builder => WebsiteFormBuilder, :html => {:'data-parsley-validate' => true} do |f|
     - if @project_group.errors.any?
       #error_explanation.alert.alert-danger.alert-dismissible.fade.show
         %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
@@ -14,7 +14,7 @@
         .form-group.row
           = f.label Setting.project_groups.name, :class => "col-3 text-right col-form-label col-form-label"
           .col-9
-            = f.text_field :name, :class => "form-control"
+            = f.text_field :name, :class => "form-control", :required => true
           
     
     .form-group.row

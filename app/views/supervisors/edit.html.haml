@@ -13,7 +13,7 @@
               = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
         .card-body
           .container-fluid
-            = form_for @supervisor, :builder => WebsiteFormBuilder do |f|
+            = form_for @supervisor, :builder => WebsiteFormBuilder, :html => {:'data-parsley-validate' => true} do |f|
               - if @supervisor.errors.any?
                 #error_explanation.alert.alert-danger.alert-dismissible.fade.show
                   %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}

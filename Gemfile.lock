@@ -237,6 +237,8 @@ GEM
       mini_portile2 (~> 2.4.0)
     open_uri_redirections (0.2.1)
     orm_adapter (0.5.0)
+    parsley-rails (2.8.1.0)
+      railties (>= 3.0.0)
     popper_js (1.14.5)
     public_suffix (4.0.1)
     raabro (1.1.6)
@@ -425,6 +427,7 @@ DEPENDENCIES
   mini_racer
   newrelic_rpm
   open_uri_redirections
+  parsley-rails
   popper_js (~> 1.14.5)
   rails (= 4.2.3)
   rails-erd

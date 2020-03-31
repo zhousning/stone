@@ -10,7 +10,7 @@
             = fa_icon "wpforms", text: t(controller_name + "." + action_name + '.title')
         .card-body
           .container-fluid
-            = form_for @labour, :builder => WebsiteFormBuilder do |f|
+            = form_for @labour, :builder => WebsiteFormBuilder, :html => {:'data-parsley-validate' => true} do |f|
               - if @labour.errors.any?
                 #error_explanation.alert.alert-danger.alert-dismissible.fade.show
                   %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}

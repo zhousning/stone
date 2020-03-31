@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require parsley
+//= require parsley.i18n.zh_cn
 //= require popper
 //= require bootstrap-sprockets
 //= require bootstrap-table/bootstrap-table

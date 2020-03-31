@@ -1,5 +1,5 @@
 .container-fluid
-  = form_for [@project, @project_table], :builder => WebsiteFormBuilder do |f|
+  = form_for [@project, @project_table], :builder => WebsiteFormBuilder, :html => {:'data-parsley-validate' => true} do |f|
     - if @project_table.errors.any?
       #error_explanation
         %h2= "#{pluralize(@project_table.errors.count, "error")} prohibited this buyer from being saved:"
@@ -10,7 +10,7 @@
       .card-header.bg-success.text-white.rounded-0
         .row
           = f.text_field :number, :class => "form-control col-2 mr-3"
-          = f.text_field :name, :class => "form-control col-4"
+          = f.text_field :name, :class => "form-control col-4", :required => true
           .col-5
             = f.submit '保存', :id => "project-table-save", :class => "button button-border button-rounded button-action pull-right bg-white"
             = link_to project_project_tables_path(@project), :class => "button button-border button-rounded button-caution pull-right bg-white" do

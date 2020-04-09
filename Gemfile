@@ -158,3 +158,9 @@ gem 'chinese_pinyin'
 
 gem 'mini_racer'
 
+gem 'ckeditor'
+
+gem 'wkhtmltopdf-binary'
+
+
+gem 'pdfkit'

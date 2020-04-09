@@ -9,6 +9,8 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += %w( kindeditor.js )
+Rails.application.config.assets.precompile += %w[ckeditor/config.js]
+
 #Rails.application.config.assets.precompile += %w( highcharts/highcharts.js highcharts/highcharts-more.js )
 #Rails.application.config.assets.precompile += %w( introjs.js moment.js moment/zh-cn.js bootstrap-datetimepicker.js cocoon.js )
 Rails.application.config.assets.precompile += %w(bootstrap-datetimepicker.js cocoon.js *.eot, *.ttf, *.woff)

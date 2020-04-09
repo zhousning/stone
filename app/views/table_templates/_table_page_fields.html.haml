@@ -3,8 +3,9 @@
     .field.d-inline
     
       .form-group.row
-        = f.label Setting.table_pages.content, :class => "col-sm-3 text-right"
-        .col-sm-9
-          = f.text_area :content, :class => "form-control", :rows => "20"
+        .col-sm-12
+          -#
+            = f.text_area :html, :class => "form-control", :rows => "20"
+          = f.cktext_area :html, class: 'someclass'
         
     = link_to_remove_association "X", f, :class => "nestd-notify-badge"

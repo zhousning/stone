@@ -1,5 +1,5 @@
 class TableTemplatesController < ApplicationController
-  layout "application_control"
+  layout "application_ckeditor_control"
   #before_filter :authenticate_user!
   #load_and_authorize_resource
 
@@ -29,7 +29,7 @@ class TableTemplatesController < ApplicationController
     @table_template = TableTemplate.new(table_template_params)
     #@table_template.user = current_user
     if @table_template.save
-      redirect_to @table_template
+      redirect_to edit_table_template_path(@table_template) 
     else
       render :new
     end
@@ -46,7 +46,7 @@ class TableTemplatesController < ApplicationController
   def update
     @table_template = TableTemplate.find(params[:id])
     if @table_template.update(table_template_params)
-      redirect_to table_template_path(@table_template) 
+      redirect_to edit_table_template_path(@table_template) 
     else
       render :edit
     end

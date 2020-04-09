@@ -91,6 +91,8 @@ GEM
     chinese_pinyin (1.0.2)
     choice (0.2.0)
     chunky_png (1.3.11)
+    ckeditor (5.1.0)
+      orm_adapter (~> 0.5.0)
     cocoon (1.2.14)
     coderay (1.1.2)
     coffee-rails (4.1.1)
@@ -239,6 +241,7 @@ GEM
     orm_adapter (0.5.0)
     parsley-rails (2.8.1.0)
       railties (>= 3.0.0)
+    pdfkit (0.8.4.2)
     popper_js (1.14.5)
     public_suffix (4.0.1)
     raabro (1.1.6)
@@ -385,6 +388,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    wkhtmltopdf-binary (0.12.5.4)
     write_xlsx (0.85.7)
       rubyzip (>= 1.0.0)
       zip-zip
@@ -410,6 +414,7 @@ DEPENDENCIES
   carrierwave
   chartkick
   chinese_pinyin
+  ckeditor
   cocoon
   coffee-rails (~> 4.1.0)
   creek
@@ -428,6 +433,7 @@ DEPENDENCIES
   newrelic_rpm
   open_uri_redirections
   parsley-rails
+  pdfkit
   popper_js (~> 1.14.5)
   rails (= 4.2.3)
   rails-erd
@@ -448,6 +454,7 @@ DEPENDENCIES
   sqlite3 (~> 1.3.12)
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  wkhtmltopdf-binary
   write_xlsx
 
 BUNDLED WITH

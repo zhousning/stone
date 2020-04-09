@@ -30,37 +30,33 @@
         .form-group.row
           = f.label Setting.table_templates.info, :class => "col-1 text-right col-form-label col-form-label"
           .col-11
-            = f.text_area :info, :class => "form-control", :rows => "20"
+            = f.text_area :info, :class => "form-control", :rows => "5"
           
-    .form-row
-    
-    .form-row
-    
-      .col-6
-        .form-group.row
-          = f.label "word文件", :class => "col-3 text-right col-form-label col-form-label"
-          .col-3
-            %label.newbtn
-              %p.append-url
-                = f.one_attachment("attachment")
-              = f.file_field :attachment, :class => "select-file", :onchange => "readFileName(this);"
-    
-    
-    
+    -#
+      .form-row
+        .col-6
+          .form-group.row
+            = f.label "word文件", :class => "col-3 text-right col-form-label col-form-label"
+            .col-3
+              %label.newbtn
+                %p.append-url
+                  = f.one_attachment("attachment")
+                = f.file_field :attachment, :class => "select-file", :onchange => "readFileName(this);"
     
     .form-row
       .col-12
         .form-group.row
           = f.label "表格页", :class => "col-1  text-center col-form-label col-form-label"
-          .col-11
+          .col-12
             .row
               = f.fields_for :table_pages do |table_page|
                 = render 'table_page_fields', f: table_page 
               .links
                 = link_to_add_association "添加", f, :table_pages, :class => "btn btn-success"
     
-    .form-group.row
-      .col-3.offset-2
-        = f.submit '保存', :class => "btn btn-success"
-      .col-3.offset-1
-        = link_to '返回', table_templates_path, :class => "btn btn-danger"
+    -#
+      .form-group.row
+        .col-3.offset-2
+          = f.submit '保存', :class => "btn btn-success"
+        .col-3.offset-1
+          = link_to '返回', table_templates_path, :class => "btn btn-danger"

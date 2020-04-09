@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   require 'sidekiq/cron/web'
   mount Sidekiq::Web => '/sidekiq'
 
+  mount Ckeditor::Engine => '/ckeditor'
+
+
   resources :properties do
   end
   resources :nests do

@@ -9,9 +9,12 @@ class CreateTableTemplates < ActiveRecord::Migration
       t.string :name,  null: false, default: Setting.systems.default_str
     
       t.text :info
+
+      t.text :content
     
 
     
+      t.references :user
 
     
       t.string :attachment,  null: false, default: Setting.systems.default_str

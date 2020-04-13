@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
 
   has_many :consumes
   has_many :orders
+  has_many :table_templates
 
 
   belongs_to :role

@@ -102,14 +102,6 @@ body.document-editor table {
 	margin-bottom:0.5cm;
 }
 
-@media print {
-	body.document-editor {
-		border: 0;
-    padding: 0;
-		box-shadow: none;
-	}
-}
-
 /*分页表格的问题*/
 thead {
   display: table-row-group;
@@ -153,17 +145,17 @@ body.document-editor table thead th:first-of-type {
 	border-left: 1px solid black;
 }
 
-
-/* Make it similar to handsontable appearance, but don't affect handsontable itself. */
-body.spreadsheet-editor table:not( .htCore ) {
-	border-collapse: collapse;
-	width: 100%;
-}
-
-body.spreadsheet-editor table:not( .htCore ) th,
-body.spreadsheet-editor table:not( .htCore ) td {
-	border: 1px solid #ccc;
-	line-height: 21px;
+@media print {
+	body.document-editor {
+		border: 0;
+    padding: 0;
+		box-shadow: none;
+	}
+  /*打印不显示分页符不管用*/
+  .cke_pagebreak{
+    border-top-color: white !important;
+    border-bottom-color: white !important;
+  }
 }
 
 @page { 
@@ -185,3 +177,5 @@ body.spreadsheet-editor table:not( .htCore ) td {
   }
   */
 }
+
+

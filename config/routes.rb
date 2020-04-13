@@ -95,9 +95,9 @@ Rails.application.routes.draw do
 
   resources :table_templates do
     get :download_append, :on => :member
-  end
-  resources :table_pages do
-    get :download_append, :on => :member
+    get :content, :on => :member
+    put :update_content, :on => :member
+    patch :update_content, :on => :member
   end
   resources :table_pages do
     get :download_append, :on => :member

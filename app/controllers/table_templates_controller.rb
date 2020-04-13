@@ -1,11 +1,11 @@
 class TableTemplatesController < ApplicationController
   layout "application_ckeditor_control"
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
   #load_and_authorize_resource
 
    
   def index
-    @table_templates = TableTemplate.all
+    @table_templates = current_user.table_templates
   end
    
 
@@ -19,7 +19,7 @@ class TableTemplatesController < ApplicationController
   def new
     @table_template = TableTemplate.new
     
-    @table_template.table_pages.build
+    #@table_template.table_pages.build
     
   end
    
@@ -27,7 +27,7 @@ class TableTemplatesController < ApplicationController
    
   def create
     @table_template = TableTemplate.new(table_template_params)
-    #@table_template.user = current_user
+    @table_template.user = current_user
     if @table_template.save
       redirect_to edit_table_template_path(@table_template) 
     else
@@ -42,6 +42,18 @@ class TableTemplatesController < ApplicationController
   end
    
 
+  def content
+    @table_template = TableTemplate.find(params[:id])
+  end
+
+  def update_content
+    @table_template = TableTemplate.find(params[:id])
+    if @table_template.update(table_template_params)
+      redirect_to content_table_template_path(@table_template) 
+    else
+      render :content
+    end
+  end
    
   def update
     @table_template = TableTemplate.find(params[:id])
@@ -76,7 +88,7 @@ class TableTemplatesController < ApplicationController
 
   private
     def table_template_params
-      params.require(:table_template).permit( :category, :number, :name, :info , :attachment, table_pages_attributes: table_page_params)
+      params.require(:table_template).permit( :category, :number, :name, :info , :content, :attachment, table_pages_attributes: table_page_params)
     end
   
   

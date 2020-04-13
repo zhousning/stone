@@ -1,0 +1,4 @@
+- provide(:title, t('.title'))
+
+= form_for @table_template, :url => { :controller => 'table_templates', :action => 'update_content'}, :html => {:class => "content-table-template"}, :builder => WebsiteFormBuilder do |f|
+  = f.cktext_area :content, :id => "content-table-template"

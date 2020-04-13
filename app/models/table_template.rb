@@ -5,6 +5,7 @@ class TableTemplate < ActiveRecord::Base
   mount_uploader :attachment, AttachmentUploader
 
 
+  belongs_to :user
 
 
   has_many :table_pages, :dependent => :destroy

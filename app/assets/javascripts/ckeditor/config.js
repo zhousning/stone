@@ -1,3 +1,5 @@
+CKEDITOR.plugins.addExternal( 'home', '/assets/ckeditor/plugins/home/');
+
 CKEDITOR.on( 'dialogDefinition', function( ev ) {
   var dialog = ev.data;
   var dialogName = ev.data.name;
@@ -50,20 +52,23 @@ CKEDITOR.editorConfig = function (config) {
   config.language = "zh-cn";
   config.bodyClass = "document-editor A4";
   config.title = '&nbsp;';
-  config.height = "50em";
 
   //config.fullPage = true;
   config.contentsCss = ['/assets/ckeditor/contents.css'];
   config.copyFormatting_allowedContexts = ['text', 'lists'];
   //查看dialog名称添加插件devtools
-  config.extraPlugins = 'tableresize,pastefromword,image2,uploadimage';
+  config.extraPlugins = 'home,tableresize,pastefromword,image2,uploadimage';
   //移除编辑器下的标签显示
   config.removePlugins = 'elementspath';
   //config.stylesSet = 'my_styles';
 
   config.font_names = '宋体/SimSun;黑体/SimHei;' + config.font_names; 
 
+  //config.resize_enabled = false;
+
+
 }
+
 
 
   //CKEDITOR.stylesSet.add( 'my_styles', [
@@ -78,3 +83,18 @@ CKEDITOR.config.devtools_styles =
   '#cke_tooltip h2 { font-size: 14px; border-bottom: 1px solid; margin: 0; padding: 1px; }' +
   '#cke_tooltip ul { padding: 0pt; list-style-type: none; }';
 
+//全屏显示
+CKEDITOR.on('instanceReady', function (event) {
+  var editor = event.editor;
+  setTimeout(function () {
+    if (!editor.element) {
+      setTimeout(arguments.callee, 100);
+      return;
+    }
+    event.removeListener('instanceReady', this.callee);
+    if (editor.name == 'content-table-template') {
+      var command = editor.getCommand('maximize');
+      command.exec();
+    }
+  }, 0);
+}, null, null, 9999);

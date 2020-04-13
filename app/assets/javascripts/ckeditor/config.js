@@ -1,22 +1,5 @@
 CKEDITOR.plugins.addExternal( 'home', '/assets/ckeditor/plugins/home/');
 
-CKEDITOR.on( 'dialogDefinition', function( ev ) {
-  var dialog = ev.data;
-  var dialogName = ev.data.name;
-  var dialogDefinition = ev.data.definition;
-
-  if ( dialogName == 'table' ) {
-    var info = dialogDefinition.getContents( 'info' );
-    info.get( 'txtWidth' )[ 'default' ] = '100%';       // Set default width to 100%
-    info.get( 'txtBorder' )[ 'default' ] = '2';         // Set default border to 0
-  }
-  if ( dialogName == 'image2' ) {
-    dialogDefinition.onShow = function() {
-      this.selectPage( 'Upload' );
-    };
-  }
-});
-
 CKEDITOR.editorConfig = function (config) {
 
 	config.toolbarGroups = [
@@ -35,7 +18,7 @@ CKEDITOR.editorConfig = function (config) {
 		{ name: 'about', groups: [ 'about' ] }
 	];
 
-	config.removeButtons = 'Maximize,Source,Preview,NewPage,Templates,Find,Replace,SelectAll,Scayt,Form,Radio,TextField,Checkbox,Textarea,Select,Button,ImageButton,HiddenField,NumberedList,BulletedList,Outdent,Indent,Blockquote,CreateDiv,Language,Anchor,Unlink,Link,Flash,HorizontalRule,Smiley,SpecialChar,Iframe,Styles,TextColor,BGColor,ShowBlocks,About,CopyFormatting';
+	config.removeButtons = 'Maximize,Preview,NewPage,Templates,Find,Replace,SelectAll,Scayt,Form,Radio,TextField,Checkbox,Textarea,Select,Button,ImageButton,HiddenField,NumberedList,BulletedList,Outdent,Indent,Blockquote,CreateDiv,Language,Anchor,Unlink,Link,Flash,HorizontalRule,Smiley,SpecialChar,Iframe,Styles,TextColor,BGColor,ShowBlocks,About,CopyFormatting';
 
   //文件浏览器
   //config.filebrowserBrowseUrl = "/ckeditor/attachment_files";
@@ -57,7 +40,7 @@ CKEDITOR.editorConfig = function (config) {
   config.contentsCss = ['/assets/ckeditor/contents.css'];
   config.copyFormatting_allowedContexts = ['text', 'lists'];
   //查看dialog名称添加插件devtools
-  config.extraPlugins = 'home,tableresize,pastefromword,image2,uploadimage';
+  config.extraPlugins = 'home,tableresize,pastefromword,image2,uploadimage,hcard';
   //移除编辑器下的标签显示
   config.removePlugins = 'elementspath';
   //config.stylesSet = 'my_styles';
@@ -68,8 +51,6 @@ CKEDITOR.editorConfig = function (config) {
 
 
 }
-
-
 
   //CKEDITOR.stylesSet.add( 'my_styles', [
   //  { name: '表格边框', element: 'table', styles: { border: '2px solid black', 'border-collapse': 'collapse' } },
@@ -95,6 +76,106 @@ CKEDITOR.on('instanceReady', function (event) {
     if (editor.name == 'content-table-template') {
       var command = editor.getCommand('maximize');
       command.exec();
+
+      CKEDITOR.document.getById('contactList').on('dragstart', function(evt) {
+        var target = evt.data.getTarget().getAscendant('div', true);
+      
+        CKEDITOR.plugins.clipboard.initDragDataTransfer(evt);
+      
+        var dataTransfer = evt.data.dataTransfer;
+      
+        dataTransfer.setData('contact', CONTACTS[target.data('contact')]);
+      
+        dataTransfer.setData('text/html', target.getText());
+      
+        if (dataTransfer.$.setDragImage) {
+          dataTransfer.$.setDragImage(target.findOne('img').$, 0, 0);
+        }
+      });
     }
   }, 0);
 }, null, null, 9999);
+
+var CONTACTS = [{
+    name: '施工单位公章'
+  },
+  {
+    name: '设计单位公章'
+  },
+  {
+    name: '建设单位公章'
+  },
+  {
+    name: '代建单位公章'
+  },
+  {
+    name: '监督单位公章'
+  },
+  {
+    name: '地勘单位公章'
+  },
+  {
+    name: '监理单位公章'
+  },
+  {
+    name: '全国注册建造师公章'
+  },
+  {
+    name: '全国注册监理工程师公章'
+  },
+  {
+    name: '专业注册监理工程师公章'
+  },
+  {
+    name: '签名'
+  }
+];
+
+CKEDITOR.plugins.add('hcard', {
+  requires: 'widget',
+
+  init: function(editor) {
+    editor.widgets.add('hcard', {
+      //allowedContent: 'span(!h-card); a[href](!u-email,!p-name); span(!p-tel)',
+      allowedContent: 'span(!h-card); span(!p-sign)',
+      requiredContent: 'span(h-card)',
+      pathName: 'hcard',
+
+      upcast: function(el) {
+        return el.name == 'span' && el.hasClass('h-card');
+      }
+    });
+
+    editor.addFeature(editor.widgets.registered.hcard);
+
+    editor.on('paste', function(evt) {
+      var contact = evt.data.dataTransfer.getData('contact');
+      if (!contact) {
+        return;
+      }
+
+      evt.data.dataValue =
+        '<span class="h-card">' +
+        '<span class="p-sign">' + contact.name + '</span>' +
+        '</span>';
+    });
+  }
+});
+
+CKEDITOR.on( 'dialogDefinition', function( ev ) {
+  var dialog = ev.data;
+  var dialogName = ev.data.name;
+  var dialogDefinition = ev.data.definition;
+
+  if ( dialogName == 'table' ) {
+    var info = dialogDefinition.getContents( 'info' );
+    info.get( 'txtWidth' )[ 'default' ] = '100%';       // Set default width to 100%
+    info.get( 'txtBorder' )[ 'default' ] = '2';         // Set default border to 0
+  }
+  if ( dialogName == 'image2' ) {
+    dialogDefinition.onShow = function() {
+      this.selectPage( 'Upload' );
+    };
+  }
+});
+

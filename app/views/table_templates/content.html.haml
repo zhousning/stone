@@ -2,3 +2,38 @@
 
 = form_for @table_template, :url => { :controller => 'table_templates', :action => 'update_content'}, :html => {:class => "content-table-template"}, :builder => WebsiteFormBuilder do |f|
   = f.cktext_area :content, :id => "content-table-template"
+  .contacts
+    %ul#contactList
+      %li
+        .contact.h-card{"data-contact" => "0", :draggable => "true", :tabindex => "0"}
+          施工单位公章
+      %li
+        .contact.h-card{"data-contact" => "1", :draggable => "true", :tabindex => "0"}
+          设计单位公章
+      %li
+        .contact.h-card{"data-contact" => "2", :draggable => "true", :tabindex => "0"}
+          建设单位公章
+      %li
+        .contact.h-card{"data-contact" => "3", :draggable => "true", :tabindex => "0"}
+          代建单位公章
+      %li
+        .contact.h-card{"data-contact" => "4", :draggable => "true", :tabindex => "0"}
+          监督单位公章
+      %li
+        .contact.h-card{"data-contact" => "5", :draggable => "true", :tabindex => "0"}
+          地勘单位公章
+      %li
+        .contact.h-card{"data-contact" => "6", :draggable => "true", :tabindex => "0"}
+          监理单位公章
+      %li
+        .contact.h-card{"data-contact" => "7", :draggable => "true", :tabindex => "0"}
+          全国注册建造师公章
+      %li
+        .contact.h-card{"data-contact" => "8", :draggable => "true", :tabindex => "0"}
+          全国注册监理工程师公章
+      %li
+        .contact.h-card{"data-contact" => "9", :draggable => "true", :tabindex => "0"}
+          专业注册监理工程师公章
+      %li
+        .contact.h-card{"data-contact" => "10", :draggable => "true", :tabindex => "0"}
+          签名

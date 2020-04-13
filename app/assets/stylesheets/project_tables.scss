@@ -2,6 +2,83 @@
   width: 676px;
   padding: 20px 40px;
 }
-.content-table-template {
-  height: calc(100vh - 100px); 
+.contacts {
+  position: absolute;
+  z-index: 10000;
+}
+#contactList {
+  list-style-type: none;
+  margin: 0 !important;
+  padding: 0;
+}
+
+#contactList li {
+  background: #FAFAFA;
+  margin-bottom: 1px;
+  height: 56px;
+  line-height: 56px;
+  cursor: pointer;
+}
+
+#contactList li:nth-child(2n) {
+  background: #F3F3F3;
+}
+
+#contactList li:hover {
+  background: #FFFDE3;
+  border-left: 5px solid #DCDAC1;
+  margin-left: -5px;
+}
+
+.contact {
+  padding: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact .u-photo {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+#content-table-template .h-card {
+  background: #FFFDE3;
+  padding: 3px 6px;
+  border-bottom: 1px dashed #ccc;
+}
+
+#content-table-template {
+  border: 1px solid #E7E7E7;
+  padding: 0 20px;
+  background: #fff;
+  position: relative;
+}
+
+#content-table-template .h-card .p-tel {
+  font-style: italic;
+}
+
+#content-table-template .h-card .p-tel::before,
+#content-table-template .h-card .p-tel::after {
+  font-style: normal;
+}
+
+#content-table-template .h-card .p-tel::before {
+  content: "(";
+}
+
+#content-table-template .h-card .p-tel::after {
+  content: ")";
+}
+
+#content-table-template h1 {
+  text-align: center;
+}
+
+#content-table-template hr {
+  border-style: dotted;
+  border-color: #DCDCDC;
+  border-width: 1px 0 0;
 }

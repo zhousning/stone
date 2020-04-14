@@ -41,7 +41,9 @@
                             .row
                               - if project_table.creator == current_user.id
                                 = link_to edit_project_project_table_path(@project, project_table), :class => "text-success col" do
-                                  = fa_icon "edit"
+                                  基本信息
+                                = link_to content_project_project_table_path(@project, project_table), :class => "text-primary col" do
+                                  表格内容
                                 = link_to project_project_table_path(@project, project_table), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
                                   = fa_icon "trash"
 

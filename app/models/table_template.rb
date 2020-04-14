@@ -11,6 +11,13 @@ class TableTemplate < ActiveRecord::Base
   has_many :table_pages, :dependent => :destroy
   accepts_nested_attributes_for :table_pages, reject_if: :all_blank, allow_destroy: true
 
+  def state_public
+    update_attribute :status, Setting.systems.status_public
+  end
+
+  def state_private
+    update_attribute :status, Setting.systems.status_private
+  end
 
 end
 

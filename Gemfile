@@ -160,4 +160,7 @@ gem 'mini_racer'
 
 gem 'ckeditor'
 
+gem 'activerecord-import'
+
+
 #gem 'prawn' print pdf

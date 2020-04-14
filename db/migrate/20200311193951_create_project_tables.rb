@@ -7,12 +7,14 @@ class CreateProjectTables < ActiveRecord::Migration
       t.string :number,  null: false, default: Setting.systems.default_str
     
       t.string :name,  null: false, default: Setting.systems.default_str
-    
-      t.string :info,  null: false, default: Setting.systems.default_str
-    
-      t.integer :creator
 
+      t.string :status,  null: false, default: Setting.systems.default_str
     
+      t.text :info
+
+      t.text :content
+
+      t.integer :creator
 
     
       t.string :attachment,  null: false, default: Setting.systems.default_str

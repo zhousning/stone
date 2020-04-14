@@ -11,7 +11,7 @@ class TableTemplatesController < ApplicationController
 
    
   def show
-    @table_template = TableTemplate.find(params[:id])
+    @table_template = current_user.table_templates.find(params[:id])
   end
    
 
@@ -20,7 +20,6 @@ class TableTemplatesController < ApplicationController
     @table_template = TableTemplate.new
     
     #@table_template.table_pages.build
-    
   end
    
 
@@ -38,16 +37,16 @@ class TableTemplatesController < ApplicationController
 
    
   def edit
-    @table_template = TableTemplate.find(params[:id])
+    @table_template = current_user.table_templates.find(params[:id])
   end
    
 
   def content
-    @table_template = TableTemplate.find(params[:id])
+    @table_template = current_user.table_templates.find(params[:id])
   end
 
   def update_content
-    @table_template = TableTemplate.find(params[:id])
+    @table_template = current_user.table_templates.find(params[:id])
     if @table_template.update(table_template_params)
       redirect_to content_table_template_path(@table_template) 
     else
@@ -56,7 +55,7 @@ class TableTemplatesController < ApplicationController
   end
    
   def update
-    @table_template = TableTemplate.find(params[:id])
+    @table_template = current_user.table_templates.find(params[:id])
     if @table_template.update(table_template_params)
       redirect_to edit_table_template_path(@table_template) 
     else
@@ -67,12 +66,30 @@ class TableTemplatesController < ApplicationController
 
    
   def destroy
-    @table_template = TableTemplate.find(params[:id])
+    @table_template = current_user.table_templates.find(params[:id])
     @table_template.destroy
     redirect_to :action => :index
   end
    
 
+  def change_status 
+    @table_template = current_user.table_templates.find(params[:id])
+    if @table_template
+      state = params[:data]
+      if state == '0'
+        @table_template.state_private
+      elsif state == '1'
+        @table_template.state_public
+      end
+      respond_to do |f|
+        f.json { render :json => {:status => "success"}.to_json }
+      end
+    else
+      respond_to do |f|
+        f.json { render :json => {:status => "no authority"}.to_json }
+      end
+    end
+  end
   
 
   

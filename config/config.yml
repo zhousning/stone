@@ -1098,6 +1098,8 @@ defaults:
     status_en_no: false
     status_yes: 是
     status_no: 否
+    status_public: '1' 
+    status_private: '0' 
     default_str: ''
     default_num: 0
     default_boolean: true

@@ -26,7 +26,8 @@
                       %th{:scope => "col"}
                         = Setting.table_templates.name
                       %th{:scope => "col"}
-                        = Setting.table_templates.info
+                      %th{:scope => "col"}
+                        公开
                       %th{:scope => "col"}
                   %tbody
                     - @table_templates.each_with_index do |table_template, index|
@@ -41,14 +42,14 @@
                         %td
                           = table_template.name
                         %td
-                          = table_template.info
-                        %td
                           .container-fluid
                             .row
                               = link_to edit_table_template_path(table_template), :class => "text-success col" do
                                 基本信息
                               = link_to content_table_template_path(table_template), :class => "text-primary col" do
                                 表格内容
-                              = link_to table_template, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
-                                = fa_icon "trash"
-
+                        %td
+                          %input.table-template-status{:type => "checkbox", :checked => table_template.status == Setting.systems.status_public, :'data-number' => table_template.id, :'data-handle-width'=>"30", :'data-on-color' => 'primary', :'data-off-color' => 'warning', :'data-on-text' => '是', :'data-off-text' => '否'}
+                        %td
+                          = link_to table_template, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                            = fa_icon "trash"

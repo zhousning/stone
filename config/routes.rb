@@ -96,6 +96,7 @@ Rails.application.routes.draw do
   resources :table_templates do
     get :download_append, :on => :member
     get :content, :on => :member
+    get :change_status, :on => :member
     put :update_content, :on => :member
     patch :update_content, :on => :member
   end
@@ -106,6 +107,9 @@ Rails.application.routes.draw do
   resources :projects do
     get :create_my_table, :on => :member
     resources :project_tables do
+      get :content, :on => :member
+      put :update_content, :on => :member
+      patch :update_content, :on => :member
     end
     get :download_append, :on => :member
     get :project_table, :on => :member

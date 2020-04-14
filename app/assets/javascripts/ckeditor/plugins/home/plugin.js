@@ -2,7 +2,12 @@
     //Section 1 : 按下自定义按钮时执行的代码
     var a= {
         exec:function(editor){
-          location.href = "/table_templates";
+          console.log();
+          if (location.href.indexOf("table_template") != -1) { 
+            location.href = "/table_templates";
+          } else {
+            location.href = "/projects";
+          }
         }
     },
     //Section 2 : 创建自定义按钮、绑定方法

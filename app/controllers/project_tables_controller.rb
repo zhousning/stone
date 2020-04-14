@@ -1,5 +1,5 @@
 class ProjectTablesController < ApplicationController
-  layout "application_control"
+  layout "application_ckeditor_control"
   before_filter :authenticate_user!
   #load_and_authorize_resource
 
@@ -42,6 +42,20 @@ class ProjectTablesController < ApplicationController
     redirect_to project_project_tables_path(@project, @project_table) 
   end
    
+  def content
+    @project = get_project 
+    @project_table = @project.project_tables.find(params[:id])
+  end
+
+  def update_content
+    @project = get_project 
+    @project_table = @project.project_tables.find(params[:id])
+    if @project_table.update(project_table_params)
+      redirect_to content_project_project_table_path(@project, @project_table) 
+    else
+      render :content
+    end
+  end
 
   
 
@@ -58,7 +72,7 @@ class ProjectTablesController < ApplicationController
 
   private
     def project_table_params
-      params.require(:project_table).permit( :category, :number, :name, :info , :attachment, project_pages_attributes: project_page_params)
+      params.require(:project_table).permit( :category, :content, :number, :name, :info , :attachment, project_pages_attributes: project_page_params)
     end
   
     def project_page_params

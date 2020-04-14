@@ -1,3 +1,0 @@
-$(".ocrs").ready(function() {
-
-});

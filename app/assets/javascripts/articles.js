@@ -1,34 +1,34 @@
 $(".articles").ready(function() {
- $("#export-image-btn").click(function(){
-   $(".main-image-ctn").each(function() {
-     that = this
-     domtoimage.toPng(that)
-      .then(function (dataUrl) {
-        var img = new Image();
-        img.src = dataUrl;
-        var name =new Date().getTime();
-        downloadFile(name, dataUrl);
-      })
-      .catch(function (error) {
-        console.error('oops, something went wrong!', error);
-      });
-   });
- });
- $("#export-detail-btn").click(function(){
-   $(".detail-ctn-750").each(function() {
-     that = this
-     domtoimage.toPng(that)
-      .then(function (dataUrl) {
-        var img = new Image();
-        img.src = dataUrl;
-        var name =new Date().getTime();
-        downloadFile(name, dataUrl);
-      })
-      .catch(function (error) {
-        console.error('oops, something went wrong!', error);
-      });
-   });
- });
+  $("#export-image-btn").click(function(){
+    $(".main-image-ctn").each(function() {
+      that = this
+      domtoimage.toPng(that)
+       .then(function (dataUrl) {
+         var img = new Image();
+         img.src = dataUrl;
+         var name =new Date().getTime();
+         downloadFile(name, dataUrl);
+       })
+       .catch(function (error) {
+         console.error('oops, something went wrong!', error);
+       });
+    });
+  });
+  $("#export-detail-btn").click(function(){
+    $(".detail-ctn-750").each(function() {
+      that = this
+      domtoimage.toPng(that)
+       .then(function (dataUrl) {
+         var img = new Image();
+         img.src = dataUrl;
+         var name =new Date().getTime();
+         downloadFile(name, dataUrl);
+       })
+       .catch(function (error) {
+         console.error('oops, something went wrong!', error);
+       });
+    });
+  });
 });
 function downloadFile(fileName, content ) { //下载base64图片
 	var base64ToBlob = function(code) {

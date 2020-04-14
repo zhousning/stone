@@ -1,5 +1,6 @@
-$(".projects").ready(function() {
-  var tables = gon.tables;
+$("body.projects").ready(function() {
+  if ( $("body.projects").length>0 ) {
+    var tables = gon.tables;
     var groupDataArray1 = tables["tables"];
 
     var settings3 = {
@@ -9,7 +10,7 @@ $(".projects").ready(function() {
         "itemName": "name",
         "valueName": "value",
         "callable": function (items) {
-            console.dir(items)
+            //console.dir(items)
         }
     };
 
@@ -37,4 +38,5 @@ $(".projects").ready(function() {
         });
       }
     })
+  }
 });

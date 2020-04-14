@@ -97,25 +97,7 @@ CKEDITOR.on('instanceReady', function (event) {
 }, null, null, 9999);
 
 var CONTACTS = [{
-    name: '施工单位公章'
-  },
-  {
-    name: '设计单位公章'
-  },
-  {
-    name: '建设单位公章'
-  },
-  {
-    name: '代建单位公章'
-  },
-  {
-    name: '监督单位公章'
-  },
-  {
-    name: '地勘单位公章'
-  },
-  {
-    name: '监理单位公章'
+    name: '单位公章'
   },
   {
     name: '全国注册建造师公章'

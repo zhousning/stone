@@ -6,6 +6,23 @@
         %ul
           - @project_table.errors.full_messages.each do |msg|
             %li= msg
+    .form-row
+      .col-6
+        .form-group.row
+          = f.label Setting.table_templates.number, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :number, :class => "form-control"
+          
+      .col-6
+        .form-group.row
+          = f.label Setting.table_templates.name, :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            = f.text_field :name, :class => "form-control"
+
+    .form-group.row
+      .col-3.offset-2
+        = f.submit '保存', :class => "btn btn-success"
+  -#
     .card.shadow.rounded-0
       .card-header.bg-success.text-white.rounded-0
         .row

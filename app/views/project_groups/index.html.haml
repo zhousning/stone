@@ -34,7 +34,7 @@
                           = index+1
                       
                         %td
-                          = labour.company
+                          = link_to labour.company, member_project_project_group_path(@project, @project_group)
                         %td
                           = labour.group_labours.where(:project_group => @project_group)[0].status
                         %td

@@ -8,6 +8,7 @@ class Spider < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: spiders
@@ -16,7 +17,7 @@ end
 #  link         :string          default(""), not null
 #  doc_save     :boolean         default("t"), not null
 #  doc_parse    :boolean         default("t"), not null
-#  header       :text            default(""), not null
+#  header       :text
 #  cookie       :string          default(""), not null
 #  agent        :string          default(""), not null
 #  content_type :string          default(""), not null

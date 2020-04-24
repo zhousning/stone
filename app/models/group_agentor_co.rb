@@ -26,9 +26,10 @@ class GroupAgentorCo < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
-# Table name: group_agentors
+# Table name: group_agentor_cos
 #
 #  id               :integer         not null, primary key
 #  status           :string          default(""), not null

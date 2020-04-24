@@ -1,0 +1,51 @@
+- provide(:title, t('.title'))
+
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
+      .card.shadow.rounded-0
+        .card-header.bg-primary.text-white.rounded-0
+          %h5
+            = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
+            - if @project.creator == current_user.id
+              = link_to new_project_project_group_url(@project), :class => "button button-border button-rounded button-primary pull-right bg-white" do
+                = fa_icon "plus", text: Setting.systems.btn_new, right: false 
+            = link_to projects_path, :class => "button button-border button-rounded button-caution pull-right  bg-white" do
+              = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
+        .card-body
+          .container-fluid.p-0
+            .row.mb-5
+              .col-md-12
+                %table.text-center.table-bordered.table-sm{:'data-toggle' => "table"}
+                  %thead.thead-light
+                    %tr
+                      %th{:scope => "col"} #
+                    
+                      %th{:scope => "col"}
+                        = Setting.labours.label
+                      %th{:scope => "col"}
+                        状态
+                      %th{:scope => "col"}
+                  %tbody
+                    - @labours.each_with_index do |labour, index|
+                      %tr
+                        %td{:scope => "row"}
+                          = index+1
+                      
+                        %td
+                          = labour.company
+                        %td
+                          = labour.group_labours.where(:project_group => @project_group)[0].status
+                        %td
+                          .container-fluid
+                            .row
+                              -#
+                                = link_to labour_path(labour), :class => "text-info col" do
+                                  = fa_icon "search"
+                                = link_to edit_labour_path(labour), :class => "text-success col" do
+                                  = fa_icon "edit"
+                              - if @project.creator == current_user.id && labour.user_id != @project.creator
+                                = link_to project_project_group_group_labour_path(@project, @project_group, labour), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "text-danger col" do
+                                  = fa_icon "trash"
+

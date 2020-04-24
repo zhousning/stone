@@ -8,6 +8,7 @@ class Project < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: projects
@@ -73,6 +74,7 @@ end
 #  geo_prospect         :string          default(""), not null
 #  prj_manager          :string          default(""), not null
 #  status               :string          default("新用户"), not null
+#  creator              :integer
 #  project_group_id     :integer
 #  created_at           :datetime        not null
 #  updated_at           :datetime        not null

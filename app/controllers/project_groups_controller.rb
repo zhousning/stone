@@ -138,6 +138,11 @@ class ProjectGroupsController < ApplicationController
     @group_ship.reject
     redirect_to invite_project_groups_path
   end
+
+  def member
+    @project = get_project
+    @project_group = @project.project_group 
+  end
   
   private
     def project_group_params

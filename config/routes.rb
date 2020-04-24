@@ -115,6 +115,7 @@ Rails.application.routes.draw do
     get :project_table, :on => :member
     put :create_table, :on => :member
     resources :project_groups do
+      get :member, :on => :member
       resources :group_labours do
       end
       resources :group_constructors do

@@ -26,9 +26,10 @@ class GroupMonitorCo < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
-# Table name: group_monitors
+# Table name: group_monitor_cos
 #
 #  id               :integer         not null, primary key
 #  status           :string          default(""), not null

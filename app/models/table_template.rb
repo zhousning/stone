@@ -21,6 +21,7 @@ class TableTemplate < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: table_templates
@@ -29,7 +30,10 @@ end
 #  category   :string          default(""), not null
 #  number     :string          default(""), not null
 #  name       :string          default(""), not null
-#  info       :text            default(""), not null
+#  status     :string          default("1"), not null
+#  info       :text
+#  content    :text
+#  user_id    :integer
 #  attachment :string          default(""), not null
 #  created_at :datetime        not null
 #  updated_at :datetime        not null

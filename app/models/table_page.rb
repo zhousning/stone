@@ -11,13 +11,14 @@ class TablePage < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: table_pages
 #
 #  id                :integer         not null, primary key
-#  style             :text            default(""), not null
-#  html              :text            default(""), not null
+#  style             :text
+#  html              :text
 #  table_template_id :integer
 #  created_at        :datetime        not null
 #  updated_at        :datetime        not null

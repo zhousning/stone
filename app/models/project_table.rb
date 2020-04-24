@@ -16,6 +16,7 @@ class ProjectTable < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: project_tables
@@ -24,7 +25,10 @@ end
 #  category   :string          default(""), not null
 #  number     :string          default(""), not null
 #  name       :string          default(""), not null
-#  info       :string          default(""), not null
+#  status     :string          default(""), not null
+#  info       :text
+#  content    :text
+#  creator    :integer
 #  attachment :string          default(""), not null
 #  project_id :integer
 #  created_at :datetime        not null

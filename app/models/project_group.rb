@@ -27,6 +27,7 @@ class ProjectGroup < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: project_groups
@@ -35,6 +36,7 @@ end
 #  name       :string          default(""), not null
 #  status     :string          default(""), not null
 #  idnumber   :string          default(""), not null
+#  creator    :integer
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
 #
